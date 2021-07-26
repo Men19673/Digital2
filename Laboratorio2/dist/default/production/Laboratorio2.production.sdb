@@ -9,8 +9,6 @@
 [v _initAN initAN `(v  1 e 1 0 ]
 "138
 [v _chselect chselect `(v  1 e 1 0 ]
-"259
-[v _table table `(uc  1 e 1 0 ]
 "318
 [v _initEUSART initEUSART `(v  1 e 1 0 ]
 "5 E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
@@ -43,9 +41,9 @@
 [v _isr isr `II(v  1 e 1 0 ]
 "107
 [v _main main `(v  1 e 1 0 ]
-"158
+"162
 [v _setup setup `(v  1 e 1 0 ]
-"207
+"204
 [v _decimal decimal `(v  1 e 1 0 ]
 "166 E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -256,9 +254,7 @@
 "66
 [v _var1 var1 `uc  1 e 1 0 ]
 "68
-[v _disp0 disp0 `uc  1 e 1 0 ]
-"69
-[v _disp1 disp1 `uc  1 e 1 0 ]
+[v _tempo0 tempo0 `uc  1 e 1 0 ]
 "70
 [v _varUART varUART `uc  1 e 1 0 ]
 "71
@@ -272,12 +268,12 @@
 "107
 [v _main main `(v  1 e 1 0 ]
 {
-"153
+"157
 } 0
-"158
+"162
 [v _setup setup `(v  1 e 1 0 ]
 {
-"195
+"199
 } 0
 "14 C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
 [v _initOsc initOsc `(v  1 e 1 0 ]
@@ -307,17 +303,17 @@
 [v initAN@bin bin `uc  1 a 1 5 ]
 "86
 } 0
-"207 C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+"204 C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
 [v _decimal decimal `(v  1 e 1 0 ]
 {
 [v decimal@variable variable `uc  1 a 1 wreg ]
-"208
+"205
 [v decimal@valor valor `uc  1 a 1 8 ]
-"207
+"204
 [v decimal@variable variable `uc  1 a 1 wreg ]
-"209
+"206
 [v decimal@variable variable `uc  1 a 1 7 ]
-"220
+"217
 } 0
 "4 E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
 [v ___bmul __bmul `(uc  1 e 1 0 ]

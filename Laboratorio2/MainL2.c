@@ -65,13 +65,13 @@ uint8_t multiplex;
 uint8_t var0;
 uint8_t var1;
 uint8_t contador;
-uint8_t disp0;
-uint8_t disp1;
+uint8_t tempo0;
+uint8_t tempo1;
 uint8_t varUART;
 char unidades;
 char decenas;
 char centenas;
-unsigned char  str[46] = " Los valores de los potenciometros son: \n S1: ";
+unsigned char  str[46] = " Los valores de los potenciometros son:\n S1: ";
 /********************************Interrupcion**********************************/
 void __interrupt()isr(void){
   
@@ -115,6 +115,15 @@ while(1) {
     Lcd_Clear();  //Limpiar LCD
     Lcd_Set_Cursor(1,1); //cursor fila uno primera posicion 
     Lcd_Write_String("S1:   S2:  CONT:");
+    
+     while(varUART <= 47){      //verficar que no pase del limite 
+           varUART++;          //Ir cambiando de character
+                   
+       if(TXIF == 1){
+        TXREG = str[varUART]; //Enviar a terminal palabras
+       }
+        __delay_ms(15);
+     }
     decimal(var0);
     Lcd_Set_Cursor(2,1);
     Lcd_Write_Char(centenas);
@@ -126,25 +135,20 @@ while(1) {
     Lcd_Write_Char(decenas);
     Lcd_Write_Char(unidades);
    
-    while(varUART <= 47){      //verficar que no pase del limite 
-           varUART++;          //Ir cambiando de character
-                   
-       if(TXIF == 1){
-        TXREG = str[varUART]; //Enviar a terminal palabras
-       }
+    while (tempo0 != var0){
+        tempo0 = var0;
+        if(TXIF == 1){
+            TXREG = centenas; //Enviar a terminal palabras
+           }
         __delay_ms(15);
-     }
-    if(TXIF == 1){
-        TXREG = centenas; //Enviar a terminal palabras
-       }
-    __delay_ms(15);
-    if(TXIF == 1){
-        TXREG = decenas; //Enviar a terminal palabras
-       }
-    __delay_ms(15);
-    if(TXIF == 1){
-        TXREG = unidades; //Enviar a terminal palabras
-       }
+        if(TXIF == 1){
+            TXREG = decenas; //Enviar a terminal palabras
+           }
+        __delay_ms(15);
+        if(TXIF == 1){
+            TXREG = unidades; //Enviar a terminal palabras
+           }
+    }
     __delay_ms(100);
    
     
@@ -166,7 +170,7 @@ void setup(void){
   TRISD = 0x00;     //Output
   TRISE = 0x00;     //Output
   
-  initAN(0b00000011, 0); //Inicializar AN y justificar a derecha (1)  
+  initAN(0b00000011, 0); //Inicializar AN y justificar a izquierda (0)  
   WPUB = 0b00000000; //Activar el weak pull up
   IOCB = 0b00000000; //Activar interrupt on change
   
@@ -194,14 +198,7 @@ void setup(void){
   INTCON = 0b11000000;  //GIE, PIE, toie, inte, rbie, t0if, intf, rbif
 }
     
-  
-
-void dispasign(uint8_t arg1, uint8_t arg2){
-    disp0 = table(arg1);
-    disp1 = table(arg2); //Convertimos de numero binario al compatible con
-   
-    
-}
+ 
 
 
 void decimal(uint8_t variable){

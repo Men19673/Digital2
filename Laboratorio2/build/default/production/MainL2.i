@@ -2984,13 +2984,13 @@ uint8_t multiplex;
 uint8_t var0;
 uint8_t var1;
 uint8_t contador;
-uint8_t disp0;
-uint8_t disp1;
+uint8_t tempo0;
+uint8_t tempo1;
 uint8_t varUART;
 char unidades;
 char decenas;
 char centenas;
-unsigned char str[46] = " Los valores de los potenciometros son: \n S1: ";
+unsigned char str[46] = " Los valores de los potenciometros son:\n S1: ";
 
 void __attribute__((picinterrupt((""))))isr(void){
 
@@ -3034,6 +3034,15 @@ while(1) {
     Lcd_Clear();
     Lcd_Set_Cursor(1,1);
     Lcd_Write_String("S1:   S2:  CONT:");
+
+     while(varUART <= 47){
+           varUART++;
+
+       if(TXIF == 1){
+        TXREG = str[varUART];
+       }
+        _delay((unsigned long)((15)*(4000000/4000.0)));
+     }
     decimal(var0);
     Lcd_Set_Cursor(2,1);
     Lcd_Write_Char(centenas);
@@ -3045,25 +3054,20 @@ while(1) {
     Lcd_Write_Char(decenas);
     Lcd_Write_Char(unidades);
 
-    while(varUART <= 47){
-           varUART++;
-
-       if(TXIF == 1){
-        TXREG = str[varUART];
-       }
+    while (tempo0 != var0){
+        tempo0 = var0;
+        if(TXIF == 1){
+            TXREG = centenas;
+           }
         _delay((unsigned long)((15)*(4000000/4000.0)));
-     }
-    if(TXIF == 1){
-        TXREG = centenas;
-       }
-    _delay((unsigned long)((15)*(4000000/4000.0)));
-    if(TXIF == 1){
-        TXREG = decenas;
-       }
-    _delay((unsigned long)((15)*(4000000/4000.0)));
-    if(TXIF == 1){
-        TXREG = unidades;
-       }
+        if(TXIF == 1){
+            TXREG = decenas;
+           }
+        _delay((unsigned long)((15)*(4000000/4000.0)));
+        if(TXIF == 1){
+            TXREG = unidades;
+           }
+    }
     _delay((unsigned long)((100)*(4000000/4000.0)));
 
 
@@ -3114,13 +3118,6 @@ void setup(void){
 }
 
 
-
-void dispasign(uint8_t arg1, uint8_t arg2){
-    disp0 = table(arg1);
-    disp1 = table(arg2);
-
-
-}
 
 
 void decimal(uint8_t variable){

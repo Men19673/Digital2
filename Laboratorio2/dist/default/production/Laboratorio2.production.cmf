@@ -13,34 +13,34 @@
 %PSECTS
 $dist/default/production\Laboratorio2.production.o
 cinit CODE 0 F F 1F 2
-text1 CODE 0 3AE 3AE 41 2
-text2 CODE 0 362 362 4C 2
-text3 CODE 0 499 499 20 2
-text4 CODE 0 475 475 24 2
-text5 CODE 0 255 255 67 2
-text6 CODE 0 50B 50B 15 2
-text7 CODE 0 1EC 1EC 69 2
+text1 CODE 0 3B9 3B9 41 2
+text2 CODE 0 36D 36D 4C 2
+text3 CODE 0 4A4 4A4 20 2
+text4 CODE 0 480 480 24 2
+text5 CODE 0 260 260 67 2
+text6 CODE 0 516 516 15 2
+text7 CODE 0 1F7 1F7 69 2
 text8 CODE 0 2E 2E 100 2
-text9 CODE 0 44C 44C 29 2
-text10 CODE 0 4B9 4B9 1D 2
-text11 CODE 0 2BC 2BC 58 2
-text12 CODE 0 314 314 4E 2
-text13 CODE 0 533 533 D 2
-text14 CODE 0 4F1 4F1 1A 2
-text15 CODE 0 540 540 6 2
-text16 CODE 0 3EF 3EF 2F 2
-maintext CODE 0 12E 12E BE 2
+text9 CODE 0 457 457 29 2
+text10 CODE 0 4C4 4C4 1D 2
+text11 CODE 0 2C7 2C7 58 2
+text12 CODE 0 31F 31F 4E 2
+text13 CODE 0 53E 53E D 2
+text14 CODE 0 4FC 4FC 1A 2
+text15 CODE 0 54B 54B 6 2
+text16 CODE 0 3FA 3FA 2F 2
+maintext CODE 0 12E 12E C9 2
 cstackCOMMON COMMON 1 70 70 8 1
 cstackBANK0 BANK0 1 4E 4E B 1
-inittext CODE 0 520 520 13 2
+inittext CODE 0 52B 52B 13 2
 intentry CODE 0 4 4 8 2
 bssBANK0 BANK0 1 59 59 A 1
-idataBANK0 CODE 0 41E 41E 2E 2
-strings STRING 0 4D6 4D6 1B 2
+idataBANK0 CODE 0 429 429 2E 2
+strings STRING 0 4E1 4E1 1B 2
 dataBANK0 BANK0 1 20 20 2E 1
 bssCOMMON COMMON 1 78 78 3 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\diego\AppData\Local\Temp\xcAseng.o
+$C:\Users\diego\AppData\Local\Temp\xcAsg7c.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -59,13 +59,13 @@ BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST 546-1FFF 2
+CONST 551-1FFF 2
 ENTRY 3-3 2
-ENTRY 546-1FFF 2
+ENTRY 551-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 3-3 2
-CODE 546-1FFF 2
+CODE 551-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
@@ -73,9 +73,9 @@ SFR3 180-18F 1
 COMMON 7B-7D 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE 546-1FFF 2
+STRCODE 551-1FFF 2
 STRING 3-3 2
-STRING 546-1FFF 2
+STRING 551-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -90,112 +90,112 @@ STRING 546-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Laboratorio2.production.o
-F cinit CODE >795:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-F cinit CODE >798:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-F cinit CODE >884:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-10 cinit CODE >885:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-11 cinit CODE >886:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-12 cinit CODE >887:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-13 cinit CODE >888:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-14 cinit CODE >889:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-15 cinit CODE >890:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-16 cinit CODE >891:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-17 cinit CODE >892:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-18 cinit CODE >893:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-1D cinit CODE >897:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-1E cinit CODE >898:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-1F cinit CODE >899:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-20 cinit CODE >900:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-21 cinit CODE >901:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-22 cinit CODE >902:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-23 cinit CODE >903:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-24 cinit CODE >904:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-25 cinit CODE >905:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-26 cinit CODE >906:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-27 cinit CODE >909:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-28 cinit CODE >910:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-29 cinit CODE >911:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-2A cinit CODE >917:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-2A cinit CODE >919:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-2B cinit CODE >920:C:\Users\diego\AppData\Local\Temp\xcAseng.s
+F cinit CODE >794:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+F cinit CODE >797:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+F cinit CODE >883:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+10 cinit CODE >884:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+11 cinit CODE >885:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+12 cinit CODE >886:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+13 cinit CODE >887:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+14 cinit CODE >888:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+15 cinit CODE >889:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+16 cinit CODE >890:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+17 cinit CODE >891:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+18 cinit CODE >892:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+1D cinit CODE >896:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+1E cinit CODE >897:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+1F cinit CODE >898:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+20 cinit CODE >899:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+21 cinit CODE >900:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+22 cinit CODE >901:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+23 cinit CODE >902:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+24 cinit CODE >903:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+25 cinit CODE >904:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+26 cinit CODE >905:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+27 cinit CODE >908:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+28 cinit CODE >909:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+29 cinit CODE >910:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+2A cinit CODE >916:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+2A cinit CODE >918:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+2B cinit CODE >919:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
 4 intentry CODE >76:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3EF text16 CODE >76:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3EF text16 CODE >79:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3F3 text16 CODE >81:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3F4 text16 CODE >82:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3F4 text16 CODE >84:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3FA text16 CODE >85:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3FB text16 CODE >86:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3FB text16 CODE >88:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3FF text16 CODE >89:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-404 text16 CODE >89:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-408 text16 CODE >90:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-40C text16 CODE >91:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-40D text16 CODE >93:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-411 text16 CODE >95:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-412 text16 CODE >101:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-416 text16 CODE >102:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-417 text16 CODE >105:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-540 text15 CODE >12:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-541 text15 CODE >13:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-545 text15 CODE >15:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-4F1 text14 CODE >17:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-4F2 text14 CODE >18:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-4F5 text14 CODE >19:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-4FB text14 CODE >20:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-4FE text14 CODE >21:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-507 text14 CODE >22:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-50A text14 CODE >23:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-533 text13 CODE >25:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-533 text13 CODE >26:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-539 text13 CODE >27:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-53F text13 CODE >28:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-314 text12 CODE >47:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-314 text12 CODE >48:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-31A text12 CODE >49:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-325 text12 CODE >50:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-32B text12 CODE >51:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-336 text12 CODE >52:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-33C text12 CODE >53:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-343 text12 CODE >54:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-349 text12 CODE >56:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-34F text12 CODE >58:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-355 text12 CODE >60:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-35B text12 CODE >62:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-361 text12 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-2BC text11 CODE >30:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-2BF text11 CODE >32:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-2C4 text11 CODE >33:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-2C9 text11 CODE >34:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-2CC text11 CODE >34:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-2CF text11 CODE >34:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-2D5 text11 CODE >35:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-2DA text11 CODE >36:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-2E0 text11 CODE >37:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-2E8 text11 CODE >38:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-2EF text11 CODE >39:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-2F4 text11 CODE >40:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-2F7 text11 CODE >40:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-2FA text11 CODE >40:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-300 text11 CODE >41:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-305 text11 CODE >42:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-30B text11 CODE >43:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-313 text11 CODE >45:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-4B9 text10 CODE >65:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-4BA text10 CODE >67:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-4BE text10 CODE >68:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-4C2 text10 CODE >69:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-4C5 text10 CODE >70:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-4CB text10 CODE >71:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-4CE text10 CODE >72:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-4D2 text10 CODE >73:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-4D5 text10 CODE >75:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-44C text9 CODE >77:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-44F text9 CODE >79:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-452 text9 CODE >80:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-463 text9 CODE >80:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-470 text9 CODE >80:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
-474 text9 CODE >81:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+3FA text16 CODE >76:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3FA text16 CODE >79:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3FE text16 CODE >81:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3FF text16 CODE >82:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3FF text16 CODE >84:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+405 text16 CODE >85:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+406 text16 CODE >86:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+406 text16 CODE >88:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+40A text16 CODE >89:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+40F text16 CODE >89:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+413 text16 CODE >90:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+417 text16 CODE >91:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+418 text16 CODE >93:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+41C text16 CODE >95:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+41D text16 CODE >101:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+421 text16 CODE >102:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+422 text16 CODE >105:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+54B text15 CODE >12:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+54C text15 CODE >13:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+550 text15 CODE >15:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+4FC text14 CODE >17:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+4FD text14 CODE >18:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+500 text14 CODE >19:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+506 text14 CODE >20:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+509 text14 CODE >21:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+512 text14 CODE >22:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+515 text14 CODE >23:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+53E text13 CODE >25:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+53E text13 CODE >26:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+544 text13 CODE >27:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+54A text13 CODE >28:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+31F text12 CODE >47:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+31F text12 CODE >48:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+325 text12 CODE >49:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+330 text12 CODE >50:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+336 text12 CODE >51:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+341 text12 CODE >52:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+347 text12 CODE >53:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+34E text12 CODE >54:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+354 text12 CODE >56:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+35A text12 CODE >58:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+360 text12 CODE >60:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+366 text12 CODE >62:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+36C text12 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+2C7 text11 CODE >30:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+2CA text11 CODE >32:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+2CF text11 CODE >33:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+2D4 text11 CODE >34:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+2D7 text11 CODE >34:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+2DA text11 CODE >34:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+2E0 text11 CODE >35:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+2E5 text11 CODE >36:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+2EB text11 CODE >37:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+2F3 text11 CODE >38:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+2FA text11 CODE >39:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+2FF text11 CODE >40:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+302 text11 CODE >40:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+305 text11 CODE >40:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+30B text11 CODE >41:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+310 text11 CODE >42:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+316 text11 CODE >43:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+31E text11 CODE >45:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+4C4 text10 CODE >65:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+4C5 text10 CODE >67:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+4C9 text10 CODE >68:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+4CD text10 CODE >69:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+4D0 text10 CODE >70:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+4D6 text10 CODE >71:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+4D9 text10 CODE >72:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+4DD text10 CODE >73:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+4E0 text10 CODE >75:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+457 text9 CODE >77:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+45A text9 CODE >79:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+45D text9 CODE >80:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+46E text9 CODE >80:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+47B text9 CODE >80:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
+47F text9 CODE >81:C:\Users\diego\Desktop\Digital2\Laboratorio2\LCD.c
 2E text8 CODE >138:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
 2F text8 CODE >139:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
 36 text8 CODE >143:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
@@ -271,183 +271,183 @@ FE text8 CODE >250:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
 125 text8 CODE >253:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
 12A text8 CODE >254:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
 12D text8 CODE >255:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-1EC text7 CODE >5:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-1EC text7 CODE >13:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-1EF text7 CODE >14:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-1F3 text7 CODE >15:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-1F6 text7 CODE >15:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-1F8 text7 CODE >16:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-1FA text7 CODE >18:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-1FE text7 CODE >19:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-201 text7 CODE >19:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-203 text7 CODE >20:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-207 text7 CODE >22:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-209 text7 CODE >23:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-20F text7 CODE >24:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-211 text7 CODE >25:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-212 text7 CODE >26:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-213 text7 CODE >26:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-217 text7 CODE >26:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-219 text7 CODE >27:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-21D text7 CODE >25:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-221 text7 CODE >30:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-222 text7 CODE >30:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-226 text7 CODE >30:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-228 text7 CODE >31:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-22A text7 CODE >31:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-22E text7 CODE >31:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-232 text7 CODE >32:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-235 text7 CODE >32:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-238 text7 CODE >33:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-239 text7 CODE >35:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-23A text7 CODE >35:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-23E text7 CODE >35:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-240 text7 CODE >36:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-246 text7 CODE >38:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-24B text7 CODE >39:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-24E text7 CODE >39:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-250 text7 CODE >40:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-254 text7 CODE >41:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
-50B text6 CODE >4:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
-50C text6 CODE >6:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
-50D text6 CODE >43:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
-511 text6 CODE >44:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
-515 text6 CODE >45:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
-517 text6 CODE >46:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
-519 text6 CODE >47:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
-51E text6 CODE >50:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
-51F text6 CODE >51:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
-255 text5 CODE >207:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-258 text5 CODE >209:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-25C text5 CODE >210:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-272 text5 CODE >211:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-282 text5 CODE >212:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-298 text5 CODE >213:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-2A8 text5 CODE >214:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-2AC text5 CODE >216:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-2B1 text5 CODE >217:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-2B6 text5 CODE >218:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-2BB text5 CODE >220:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-475 text4 CODE >67:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-476 text4 CODE >69:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-47A text4 CODE >70:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-47B text4 CODE >71:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-47F text4 CODE >73:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-483 text4 CODE >74:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-487 text4 CODE >76:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-48A text4 CODE >77:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-48E text4 CODE >81:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-491 text4 CODE >81:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-493 text4 CODE >81:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-495 text4 CODE >82:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-496 text4 CODE >83:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-497 text4 CODE >85:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-498 text4 CODE >86:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-499 text3 CODE >318:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-49A text3 CODE >322:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-49D text3 CODE >323:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-49E text3 CODE >324:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-49F text3 CODE >325:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-4A0 text3 CODE >326:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-4A3 text3 CODE >329:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-4A4 text3 CODE >330:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-4A5 text3 CODE >333:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-4A8 text3 CODE >334:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-4AC text3 CODE >335:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-4AE text3 CODE >337:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-4AF text3 CODE >337:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-4B1 text3 CODE >337:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-4B3 text3 CODE >338:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-4B4 text3 CODE >338:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-4B6 text3 CODE >338:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-4B8 text3 CODE >339:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-362 text2 CODE >14:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-363 text2 CODE >15:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-366 text2 CODE >16:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-367 text2 CODE >17:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-367 text2 CODE >18:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-368 text2 CODE >19:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-369 text2 CODE >20:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-36A text2 CODE >21:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-36B text2 CODE >23:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-36B text2 CODE >24:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-36C text2 CODE >25:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-36D text2 CODE >26:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-36E text2 CODE >27:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-36F text2 CODE >28:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-36F text2 CODE >29:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-370 text2 CODE >30:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-371 text2 CODE >31:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-372 text2 CODE >32:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-373 text2 CODE >33:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-373 text2 CODE >34:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-374 text2 CODE >35:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-375 text2 CODE >36:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-376 text2 CODE >37:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-377 text2 CODE >38:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-377 text2 CODE >39:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-378 text2 CODE >40:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-379 text2 CODE >41:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-37A text2 CODE >42:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-37B text2 CODE >43:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-37B text2 CODE >44:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-37C text2 CODE >45:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-37D text2 CODE >46:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-37E text2 CODE >47:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-37F text2 CODE >48:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-37F text2 CODE >49:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-380 text2 CODE >50:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-381 text2 CODE >51:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-382 text2 CODE >52:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-383 text2 CODE >53:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-383 text2 CODE >54:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-384 text2 CODE >55:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-385 text2 CODE >56:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-386 text2 CODE >57:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-387 text2 CODE >58:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-387 text2 CODE >59:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-388 text2 CODE >60:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-389 text2 CODE >61:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-38A text2 CODE >62:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-38B text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-390 text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-395 text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-398 text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+1F7 text7 CODE >5:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+1F7 text7 CODE >13:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+1FA text7 CODE >14:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+1FE text7 CODE >15:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+201 text7 CODE >15:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+203 text7 CODE >16:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+205 text7 CODE >18:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+209 text7 CODE >19:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+20C text7 CODE >19:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+20E text7 CODE >20:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+212 text7 CODE >22:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+214 text7 CODE >23:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+21A text7 CODE >24:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+21C text7 CODE >25:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+21D text7 CODE >26:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+21E text7 CODE >26:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+222 text7 CODE >26:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+224 text7 CODE >27:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+228 text7 CODE >25:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+22C text7 CODE >30:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+22D text7 CODE >30:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+231 text7 CODE >30:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+233 text7 CODE >31:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+235 text7 CODE >31:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+239 text7 CODE >31:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+23D text7 CODE >32:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+240 text7 CODE >32:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+243 text7 CODE >33:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+244 text7 CODE >35:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+245 text7 CODE >35:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+249 text7 CODE >35:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+24B text7 CODE >36:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+251 text7 CODE >38:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+256 text7 CODE >39:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+259 text7 CODE >39:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+25B text7 CODE >40:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+25F text7 CODE >41:E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
+516 text6 CODE >4:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
+517 text6 CODE >6:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
+518 text6 CODE >43:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
+51C text6 CODE >44:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
+520 text6 CODE >45:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
+522 text6 CODE >46:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
+524 text6 CODE >47:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
+529 text6 CODE >50:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
+52A text6 CODE >51:E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
+260 text5 CODE >204:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+263 text5 CODE >206:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+267 text5 CODE >207:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+27D text5 CODE >208:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+28D text5 CODE >209:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+2A3 text5 CODE >210:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+2B3 text5 CODE >211:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+2B7 text5 CODE >213:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+2BC text5 CODE >214:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+2C1 text5 CODE >215:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+2C6 text5 CODE >217:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+480 text4 CODE >67:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+481 text4 CODE >69:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+485 text4 CODE >70:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+486 text4 CODE >71:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+48A text4 CODE >73:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+48E text4 CODE >74:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+492 text4 CODE >76:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+495 text4 CODE >77:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+499 text4 CODE >81:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+49C text4 CODE >81:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+49E text4 CODE >81:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4A0 text4 CODE >82:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4A1 text4 CODE >83:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4A2 text4 CODE >85:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4A3 text4 CODE >86:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4A4 text3 CODE >318:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4A5 text3 CODE >322:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4A8 text3 CODE >323:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4A9 text3 CODE >324:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4AA text3 CODE >325:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4AB text3 CODE >326:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4AE text3 CODE >329:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4AF text3 CODE >330:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4B0 text3 CODE >333:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4B3 text3 CODE >334:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4B7 text3 CODE >335:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4B9 text3 CODE >337:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4BA text3 CODE >337:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4BC text3 CODE >337:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4BE text3 CODE >338:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4BF text3 CODE >338:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4C1 text3 CODE >338:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+4C3 text3 CODE >339:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+36D text2 CODE >14:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+36E text2 CODE >15:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+371 text2 CODE >16:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+372 text2 CODE >17:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+372 text2 CODE >18:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+373 text2 CODE >19:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+374 text2 CODE >20:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+375 text2 CODE >21:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+376 text2 CODE >23:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+376 text2 CODE >24:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+377 text2 CODE >25:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+378 text2 CODE >26:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+379 text2 CODE >27:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+37A text2 CODE >28:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+37A text2 CODE >29:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+37B text2 CODE >30:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+37C text2 CODE >31:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+37D text2 CODE >32:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+37E text2 CODE >33:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+37E text2 CODE >34:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+37F text2 CODE >35:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+380 text2 CODE >36:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+381 text2 CODE >37:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+382 text2 CODE >38:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+382 text2 CODE >39:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+383 text2 CODE >40:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+384 text2 CODE >41:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+385 text2 CODE >42:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+386 text2 CODE >43:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+386 text2 CODE >44:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+387 text2 CODE >45:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+388 text2 CODE >46:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+389 text2 CODE >47:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+38A text2 CODE >48:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+38A text2 CODE >49:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+38B text2 CODE >50:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+38C text2 CODE >51:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+38D text2 CODE >52:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+38E text2 CODE >53:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+38E text2 CODE >54:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+38F text2 CODE >55:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+390 text2 CODE >56:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+391 text2 CODE >57:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+392 text2 CODE >58:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+392 text2 CODE >59:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+393 text2 CODE >60:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+394 text2 CODE >61:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+395 text2 CODE >62:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+396 text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
 39B text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-39E text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-3A1 text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-3A4 text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-3A7 text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-3AA text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-3AD text2 CODE >65:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
-3AE text1 CODE >158:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3AE text1 CODE >161:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3B1 text1 CODE >163:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3B5 text1 CODE >164:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3B6 text1 CODE >165:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3B8 text1 CODE >166:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3B9 text1 CODE >167:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3BA text1 CODE >169:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3C1 text1 CODE >170:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3A0 text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+3A3 text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+3A6 text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+3A9 text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+3AC text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+3AF text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+3B2 text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+3B5 text2 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+3B8 text2 CODE >65:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
+3B9 text1 CODE >162:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3B9 text1 CODE >165:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3BC text1 CODE >167:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3C0 text1 CODE >168:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3C1 text1 CODE >169:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3C3 text1 CODE >170:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
 3C4 text1 CODE >171:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
 3C5 text1 CODE >173:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3C7 text1 CODE >174:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3CA text1 CODE >175:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3CB text1 CODE >176:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3CD text1 CODE >177:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3CF text1 CODE >180:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3D5 text1 CODE >181:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3DC text1 CODE >182:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3DF text1 CODE >183:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3E0 text1 CODE >184:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3E1 text1 CODE >185:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3E2 text1 CODE >186:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3E3 text1 CODE >190:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3E7 text1 CODE >191:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3E8 text1 CODE >192:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3EB text1 CODE >193:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3EC text1 CODE >194:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-3EE text1 CODE >195:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3CC text1 CODE >174:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3CF text1 CODE >175:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3D0 text1 CODE >177:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3D2 text1 CODE >178:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3D5 text1 CODE >179:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3D6 text1 CODE >180:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3D8 text1 CODE >181:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3DA text1 CODE >184:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3E0 text1 CODE >185:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3E7 text1 CODE >186:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3EA text1 CODE >187:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3EB text1 CODE >188:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3EC text1 CODE >189:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3ED text1 CODE >190:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3EE text1 CODE >194:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3F2 text1 CODE >195:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3F3 text1 CODE >196:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3F6 text1 CODE >197:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3F7 text1 CODE >198:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+3F9 text1 CODE >199:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
 12E maintext CODE >107:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
 12E maintext CODE >108:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
 133 maintext CODE >109:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
@@ -455,52 +455,56 @@ FE text8 CODE >250:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
 13E maintext CODE >115:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
 143 maintext CODE >116:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
 14B maintext CODE >117:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-151 maintext CODE >118:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-159 maintext CODE >119:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-161 maintext CODE >120:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-167 maintext CODE >121:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-16D maintext CODE >122:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-173 maintext CODE >123:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-179 maintext CODE >124:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-181 maintext CODE >125:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-187 maintext CODE >126:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-18D maintext CODE >127:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-193 maintext CODE >129:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-194 maintext CODE >130:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-198 maintext CODE >132:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-19C maintext CODE >133:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-1A2 maintext CODE >135:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-1AC maintext CODE >129:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-1B0 maintext CODE >129:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-1B4 maintext CODE >137:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-1B8 maintext CODE >138:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-1BA maintext CODE >139:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-1BA maintext CODE >140:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-1C4 maintext CODE >141:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-1CA maintext CODE >142:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-1CC maintext CODE >143:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-1CC maintext CODE >144:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-1D6 maintext CODE >145:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-1DC maintext CODE >146:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-1DE maintext CODE >147:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-1DE maintext CODE >148:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
-520 inittext CODE >858:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-520 inittext CODE >859:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-521 inittext CODE >860:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-522 inittext CODE >861:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-523 inittext CODE >862:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-524 inittext CODE >869:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-524 inittext CODE >870:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-529 inittext CODE >871:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-52A inittext CODE >872:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-52B inittext CODE >873:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-52C inittext CODE >874:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-52D inittext CODE >875:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-52E inittext CODE >876:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-52F inittext CODE >877:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-530 inittext CODE >878:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-531 inittext CODE >879:C:\Users\diego\AppData\Local\Temp\xcAseng.s
-532 inittext CODE >880:C:\Users\diego\AppData\Local\Temp\xcAseng.s
+151 maintext CODE >119:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+152 maintext CODE >120:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+156 maintext CODE >122:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+15A maintext CODE >123:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+160 maintext CODE >125:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+16A maintext CODE >119:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+16E maintext CODE >119:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+172 maintext CODE >127:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+178 maintext CODE >128:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+180 maintext CODE >129:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+186 maintext CODE >130:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+18C maintext CODE >131:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+192 maintext CODE >132:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+198 maintext CODE >133:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1A0 maintext CODE >134:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1A6 maintext CODE >135:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1AC maintext CODE >136:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1B2 maintext CODE >138:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1B3 maintext CODE >139:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1B7 maintext CODE >140:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1BB maintext CODE >141:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1BD maintext CODE >142:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1BD maintext CODE >143:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1C7 maintext CODE >144:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1CD maintext CODE >145:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1CF maintext CODE >146:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1CF maintext CODE >147:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1D9 maintext CODE >148:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1DF maintext CODE >149:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1E1 maintext CODE >138:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1E1 maintext CODE >151:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1E5 maintext CODE >138:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+1E9 maintext CODE >152:C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+52B inittext CODE >857:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+52B inittext CODE >858:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+52C inittext CODE >859:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+52D inittext CODE >860:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+52E inittext CODE >861:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+52F inittext CODE >868:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+52F inittext CODE >869:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+534 inittext CODE >870:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+535 inittext CODE >871:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+536 inittext CODE >872:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+537 inittext CODE >873:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+538 inittext CODE >874:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+539 inittext CODE >875:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+53A inittext CODE >876:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+53B inittext CODE >877:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+53C inittext CODE >878:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
+53D inittext CODE >879:C:\Users\diego\AppData\Local\Temp\xcAsg7c.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -516,17 +520,17 @@ FE text8 CODE >250:C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
 ___latbits 2 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 ___awdiv@counter 4E 0 BANK0 1 cstackBANK0 dist/default/production\Laboratorio2.production.o
 __LdataBANK0 0 0 ABS 0 dataBANK0 -
-__Hspace_0 546 0 ABS 0 - -
+__Hspace_0 551 0 ABS 0 - -
 __Hspace_1 7B 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
 __HidataBANK0 0 0 ABS 0 idataBANK0 -
-_Lcd_Init 628 0 CODE 0 text12 dist/default/production\Laboratorio2.production.o
-_Lcd_Port A80 0 CODE 0 text15 dist/default/production\Laboratorio2.production.o
+_Lcd_Init 63E 0 CODE 0 text12 dist/default/production\Laboratorio2.production.o
+_Lcd_Port A96 0 CODE 0 text15 dist/default/production\Laboratorio2.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-__end_of_Lcd_Init 6C4 0 CODE 0 text12 dist/default/production\Laboratorio2.production.o
-__end_of_Lcd_Port A8C 0 CODE 0 text15 dist/default/production\Laboratorio2.production.o
+__end_of_Lcd_Init 6DA 0 CODE 0 text12 dist/default/production\Laboratorio2.production.o
+__end_of_Lcd_Port AA2 0 CODE 0 text15 dist/default/production\Laboratorio2.production.o
 __Hstrings 0 0 ABS 0 strings -
 _IOCB 96 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 _PIE1 8C 0 ABS 0 - dist/default/production\Laboratorio2.production.o
@@ -537,13 +541,13 @@ _RBIF 58 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 _T0IF 5A 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 _TXIF 64 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 _WPUB 95 0 ABS 0 - dist/default/production\Laboratorio2.production.o
-___sp 0 0 STACK 2 stack C:\Users\diego\AppData\Local\Temp\xcAseng.o
+___sp 0 0 STACK 2 stack C:\Users\diego\AppData\Local\Temp\xcAsg7c.o
 _main 25C 0 CODE 0 maintext dist/default/production\Laboratorio2.production.o
 _var0 5E 0 BANK0 1 bssBANK0 dist/default/production\Laboratorio2.production.o
 _var1 5D 0 BANK0 1 bssBANK0 dist/default/production\Laboratorio2.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Laboratorio2.production.o
-_Lcd_Write_Char 972 0 CODE 0 text10 dist/default/production\Laboratorio2.production.o
-start 18 0 CODE 0 init C:\Users\diego\AppData\Local\Temp\xcAseng.o
+_Lcd_Write_Char 988 0 CODE 0 text10 dist/default/production\Laboratorio2.production.o
+start 18 0 CODE 0 init C:\Users\diego\AppData\Local\Temp\xcAsg7c.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 Lcd_Port@a 73 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.production.o
@@ -551,12 +555,12 @@ __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 Lcd_Write_Char@temp 76 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.production.o
 __LidataBANK0 0 0 ABS 0 idataBANK0 -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAseng.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAseng.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAseng.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAseng.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAseng.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAseng.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsg7c.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsg7c.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsg7c.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsg7c.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsg7c.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsg7c.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 ___bmul@multiplicand 73 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.production.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Laboratorio2.production.o
@@ -566,43 +570,43 @@ __size_of_Lcd_Set_Cursor 0 0 ABS 0 - dist/default/production\Laboratorio2.produc
 ___awdiv@sign 4F 0 BANK0 1 cstackBANK0 dist/default/production\Laboratorio2.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
 _decenas 79 0 COMMON 1 bssCOMMON dist/default/production\Laboratorio2.production.o
-_decimal 4AA 0 CODE 0 text5 dist/default/production\Laboratorio2.production.o
-__end_of_Lcd_Write_Char 9AC 0 CODE 0 text10 dist/default/production\Laboratorio2.production.o
+_decimal 4C0 0 CODE 0 text5 dist/default/production\Laboratorio2.production.o
+__end_of_Lcd_Write_Char 9C2 0 CODE 0 text10 dist/default/production\Laboratorio2.production.o
 decimal@valor 56 0 BANK0 1 cstackBANK0 dist/default/production\Laboratorio2.production.o
 _ADRESH 1E 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 _ANSELH 189 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 ___awdiv@dividend 75 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.production.o
 _unidades 7A 0 COMMON 1 bssCOMMON dist/default/production\Laboratorio2.production.o
 __size_of_initOsc 0 0 ABS 0 - dist/default/production\Laboratorio2.production.o
-__end_of___bmul A40 0 CODE 0 text6 dist/default/production\Laboratorio2.production.o
+__end_of___bmul A56 0 CODE 0 text6 dist/default/production\Laboratorio2.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 ___bmul@multiplier 76 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.production.o
 ___awdiv@divisor 73 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.production.o
-__end_of___awdiv 4AA 0 CODE 0 text7 dist/default/production\Laboratorio2.production.o
+__end_of___awdiv 4C0 0 CODE 0 text7 dist/default/production\Laboratorio2.production.o
 _INTCON B 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 _OPTION_REG 81 0 ABS 0 - dist/default/production\Laboratorio2.production.o
-___stackhi 0 0 ABS 0 - C:\Users\diego\AppData\Local\Temp\xcAseng.o
-___stacklo 0 0 ABS 0 - C:\Users\diego\AppData\Local\Temp\xcAseng.o
+___stackhi 0 0 ABS 0 - C:\Users\diego\AppData\Local\Temp\xcAsg7c.o
+___stacklo 0 0 ABS 0 - C:\Users\diego\AppData\Local\Temp\xcAsg7c.o
 _BAUDCTLbits 187 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 Lcd_Set_Cursor@temp 53 0 BANK0 1 cstackBANK0 dist/default/production\Laboratorio2.production.o
-__end_of_initAN 932 0 CODE 0 text4 dist/default/production\Laboratorio2.production.o
+__end_of_initAN 948 0 CODE 0 text4 dist/default/production\Laboratorio2.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\Laboratorio2.production.o
 initAN@bin 75 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.production.o
-_Lcd_Write_String 898 0 CODE 0 text9 dist/default/production\Laboratorio2.production.o
+_Lcd_Write_String 8AE 0 CODE 0 text9 dist/default/production\Laboratorio2.production.o
 _SPBRGH 9A 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 __pcstackBANK0 4E 0 BANK0 1 cstackBANK0 dist/default/production\Laboratorio2.production.o
 _TMR1IF 60 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 __size_of_Lcd_Cmd 0 0 ABS 0 - dist/default/production\Laboratorio2.production.o
-__end_of_initOsc 75C 0 CODE 0 text2 dist/default/production\Laboratorio2.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\diego\AppData\Local\Temp\xcAseng.o
+__end_of_initOsc 772 0 CODE 0 text2 dist/default/production\Laboratorio2.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\diego\AppData\Local\Temp\xcAsg7c.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
 __Hcinit 5C 0 CODE 0 cinit -
 __Hstack 0 0 STACK 2 stack -
-__stringbase 9B6 0 STRING 0 strings dist/default/production\Laboratorio2.production.o
+__stringbase 9CC 0 STRING 0 strings dist/default/production\Laboratorio2.production.o
 __Hmaintext 0 0 ABS 0 maintext -
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4012 0 CONFIG 4 config -
@@ -631,59 +635,60 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
-___bmul A16 0 CODE 0 text6 dist/default/production\Laboratorio2.production.o
+___bmul A2C 0 CODE 0 text6 dist/default/production\Laboratorio2.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 _RE0 48 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 _RE1 49 0 ABS 0 - dist/default/production\Laboratorio2.production.o
-__S0 546 0 ABS 0 - -
+__S0 551 0 ABS 0 - -
 __S1 7B 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_isr 7DE 0 CODE 0 text16 dist/default/production\Laboratorio2.production.o
+_isr 7F4 0 CODE 0 text16 dist/default/production\Laboratorio2.production.o
 _str 20 0 BANK0 1 dataBANK0 dist/default/production\Laboratorio2.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\Laboratorio2.production.o
-__end_of_Lcd_Write_String 8EA 0 CODE 0 text9 dist/default/production\Laboratorio2.production.o
-__end_of_isr 83C 0 CODE 0 text16 dist/default/production\Laboratorio2.production.o
-__end_of_Lcd_Clear A80 0 CODE 0 text13 dist/default/production\Laboratorio2.production.o
+__end_of_Lcd_Write_String 900 0 CODE 0 text9 dist/default/production\Laboratorio2.production.o
+__end_of_isr 852 0 CODE 0 text16 dist/default/production\Laboratorio2.production.o
+__end_of_Lcd_Clear A96 0 CODE 0 text13 dist/default/production\Laboratorio2.production.o
 _varUART 59 0 BANK0 1 bssBANK0 dist/default/production\Laboratorio2.production.o
-_initEUSART 932 0 CODE 0 text3 dist/default/production\Laboratorio2.production.o
+_initEUSART 948 0 CODE 0 text3 dist/default/production\Laboratorio2.production.o
 __Lintentry 8 0 CODE 0 intentry -
 __size_of_Lcd_Write_String 0 0 ABS 0 - dist/default/production\Laboratorio2.production.o
-__stringtab 9AC 0 STRING 0 strings dist/default/production\Laboratorio2.production.o
+__stringtab 9C2 0 STRING 0 strings dist/default/production\Laboratorio2.production.o
 Lcd_Write_String@a 50 0 BANK0 1 cstackBANK0 dist/default/production\Laboratorio2.production.o
 Lcd_Write_String@i 4E 0 BANK0 1 cstackBANK0 dist/default/production\Laboratorio2.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\diego\AppData\Local\Temp\xcAseng.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\diego\AppData\Local\Temp\xcAsg7c.o
 __size_of_Lcd_Clear 0 0 ABS 0 - dist/default/production\Laboratorio2.production.o
-_initAN 8EA 0 CODE 0 text4 dist/default/production\Laboratorio2.production.o
+_initAN 900 0 CODE 0 text4 dist/default/production\Laboratorio2.production.o
 __pdataBANK0 20 0 BANK0 1 dataBANK0 dist/default/production\Laboratorio2.production.o
 initOsc@frec 75 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.production.o
-__end_of_Lcd_Cmd A16 0 CODE 0 text14 dist/default/production\Laboratorio2.production.o
+__end_of_Lcd_Cmd A2C 0 CODE 0 text14 dist/default/production\Laboratorio2.production.o
 __size_of___bmul 0 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 _RCSTAbits 18 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\Laboratorio2.production.o
-__ptext10 972 0 CODE 0 text10 dist/default/production\Laboratorio2.production.o
-__ptext11 578 0 CODE 0 text11 dist/default/production\Laboratorio2.production.o
-__ptext12 628 0 CODE 0 text12 dist/default/production\Laboratorio2.production.o
-__ptext13 A66 0 CODE 0 text13 dist/default/production\Laboratorio2.production.o
-__ptext14 9E2 0 CODE 0 text14 dist/default/production\Laboratorio2.production.o
-__ptext15 A80 0 CODE 0 text15 dist/default/production\Laboratorio2.production.o
-__ptext16 7DE 0 CODE 0 text16 dist/default/production\Laboratorio2.production.o
-_Lcd_Clear A66 0 CODE 0 text13 dist/default/production\Laboratorio2.production.o
+__ptext10 988 0 CODE 0 text10 dist/default/production\Laboratorio2.production.o
+__ptext11 58E 0 CODE 0 text11 dist/default/production\Laboratorio2.production.o
+__ptext12 63E 0 CODE 0 text12 dist/default/production\Laboratorio2.production.o
+__ptext13 A7C 0 CODE 0 text13 dist/default/production\Laboratorio2.production.o
+__ptext14 9F8 0 CODE 0 text14 dist/default/production\Laboratorio2.production.o
+__ptext15 A96 0 CODE 0 text15 dist/default/production\Laboratorio2.production.o
+__ptext16 7F4 0 CODE 0 text16 dist/default/production\Laboratorio2.production.o
+_Lcd_Clear A7C 0 CODE 0 text13 dist/default/production\Laboratorio2.production.o
 __size_of_Lcd_Write_Char 0 0 ABS 0 - dist/default/production\Laboratorio2.production.o
-___awdiv 3D8 0 CODE 0 text7 dist/default/production\Laboratorio2.production.o
-_Lcd_Set_Cursor 578 0 CODE 0 text11 dist/default/production\Laboratorio2.production.o
+___awdiv 3EE 0 CODE 0 text7 dist/default/production\Laboratorio2.production.o
+_Lcd_Set_Cursor 58E 0 CODE 0 text11 dist/default/production\Laboratorio2.production.o
 __pmaintext 25C 0 CODE 0 maintext dist/default/production\Laboratorio2.production.o
 __size_of_decimal 0 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
 __Hinittext 0 0 ABS 0 inittext -
+_tempo0 5B 0 BANK0 1 bssBANK0 dist/default/production\Laboratorio2.production.o
 __size_of_initAN 0 0 ABS 0 - dist/default/production\Laboratorio2.production.o
-__end_of_initEUSART 972 0 CODE 0 text3 dist/default/production\Laboratorio2.production.o
+__end_of_initEUSART 988 0 CODE 0 text3 dist/default/production\Laboratorio2.production.o
 _ADCON0bits 1F 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 _ADCON1bits 9F 0 ABS 0 - dist/default/production\Laboratorio2.production.o
-__end_of__stringtab 9B8 0 STRING 0 strings dist/default/production\Laboratorio2.production.o
+__end_of__stringtab 9CE 0 STRING 0 strings dist/default/production\Laboratorio2.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -691,14 +696,14 @@ __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
 __pbssCOMMON 78 0 COMMON 1 bssCOMMON dist/default/production\Laboratorio2.production.o
 chselect@cant 76 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.production.o
-init_fetch0 A40 0 CODE 0 inittext dist/default/production\Laboratorio2.production.o
+init_fetch0 A56 0 CODE 0 inittext dist/default/production\Laboratorio2.production.o
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 _PIR1bits C 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 __Lend_init 18 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 end_of_initialization 54 0 CODE 0 cinit dist/default/production\Laboratorio2.production.o
 decimal@variable 55 0 BANK0 1 cstackBANK0 dist/default/production\Laboratorio2.production.o
-__end_of_Lcd_Set_Cursor 628 0 CODE 0 text11 dist/default/production\Laboratorio2.production.o
+__end_of_Lcd_Set_Cursor 63E 0 CODE 0 text11 dist/default/production\Laboratorio2.production.o
 __Hintentry 18 0 CODE 0 intentry -
 Lcd_Set_Cursor@a 50 0 BANK0 1 cstackBANK0 dist/default/production\Laboratorio2.production.o
 Lcd_Set_Cursor@b 77 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.production.o
@@ -709,25 +714,25 @@ ___awdiv@quotient 50 0 BANK0 1 cstackBANK0 dist/default/production\Laboratorio2.
 ?___awdiv 73 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.production.o
 __Hreset_vec 6 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
-_initOsc 6C4 0 CODE 0 text2 dist/default/production\Laboratorio2.production.o
+_initOsc 6DA 0 CODE 0 text2 dist/default/production\Laboratorio2.production.o
 __size_of_chselect 0 0 ABS 0 - dist/default/production\Laboratorio2.production.o
-__ptext1 75C 0 CODE 0 text1 dist/default/production\Laboratorio2.production.o
-__ptext2 6C4 0 CODE 0 text2 dist/default/production\Laboratorio2.production.o
-__ptext3 932 0 CODE 0 text3 dist/default/production\Laboratorio2.production.o
-__ptext4 8EA 0 CODE 0 text4 dist/default/production\Laboratorio2.production.o
-__ptext5 4AA 0 CODE 0 text5 dist/default/production\Laboratorio2.production.o
-__ptext6 A16 0 CODE 0 text6 dist/default/production\Laboratorio2.production.o
-__ptext7 3D8 0 CODE 0 text7 dist/default/production\Laboratorio2.production.o
+__ptext1 772 0 CODE 0 text1 dist/default/production\Laboratorio2.production.o
+__ptext2 6DA 0 CODE 0 text2 dist/default/production\Laboratorio2.production.o
+__ptext3 948 0 CODE 0 text3 dist/default/production\Laboratorio2.production.o
+__ptext4 900 0 CODE 0 text4 dist/default/production\Laboratorio2.production.o
+__ptext5 4C0 0 CODE 0 text5 dist/default/production\Laboratorio2.production.o
+__ptext6 A2C 0 CODE 0 text6 dist/default/production\Laboratorio2.production.o
+__ptext7 3EE 0 CODE 0 text7 dist/default/production\Laboratorio2.production.o
 __ptext8 5C 0 CODE 0 text8 dist/default/production\Laboratorio2.production.o
-__ptext9 898 0 CODE 0 text9 dist/default/production\Laboratorio2.production.o
+__ptext9 8AE 0 CODE 0 text9 dist/default/production\Laboratorio2.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
-__end_of_decimal 578 0 CODE 0 text5 dist/default/production\Laboratorio2.production.o
+__end_of_decimal 58E 0 CODE 0 text5 dist/default/production\Laboratorio2.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
 __end_of__initialization 54 0 CODE 0 cinit dist/default/production\Laboratorio2.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
 Lcd_Cmd@a 76 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.production.o
-__pidataBANK0 83C 0 CODE 0 idataBANK0 dist/default/production\Laboratorio2.production.o
+__pidataBANK0 852 0 CODE 0 idataBANK0 dist/default/production\Laboratorio2.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.production.o
 _TXSTAbits 98 0 ABS 0 - dist/default/production\Laboratorio2.production.o
@@ -735,8 +740,8 @@ _chselect 5C 0 CODE 0 text8 dist/default/production\Laboratorio2.production.o
 __size_of_Lcd_Init 0 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 __size_of_Lcd_Port 0 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 __Hend_init 1E 0 CODE 0 end_init -
-init_ram0 A48 0 CODE 0 inittext dist/default/production\Laboratorio2.production.o
-__end_of_main 3D8 0 CODE 0 maintext dist/default/production\Laboratorio2.production.o
+init_ram0 A5E 0 CODE 0 inittext dist/default/production\Laboratorio2.production.o
+__end_of_main 3EE 0 CODE 0 maintext dist/default/production\Laboratorio2.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 __end_of_chselect 25C 0 CODE 0 text8 dist/default/production\Laboratorio2.production.o
 _PORTA 5 0 ABS 0 - dist/default/production\Laboratorio2.production.o
@@ -754,15 +759,13 @@ _TRISC 87 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 _TRISD 88 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 _TRISE 89 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 _TXREG 19 0 ABS 0 - dist/default/production\Laboratorio2.production.o
-__end_of_setup 7DE 0 CODE 0 text1 dist/default/production\Laboratorio2.production.o
+__end_of_setup 7F4 0 CODE 0 text1 dist/default/production\Laboratorio2.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 interrupt_function 8 0 CODE 0 intentry dist/default/production\Laboratorio2.production.o
-_disp0 5B 0 BANK0 1 bssBANK0 dist/default/production\Laboratorio2.production.o
-_disp1 5A 0 BANK0 1 bssBANK0 dist/default/production\Laboratorio2.production.o
-_setup 75C 0 CODE 0 text1 dist/default/production\Laboratorio2.production.o
+_setup 772 0 CODE 0 text1 dist/default/production\Laboratorio2.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\Laboratorio2.production.o
-_Lcd_Cmd 9E2 0 CODE 0 text14 dist/default/production\Laboratorio2.production.o
+_Lcd_Cmd 9F8 0 CODE 0 text14 dist/default/production\Laboratorio2.production.o
 __size_of_isr 0 0 ABS 0 - dist/default/production\Laboratorio2.production.o
 __HdataBANK0 0 0 ABS 0 dataBANK0 -
 _centenas 78 0 COMMON 1 bssCOMMON dist/default/production\Laboratorio2.production.o
@@ -771,7 +774,7 @@ ___bmul@product 75 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.
 initEUSART@rx 73 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.production.o
 initEUSART@tx 74 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.production.o
 __pbssBANK0 59 0 BANK0 1 bssBANK0 dist/default/production\Laboratorio2.production.o
-__pstrings 9AC 0 STRING 0 strings dist/default/production\Laboratorio2.production.o
+__pstrings 9C2 0 STRING 0 strings dist/default/production\Laboratorio2.production.o
 Lcd_Write_Char@a 75 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.production.o
 Lcd_Write_Char@y 77 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio2.production.o
 __size_of_initEUSART 0 0 ABS 0 - dist/default/production\Laboratorio2.production.o
@@ -800,11 +803,11 @@ __size_of_initEUSART 0 0 ABS 0 - dist/default/production\Laboratorio2.production
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text14 0 4F1 9E2 55 2
+text14 0 4FC 9F8 55 2
 cstackCOMMON 1 70 70 B 1
-intentry 0 4 8 4D2 2
+intentry 0 4 8 4DD 2
 reset_vec 0 0 0 3 2
-strings 0 4D6 9AC 1B 2
+strings 0 4E1 9C2 1B 2
 dataBANK0 1 20 20 43 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
