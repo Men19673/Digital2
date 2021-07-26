@@ -2884,6 +2884,29 @@ uint8_t table(uint8_t val){
         }
         return(tempo);
 }
+
+void initEUSART(uint8_t tx, uint8_t rx){
+
+
+
+  TXSTAbits.SYNC = 0;
+  TXSTAbits.BRGH = 1;
+  TXSTAbits.TX9 = 0;
+  TXSTAbits.TXEN= 1;
+  RCSTAbits.SPEN = 1;
+
+
+  RCSTAbits.RX9 = 0;
+  RCSTAbits.CREN = 1;
+
+
+    BAUDCTLbits.BRG16 = 0;
+    SPBRG =25;
+    SPBRGH = 1;
+
+    PIE1bits.TXIE =tx;
+    PIE1bits.RCIE =rx;
+}
 # 12 "MainL2.c" 2
 
 # 1 "./LCD8bits.h" 1
@@ -2963,17 +2986,17 @@ uint8_t var1;
 uint8_t contador;
 uint8_t disp0;
 uint8_t disp1;
-uint8_t nibblelow;
-uint8_t nibblehigh;
+uint8_t varUART;
 char unidades;
 char decenas;
 char centenas;
+unsigned char str[46] = " Los valores de los potenciometros son: \n S1: ";
 
 void __attribute__((picinterrupt((""))))isr(void){
 
 
     if (T0IF==1){
-    TMR0 = 100;
+
     INTCONbits.T0IF = 0;
     }
 
@@ -3021,6 +3044,26 @@ while(1) {
     Lcd_Write_Char(centenas);
     Lcd_Write_Char(decenas);
     Lcd_Write_Char(unidades);
+
+    while(varUART <= 47){
+           varUART++;
+
+       if(TXIF == 1){
+        TXREG = str[varUART];
+       }
+        _delay((unsigned long)((15)*(4000000/4000.0)));
+     }
+    if(TXIF == 1){
+        TXREG = centenas;
+       }
+    _delay((unsigned long)((15)*(4000000/4000.0)));
+    if(TXIF == 1){
+        TXREG = decenas;
+       }
+    _delay((unsigned long)((15)*(4000000/4000.0)));
+    if(TXIF == 1){
+        TXREG = unidades;
+       }
     _delay((unsigned long)((100)*(4000000/4000.0)));
 
 
@@ -3038,7 +3081,7 @@ void setup(void){
 
   TRISA = 0b00000011;
   TRISB = 0b00000000;
-  TRISC = 0x00;
+  TRISC = 0b10000000;
   TRISD = 0x00;
   TRISE = 0x00;
 
@@ -3054,7 +3097,7 @@ void setup(void){
 
 
   initOsc(4);
-
+  initEUSART(0,0);
   PORTA = 0x00;
   PORTB = 0x00;
   PORTC = 0x00;
@@ -3079,13 +3122,6 @@ void dispasign(uint8_t arg1, uint8_t arg2){
 
 }
 
-void hexconv(uint8_t num){
-    nibblelow = num & 0x0F;
-    nibblehigh = num & 0xF0;
-
-    nibblehigh >>= 4;
-
-}
 
 void decimal(uint8_t variable){
     uint8_t valor;

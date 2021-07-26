@@ -314,5 +314,28 @@ uint8_t table(uint8_t val){
         }
         return(tempo);
 }
+
+void initEUSART(uint8_t tx, uint8_t rx){ //Enable interrupt Tx y Rx
+//CONFIG EUSART
+    
+  //TX CONFIG
+  TXSTAbits.SYNC = 0;       //Modo Asincrono
+  TXSTAbits.BRGH = 1;       //HIGH SPEED
+  TXSTAbits.TX9 = 0;       //Desactivar envio de 9 bits
+  TXSTAbits.TXEN= 1;        //Encender TX
+  RCSTAbits.SPEN = 1;       //Activar Serial PORT
+  
+  //RX CONFIG
+  RCSTAbits.RX9 = 0;        //Desactivar recepcion de 9 bits
+  RCSTAbits.CREN = 1;       //Activa la recepcion continua 
+  
+  //BAUD RATE CONTROL
+    BAUDCTLbits.BRG16 = 0;  //Generador de 8bits activo)
+    SPBRG =25;
+    SPBRGH = 1;
+   
+    PIE1bits.TXIE =tx; //Encender tx o rx interrupt
+    PIE1bits.RCIE =rx;
+}
 #endif	/* MY_LIB_H */
 

@@ -67,17 +67,17 @@ uint8_t var1;
 uint8_t contador;
 uint8_t disp0;
 uint8_t disp1;
-uint8_t nibblelow;
-uint8_t nibblehigh;
+uint8_t varUART;
 char unidades;
 char decenas;
 char centenas;
+unsigned char  str[46] = " Los valores de los potenciometros son: \n S1: ";
 /********************************Interrupcion**********************************/
 void __interrupt()isr(void){
   
     
     if (T0IF==1){ 
-    TMR0		 = 100;         //Resetear timer0
+    //TMR0		 = 100;         //Resetear timer0
     INTCONbits.T0IF = 0;         
     }
     
@@ -112,8 +112,8 @@ void main(void) {
 /****************************** LOOP ******************************************/
 while(1) {
     chselect(2); //el dos simboliza que solo se esta utilizando un canal
-    Lcd_Clear();
-    Lcd_Set_Cursor(1,1);
+    Lcd_Clear();  //Limpiar LCD
+    Lcd_Set_Cursor(1,1); //cursor fila uno primera posicion 
     Lcd_Write_String("S1:   S2:  CONT:");
     decimal(var0);
     Lcd_Set_Cursor(2,1);
@@ -125,6 +125,26 @@ while(1) {
     Lcd_Write_Char(centenas);
     Lcd_Write_Char(decenas);
     Lcd_Write_Char(unidades);
+   
+    while(varUART <= 47){      //verficar que no pase del limite 
+           varUART++;          //Ir cambiando de character
+                   
+       if(TXIF == 1){
+        TXREG = str[varUART]; //Enviar a terminal palabras
+       }
+        __delay_ms(15);
+     }
+    if(TXIF == 1){
+        TXREG = centenas; //Enviar a terminal palabras
+       }
+    __delay_ms(15);
+    if(TXIF == 1){
+        TXREG = decenas; //Enviar a terminal palabras
+       }
+    __delay_ms(15);
+    if(TXIF == 1){
+        TXREG = unidades; //Enviar a terminal palabras
+       }
     __delay_ms(100);
    
     
@@ -142,7 +162,7 @@ void setup(void){
   
   TRISA = 0b00000011;     //Output     
   TRISB = 0b00000000; //Output excepto por pin 0, 1 y 2   
-  TRISC = 0x00;     //Output
+  TRISC = 0b10000000;     //Output
   TRISD = 0x00;     //Output
   TRISE = 0x00;     //Output
   
@@ -157,8 +177,8 @@ void setup(void){
   TMR1L	 = 0xB0;
   
 
-  initOsc(4);   //utilizar oscilador interno para reloj del sistema
- 
+  initOsc(4);   //utilizar oscilador interno para reloj del sistema a 4MHz
+  initEUSART(0,0); //Encender el modulo EUSART
   PORTA = 0x00;
   PORTB = 0x00;
   PORTC = 0x00; //Poner todos los puertos en 0
@@ -183,13 +203,6 @@ void dispasign(uint8_t arg1, uint8_t arg2){
     
 }
 
-void hexconv(uint8_t num){
-    nibblelow = num & 0x0F;
-    nibblehigh = num & 0xF0;
-    
-    nibblehigh >>= 4;
-
-}
 
 void decimal(uint8_t variable){
     uint8_t valor;

@@ -11,6 +11,8 @@
 [v _chselect chselect `(v  1 e 1 0 ]
 "259
 [v _table table `(uc  1 e 1 0 ]
+"318
+[v _initEUSART initEUSART `(v  1 e 1 0 ]
 "5 E:\Microchip\XC8\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 "10 E:\Microchip\XC8\pic\sources\c90\common\sprcadd.c
@@ -41,13 +43,11 @@
 [v _isr isr `II(v  1 e 1 0 ]
 "107
 [v _main main `(v  1 e 1 0 ]
-"138
+"158
 [v _setup setup `(v  1 e 1 0 ]
-"194
+"207
 [v _decimal decimal `(v  1 e 1 0 ]
-"59 E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
-"166
+"166 E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
 "228
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
@@ -59,7 +59,7 @@
 [v _PORTE PORTE `VEuc  1 e 1 @9 ]
 "459
 [v _INTCON INTCON `VEuc  1 e 1 @11 ]
-[s S139 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S242 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -69,16 +69,16 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "482
-[s S148 . 1 `uc 1 . 1 0 :2:0 
+[s S251 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
-[u S153 . 1 `S139 1 . 1 0 `S148 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES153  1 e 1 @11 ]
+[u S256 . 1 `S242 1 . 1 0 `S251 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES256  1 e 1 @11 ]
 "537
 [v _PIR1 PIR1 `VEuc  1 e 1 @12 ]
-[s S172 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S275 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -87,8 +87,8 @@
 `uc 1 ADIF 1 0 :1:6 
 ]
 "553
-[u S180 . 1 `S172 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES180  1 e 1 @12 ]
+[u S283 . 1 `S275 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES283  1 e 1 @12 ]
 "593
 [v _PIR2 PIR2 `VEuc  1 e 1 @13 ]
 "657
@@ -97,6 +97,30 @@
 [v _TMR1H TMR1H `VEuc  1 e 1 @15 ]
 "671
 [v _T1CON T1CON `VEuc  1 e 1 @16 ]
+[s S174 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"1068
+[s S183 . 1 `uc 1 RCD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S187 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 nRC8 1 0 :1:6 
+]
+[s S190 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[u S193 . 1 `S174 1 . 1 0 `S183 1 . 1 0 `S187 1 . 1 0 `S190 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES193  1 e 1 @24 ]
+"1133
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
 "1238
 [v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
 [s S51 . 1 `uc 1 ADON 1 0 :1:0 
@@ -167,6 +191,29 @@
 [v _WPUB WPUB `VEuc  1 e 1 @149 ]
 "2416
 [v _IOCB IOCB `VEuc  1 e 1 @150 ]
+[s S137 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"2582
+[s S146 . 1 `uc 1 TXD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 nTX8 1 0 :1:6 
+]
+[s S150 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[u S153 . 1 `S137 1 . 1 0 `S146 1 . 1 0 `S150 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES153  1 e 1 @152 ]
+"2642
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"2704
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @154 ]
 [s S103 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 VCFG0 1 0 :1:4 
 `uc 1 VCFG1 1 0 :1:5 
@@ -176,6 +223,18 @@
 "2991
 [u S109 . 1 `S103 1 . 1 0 ]
 [v _ADCON1bits ADCON1bits `VES109  1 e 1 @159 ]
+[s S218 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"3352
+[u S227 . 1 `S218 1 . 1 0 ]
+[v _BAUDCTLbits BAUDCTLbits `VES227  1 e 1 @391 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
@@ -190,6 +249,8 @@
 [v _T0IF T0IF `VEb  1 e 0 @90 ]
 "4373
 [v _TMR1IF TMR1IF `VEb  1 e 0 @96 ]
+"4544
+[v _TXIF TXIF `VEb  1 e 0 @100 ]
 "65 C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
 [v _var0 var0 `uc  1 e 1 0 ]
 "66
@@ -199,24 +260,24 @@
 "69
 [v _disp1 disp1 `uc  1 e 1 0 ]
 "70
-[v _nibblelow nibblelow `uc  1 e 1 0 ]
+[v _varUART varUART `uc  1 e 1 0 ]
 "71
-[v _nibblehigh nibblehigh `uc  1 e 1 0 ]
-"72
 [v _unidades unidades `uc  1 e 1 0 ]
-"73
+"72
 [v _decenas decenas `uc  1 e 1 0 ]
-"74
+"73
 [v _centenas centenas `uc  1 e 1 0 ]
+"74
+[v _str str `[46]uc  1 e 46 0 ]
 "107
 [v _main main `(v  1 e 1 0 ]
 {
-"133
+"153
 } 0
-"138
+"158
 [v _setup setup `(v  1 e 1 0 ]
 {
-"175
+"195
 } 0
 "14 C:\Users\diego\Desktop\Digital2\Laboratorio2/my_lib.h
 [v _initOsc initOsc `(v  1 e 1 0 ]
@@ -225,6 +286,16 @@
 [v initOsc@frec frec `uc  1 a 1 wreg ]
 [v initOsc@frec frec `uc  1 a 1 5 ]
 "65
+} 0
+"318
+[v _initEUSART initEUSART `(v  1 e 1 0 ]
+{
+[v initEUSART@tx tx `uc  1 a 1 wreg ]
+[v initEUSART@tx tx `uc  1 a 1 wreg ]
+[v initEUSART@rx rx `uc  1 p 1 3 ]
+"322
+[v initEUSART@tx tx `uc  1 a 1 4 ]
+"339
 } 0
 "67
 [v _initAN initAN `(v  1 e 1 0 ]
@@ -236,17 +307,17 @@
 [v initAN@bin bin `uc  1 a 1 5 ]
 "86
 } 0
-"194 C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
+"207 C:\Users\diego\Desktop\Digital2\Laboratorio2\MainL2.c
 [v _decimal decimal `(v  1 e 1 0 ]
 {
 [v decimal@variable variable `uc  1 a 1 wreg ]
-"195
+"208
 [v decimal@valor valor `uc  1 a 1 8 ]
-"194
-[v decimal@variable variable `uc  1 a 1 wreg ]
-"196
-[v decimal@variable variable `uc  1 a 1 7 ]
 "207
+[v decimal@variable variable `uc  1 a 1 wreg ]
+"209
+[v decimal@variable variable `uc  1 a 1 7 ]
+"220
 } 0
 "4 E:\Microchip\XC8\pic\sources\c90\common\Umul8.c
 [v ___bmul __bmul `(uc  1 e 1 0 ]
