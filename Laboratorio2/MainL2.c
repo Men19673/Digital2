@@ -168,7 +168,7 @@ while(1) {
     decimal(var1);              //Convertir a decimales y a CHAR
     Lcd_Write_Char(centenas);
     Lcd_Write_String(".");
-    Lcd_Write_Char(decenas);
+    Lcd_Write_Char(decenas);        
     Lcd_Write_Char(unidades);
     Lcd_Write_String("  ");
   
@@ -256,7 +256,7 @@ void setup(void){
 void decimal(uint8_t variable){
     
     valor = variable;   
-    valor = (valor/255)*500;//guardar el valor del port
+    valor = (valor/255)*500;//convertir a volt
     centenas = (valor/100) ;       //dividir entre 100 para centenas
     valor = (valor - (centenas*100));
     decenas = (valor/10);         //dividir entre 10 para decenas
@@ -265,7 +265,7 @@ void decimal(uint8_t variable){
      
     
     
-    centenas = centenas + 48;
+    centenas = centenas + 48; //Sumar 48 para que case con ASCII
     decenas = decenas + 48;
     unidades = unidades + 48;
     
