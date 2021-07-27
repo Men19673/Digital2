@@ -61,17 +61,17 @@ void decimal(uint8_t );
 uint8_t flagint;
 uint8_t startfinal;
 uint8_t start;
-uint8_t multiplex;
+uint8_t RXREC;
 uint8_t var0;
 uint8_t var1;
 uint8_t contador;
-uint8_t tempo0;
 uint8_t tempo1;
 uint8_t varUART;
 char unidades;
 char decenas;
 char centenas;
-unsigned char  str[46] = " Los valores de los potenciometros son:\n S1: ";
+float valor;
+unsigned char  str[50] = " Los valores de los potenciometros son:\r S1 \r S2";
 /********************************Interrupcion**********************************/
 void __interrupt()isr(void){
   
@@ -96,7 +96,16 @@ void __interrupt()isr(void){
         
     }
     
-    
+    if(PIR1bits.RCIF == 1){
+        RXREC = RCREG;      //Guardar el dato que se recibe en uart 
+        if (RXREC == 43){
+            contador++;     //Incrementar el valor con RX
+        }
+        if (RXREC == 45){
+            contador--;     //Decrementar el valor con RX
+        }
+        PIR1bits.RCIF =0;   //Limpiar la bandera
+    }
     
     if(RBIF == 1){        
      RBIF = 0;
@@ -111,44 +120,87 @@ void main(void) {
 
 /****************************** LOOP ******************************************/
 while(1) {
-    chselect(2); //el dos simboliza que solo se esta utilizando un canal
-    Lcd_Clear();  //Limpiar LCD
-    Lcd_Set_Cursor(1,1); //cursor fila uno primera posicion 
+    chselect(2);            //el dos simboliza que solo se esta utilizando un canal
+    Lcd_Clear();            //Limpiar LCD
+    Lcd_Set_Cursor(1,1);    //cursor fila uno primera posicion 
     Lcd_Write_String("S1:   S2:  CONT:");
     
-     while(varUART <= 47){      //verficar que no pase del limite 
-           varUART++;          //Ir cambiando de character
+     while(varUART <= 50){      //verficar que no pase del limite 
+           varUART++;           //Ir cambiando de character
                    
        if(TXIF == 1){
-        TXREG = str[varUART]; //Enviar a terminal palabras
+        TXREG = str[varUART];   //Enviar a terminal palabras
        }
-        __delay_ms(15);
+        __delay_ms(10);
      }
-    decimal(var0);
-    Lcd_Set_Cursor(2,1);
+    //Potenciometro 1
+    decimal(var0);              //Convertir a decimales y a CHAR
+    Lcd_Set_Cursor(2,1);        //Llevar el cursor a fila 2 primer espacio
     Lcd_Write_Char(centenas);
+    Lcd_Write_String(".");
     Lcd_Write_Char(decenas);
     Lcd_Write_Char(unidades);
-    Lcd_Write_String("   ");
-    decimal(var1);
-    Lcd_Write_Char(centenas);
-    Lcd_Write_Char(decenas);
-    Lcd_Write_Char(unidades);
-   
-    while (tempo0 != var0){
-        tempo0 = var0;
-        if(TXIF == 1){
+    Lcd_Write_String("  ");
+
+    
+         if(TXIF == 1){
             TXREG = centenas; //Enviar a terminal palabras
            }
-        __delay_ms(15);
+        __delay_ms(10);
+        if(TXIF == 1){
+            TXREG = 46; //Enviar a terminal palabras
+           }
+        __delay_ms(10);
         if(TXIF == 1){
             TXREG = decenas; //Enviar a terminal palabras
            }
-        __delay_ms(15);
+        __delay_ms(10);
         if(TXIF == 1){
             TXREG = unidades; //Enviar a terminal palabras
            }
-    }
+        __delay_ms(10);
+        if(TXIF == 1){
+            TXREG = 13; //Enviar a terminal palabras
+           }
+        __delay_ms(10);
+  
+    //Potenciometro 2
+    decimal(var1);              //Convertir a decimales y a CHAR
+    Lcd_Write_Char(centenas);
+    Lcd_Write_String(".");
+    Lcd_Write_Char(decenas);
+    Lcd_Write_Char(unidades);
+    Lcd_Write_String("  ");
+  
+        if(TXIF == 1){
+            TXREG = centenas; //Enviar a terminal palabras
+           }
+        __delay_ms(10);
+        if(TXIF == 1){
+            TXREG = 46; //Enviar a terminal palabras
+           }
+        __delay_ms(10);
+        if(TXIF == 1){
+            TXREG = decenas; //Enviar a terminal palabras
+           }
+        __delay_ms(10);
+        if(TXIF == 1){
+            TXREG = unidades; //Enviar a terminal palabras
+           }
+        __delay_ms(10);
+        if(TXIF == 1){
+            TXREG = 13; //Enviar a terminal palabras
+           }
+        __delay_ms(10);
+        
+    //ContadorRX
+    decimal(contador);          //Convertir a decimales y a CHAR
+    Lcd_Write_Char(centenas);
+    Lcd_Write_String(".");
+    Lcd_Write_Char(decenas);
+    Lcd_Write_Char(unidades);
+    
+    
     __delay_ms(100);
    
     
@@ -182,7 +234,7 @@ void setup(void){
   
 
   initOsc(4);   //utilizar oscilador interno para reloj del sistema a 4MHz
-  initEUSART(0,0); //Encender el modulo EUSART
+  initEUSART(0,1); //Encender el modulo EUSART (txie, RXIE)
   PORTA = 0x00;
   PORTB = 0x00;
   PORTC = 0x00; //Poner todos los puertos en 0
@@ -202,16 +254,26 @@ void setup(void){
 
 
 void decimal(uint8_t variable){
-    uint8_t valor;
-    valor = variable;              //guardar el valor del port
+    
+    valor = variable;   
+    valor = (valor/255)*500;//guardar el valor del port
     centenas = (valor/100) ;       //dividir entre 100 para centenas
     valor = (valor - (centenas*100));
     decenas = (valor/10);         //dividir entre 10 para decenas
     valor = (valor - (decenas*10));
-    unidades = (valor);         //dividir entre 1 para unidades
+    unidades = (valor);         //dividir entre 1 para unidades*/
+     
+    
     
     centenas = centenas + 48;
     decenas = decenas + 48;
     unidades = unidades + 48;
+    
+    
+    
+    
+    
+    
+    
     
 }

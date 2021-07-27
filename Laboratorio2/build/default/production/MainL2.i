@@ -2980,17 +2980,17 @@ void decimal(uint8_t );
 uint8_t flagint;
 uint8_t startfinal;
 uint8_t start;
-uint8_t multiplex;
+uint8_t RXREC;
 uint8_t var0;
 uint8_t var1;
 uint8_t contador;
-uint8_t tempo0;
 uint8_t tempo1;
 uint8_t varUART;
 char unidades;
 char decenas;
 char centenas;
-unsigned char str[46] = " Los valores de los potenciometros son:\n S1: ";
+float valor;
+unsigned char str[50] = " Los valores de los potenciometros son:\r S1 \r S2";
 
 void __attribute__((picinterrupt((""))))isr(void){
 
@@ -3015,7 +3015,16 @@ void __attribute__((picinterrupt((""))))isr(void){
 
     }
 
-
+    if(PIR1bits.RCIF == 1){
+        RXREC = RCREG;
+        if (RXREC == 43){
+            contador++;
+        }
+        if (RXREC == 45){
+            contador--;
+        }
+        PIR1bits.RCIF =0;
+    }
 
     if(RBIF == 1){
      RBIF = 0;
@@ -3035,39 +3044,82 @@ while(1) {
     Lcd_Set_Cursor(1,1);
     Lcd_Write_String("S1:   S2:  CONT:");
 
-     while(varUART <= 47){
+     while(varUART <= 50){
            varUART++;
 
        if(TXIF == 1){
         TXREG = str[varUART];
        }
-        _delay((unsigned long)((15)*(4000000/4000.0)));
+        _delay((unsigned long)((10)*(4000000/4000.0)));
      }
+
     decimal(var0);
     Lcd_Set_Cursor(2,1);
     Lcd_Write_Char(centenas);
+    Lcd_Write_String(".");
     Lcd_Write_Char(decenas);
     Lcd_Write_Char(unidades);
-    Lcd_Write_String("   ");
-    decimal(var1);
-    Lcd_Write_Char(centenas);
-    Lcd_Write_Char(decenas);
-    Lcd_Write_Char(unidades);
+    Lcd_Write_String("  ");
 
-    while (tempo0 != var0){
-        tempo0 = var0;
-        if(TXIF == 1){
+
+         if(TXIF == 1){
             TXREG = centenas;
            }
-        _delay((unsigned long)((15)*(4000000/4000.0)));
+        _delay((unsigned long)((10)*(4000000/4000.0)));
+        if(TXIF == 1){
+            TXREG = 46;
+           }
+        _delay((unsigned long)((10)*(4000000/4000.0)));
         if(TXIF == 1){
             TXREG = decenas;
            }
-        _delay((unsigned long)((15)*(4000000/4000.0)));
+        _delay((unsigned long)((10)*(4000000/4000.0)));
         if(TXIF == 1){
             TXREG = unidades;
            }
-    }
+        _delay((unsigned long)((10)*(4000000/4000.0)));
+        if(TXIF == 1){
+            TXREG = 13;
+           }
+        _delay((unsigned long)((10)*(4000000/4000.0)));
+
+
+    decimal(var1);
+    Lcd_Write_Char(centenas);
+    Lcd_Write_String(".");
+    Lcd_Write_Char(decenas);
+    Lcd_Write_Char(unidades);
+    Lcd_Write_String("  ");
+
+        if(TXIF == 1){
+            TXREG = centenas;
+           }
+        _delay((unsigned long)((10)*(4000000/4000.0)));
+        if(TXIF == 1){
+            TXREG = 46;
+           }
+        _delay((unsigned long)((10)*(4000000/4000.0)));
+        if(TXIF == 1){
+            TXREG = decenas;
+           }
+        _delay((unsigned long)((10)*(4000000/4000.0)));
+        if(TXIF == 1){
+            TXREG = unidades;
+           }
+        _delay((unsigned long)((10)*(4000000/4000.0)));
+        if(TXIF == 1){
+            TXREG = 13;
+           }
+        _delay((unsigned long)((10)*(4000000/4000.0)));
+
+
+    decimal(contador);
+    Lcd_Write_Char(centenas);
+    Lcd_Write_String(".");
+    Lcd_Write_Char(decenas);
+    Lcd_Write_Char(unidades);
+
+
     _delay((unsigned long)((100)*(4000000/4000.0)));
 
 
@@ -3101,7 +3153,7 @@ void setup(void){
 
 
   initOsc(4);
-  initEUSART(0,0);
+  initEUSART(0,1);
   PORTA = 0x00;
   PORTB = 0x00;
   PORTC = 0x00;
@@ -3121,16 +3173,19 @@ void setup(void){
 
 
 void decimal(uint8_t variable){
-    uint8_t valor;
+
     valor = variable;
+    valor = (valor/255)*500;
     centenas = (valor/100) ;
     valor = (valor - (centenas*100));
     decenas = (valor/10);
     valor = (valor - (decenas*10));
     unidades = (valor);
 
+
+
     centenas = centenas + 48;
     decenas = decenas + 48;
     unidades = unidades + 48;
-
+# 279 "MainL2.c"
 }
