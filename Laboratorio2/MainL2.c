@@ -138,7 +138,7 @@ while(1) {
     Lcd_Set_Cursor(2,1);        //Llevar el cursor a fila 2 primer espacio
     Lcd_Write_Char(centenas);
     Lcd_Write_String(".");
-    Lcd_Write_Char(decenas);
+    Lcd_Write_Char(decenas);    //Enviar datos
     Lcd_Write_Char(unidades);
     Lcd_Write_String("  ");
 
@@ -148,7 +148,7 @@ while(1) {
            }
         __delay_ms(10);
         if(TXIF == 1){
-            TXREG = 46; //Enviar a terminal palabras
+            TXREG = 46; //Enviar punto
            }
         __delay_ms(10);
         if(TXIF == 1){
@@ -160,7 +160,7 @@ while(1) {
            }
         __delay_ms(10);
         if(TXIF == 1){
-            TXREG = 13; //Enviar a terminal palabras
+            TXREG = 13; //Enviar enter
            }
         __delay_ms(10);
   
@@ -177,7 +177,7 @@ while(1) {
            }
         __delay_ms(10);
         if(TXIF == 1){
-            TXREG = 46; //Enviar a terminal palabras
+            TXREG = 46; //Enviar punto
            }
         __delay_ms(10);
         if(TXIF == 1){
@@ -189,7 +189,7 @@ while(1) {
            }
         __delay_ms(10);
         if(TXIF == 1){
-            TXREG = 13; //Enviar a terminal palabras
+            TXREG = 13; //Enter
            }
         __delay_ms(10);
         
