@@ -51,27 +51,15 @@
 
 void setup(void);   //Anunciar funcion setup
 uint8_t table(uint8_t);     //Funcion tabla
-void final (void);  //
-void inicio(void);  //
-void dispasign(uint8_t , uint8_t );
-void hexconv(uint8_t );
-void decimal(uint8_t );
+
 
 /********************************Variables*************************************/
 uint8_t flagint;
 uint8_t startfinal;
 uint8_t start;
-uint8_t RXREC;
-uint8_t var0;
-uint8_t var1;
-uint8_t contador;
-uint8_t tempo1;
-uint8_t varUART;
-char unidades;
-char decenas;
-char centenas;
-float valor;
-unsigned char  str[50] = " Los valores de los potenciometros son:\r S1 \r S2";
+uint8_t inSPI;
+uint8_t varPot0;
+uint8_t varPot1;
 /********************************Interrupcion**********************************/
 void __interrupt()isr(void){
   
@@ -86,42 +74,41 @@ void __interrupt()isr(void){
     }
     
     if(PIR1bits.ADIF){
-        
+        if(ADCON0bits.CHS == 0){    //Ver canal 0
+            varPot0 = ADRESH;     //Mover a leds
+        }
+        else{                   //ver canal 1
+            varPot1 = ADRESH;       //Guardar en variable para display
+        }
         PIR1bits.ADIF = 0;
         
     }
     
-    if(PIR1bits.RCIF == 1){
-        RXREC = RCREG;      //Guardar el dato que se recibe en uart 
-        
-        PIR1bits.RCIF =0;   //Limpiar la bandera
+    if(SSPIF == 1){
+        inSPI = spiRead();      //Verificamos que valor se le solicita al Slave
+        if (inSPI == 0x00){
+            spiWrite(varPot0);
+        }
+        if (inSPI == 0x01){
+            spiWrite(varPot1);
+        }
+        SSPIF = 0;
     }
     
-    if(RBIF == 1){        
-     RBIF = 0;
-    }
+    
         
 }
 /****************************** MAIN ******************************************/
 void main(void) {
     setup();
-   
+    
     
 
 /****************************** LOOP ******************************************/
 while(1) {
-    chselect(2);            //el dos simboliza que solo se esta utilizando un canal
+    chselect(2);        //el dos simboliza que solo se esta utilizando un canal
     
-    
-     /*while(varUART <= 50){      //verficar que no pase del limite 
-           varUART++;           //Ir cambiando de character
-                   
-       if(TXIF == 1){
-        TXREG = str[varUART];   //Enviar a terminal palabras
-       }
-        __delay_ms(10);
-     }*/
-    }
+ }
 }
 
 
@@ -132,13 +119,15 @@ void setup(void){
   
   ANSELH = 0b00000000;
   
-  TRISA = 0b00000000;     //Output     
-  TRISB = 0b00000000; //Output excepto por pin 0, 1 y 2   
-  TRISC = 0b10000000;     //Output
+  TRISA = 0b00100011;     //Output     input para AN0y1, input SS'
+  TRISB = 0b00000000; //Output   
+  TRISC = 0b00000000;     //Output
   TRISD = 0x00;     //Output
   TRISE = 0x00;     //Output
   
-  
+  initAN(0b00000011, 0); //Inicializar AN y justificar a izquierda (0)  
+  WPUB = 0b00000000; //Activar el weak pull up
+  IOCB = 0b00000000; //Activar interrupt on change
   
   OPTION_REG = 0b11000100; //pullup off, INTEDG, TOSC(int),Presc TMR0, Presc val
   T1CON	 = 0x00;
@@ -148,8 +137,7 @@ void setup(void){
   
 
   initOsc(4);   //utilizar oscilador interno para reloj del sistema a 4MHz
-  initEUSART(0,1); //Encender el modulo EUSART (txie, RXIE)
-  spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+  spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
   PORTA = 0x00;
   PORTB = 0x00;
   PORTC = 0x00; //Poner todos los puertos en 0
@@ -158,7 +146,7 @@ void setup(void){
   
  //Interrupciones
   
-  PIE1 = 0b00001000; // 0, adie, rcie, txie, SSPIE, ccp1ie, tmr2, tmr1
+  PIE1 = 0b01001000; // 0, ADIE, rcie, txie, SSPIE, ccp1ie, tmr2, tmr1
   PIE2 = 0b00000000; // osfie, c2ie, c1ie, eeie, bclie, 0, ccpie2
   PIR1 = 0x00; //Limpiar banderas
   PIR2 = 0x00;
@@ -167,20 +155,4 @@ void setup(void){
     
  
 
-
-void decimal(uint8_t variable){
     
-    valor = variable;   
-    valor = (valor/255)*500;//convertir a volt
-    centenas = (valor/100) ;       //dividir entre 100 para centenas
-    valor = (valor - (centenas*100));
-    decenas = (valor/10);         //dividir entre 10 para decenas
-    valor = (valor - (decenas*10));
-    unidades = (valor);         //dividir entre 1 para unidades*/
-     
-    
-    
-    centenas = centenas + 48; //Sumar 48 para que case con ASCII
-    decenas = decenas + 48;
-    unidades = unidades + 48;
-}
