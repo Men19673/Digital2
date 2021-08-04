@@ -30,7 +30,7 @@ void spiInit(Spi_Type sType, Spi_Data_Sample sDataSample, Spi_Clock_Idle sClockI
 static void spiReceiveWait(void)
 {
     while ( !SSPSTATbits.BF ){
-        
+    
     }; // Wait for Data Receive complete
 }
 

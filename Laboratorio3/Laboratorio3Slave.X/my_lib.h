@@ -68,7 +68,7 @@ void initAN(uint8_t bin, uint8_t just){ //just 0 es izquierda, 1 derecha
         
      ANSEL = bin;  //Apagar analogo
      ANSELH = 0b00000000;
-     TRISA = bin;
+     
      
      ADCON0bits.CHS= 0;
      __delay_us(100);

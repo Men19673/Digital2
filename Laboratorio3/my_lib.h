@@ -337,5 +337,12 @@ void initEUSART(uint8_t tx, uint8_t rx){ //Enable interrupt Tx y Rx
     PIE1bits.TXIE =tx; //Encender tx o rx interrupt
     PIE1bits.RCIE =rx;
 }
+
+void pushPORTB(uint8_t val){
+  TRISB = val; //Activar el tris para input
+  WPUB = val; //Activar el weak pull up
+  IOCB = val; //Activar interrupt on change
+  INTCONbits.RBIE = 1; //Activar la interrupción
+}
 #endif	/* MY_LIB_H */
 

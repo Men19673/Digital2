@@ -11,7 +11,7 @@
 #include <stdint.h>
 #include "my_lib.h"
 #include "SPI.h"
-
+#include <pic16f887.h>
 
 /***************************Configuration Words********************************/
 // CONFIG1
@@ -51,10 +51,7 @@
 
 void setup(void);   //Anunciar funcion setup
 uint8_t table(uint8_t);     //Funcion tabla
-void final (void);  //
-void inicio(void);  //
-void dispasign(uint8_t , uint8_t );
-void hexconv(uint8_t );
+void sendValues(void);
 void decimal(uint8_t );
 
 /********************************Variables*************************************/
@@ -62,16 +59,15 @@ uint8_t flagint;
 uint8_t startfinal;
 uint8_t start;
 uint8_t RXREC;
-uint8_t var0;
-uint8_t var1;
+uint8_t varPot0;
+uint8_t varPot1;
 uint8_t contador;
-uint8_t tempo1;
-uint8_t varUART;
+char enter = 10;
+char varUART;
 char unidades;
 char decenas;
 char centenas;
 float valor;
-unsigned char  str[50] = " Los valores de los potenciometros son:\r S1 \r S2";
 /********************************Interrupcion**********************************/
 void __interrupt()isr(void){
   
@@ -92,7 +88,7 @@ void __interrupt()isr(void){
     }
     
     if(PIR1bits.RCIF == 1){
-        RXREC = RCREG;      //Guardar el dato que se recibe en uart 
+        varUART = RCREG;      //Guardar el dato que se recibe en uart 
         
         PIR1bits.RCIF =0;   //Limpiar la bandera
     }
@@ -111,16 +107,18 @@ void main(void) {
 /****************************** LOOP ******************************************/
 while(1) {
     chselect(2);            //el dos simboliza que solo se esta utilizando un canal
+    RC2 = 0;                //Activar SLAVE
+    spiWrite(0x01);         //solicitar valor de Pot0
+    __delay_ms(5);
+    varPot0 = spiRead();
+    __delay_ms(5);
+    spiWrite(0x02);        //solicitar valor de Pot1
+    __delay_ms(5);
+    varPot1 = spiRead();
+    RC2 = 1;
     
+    sendValues();
     
-     /*while(varUART <= 50){      //verficar que no pase del limite 
-           varUART++;           //Ir cambiando de character
-                   
-       if(TXIF == 1){
-        TXREG = str[varUART];   //Enviar a terminal palabras
-       }
-        __delay_ms(10);
-     }*/
     }
 }
 
@@ -134,7 +132,7 @@ void setup(void){
   
   TRISA = 0b00000000;     //Output     
   TRISB = 0b00000000; //Output excepto por pin 0, 1 y 2   
-  TRISC = 0b10000000;     //Output
+  TRISC = 0b10010000;     //Output
   TRISD = 0x00;     //Output
   TRISE = 0x00;     //Output
   
@@ -150,6 +148,7 @@ void setup(void){
   initOsc(4);   //utilizar oscilador interno para reloj del sistema a 4MHz
   initEUSART(0,1); //Encender el modulo EUSART (txie, RXIE)
   spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+  
   PORTA = 0x00;
   PORTB = 0x00;
   PORTC = 0x00; //Poner todos los puertos en 0
@@ -158,7 +157,7 @@ void setup(void){
   
  //Interrupciones
   
-  PIE1 = 0b00001000; // 0, adie, rcie, txie, SSPIE, ccp1ie, tmr2, tmr1
+  PIE1 = 0b00100000; // 0, adie, RCIE, txie, sspie, ccp1ie, tmr2, tmr1
   PIE2 = 0b00000000; // osfie, c2ie, c1ie, eeie, bclie, 0, ccpie2
   PIR1 = 0x00; //Limpiar banderas
   PIR2 = 0x00;
@@ -183,4 +182,63 @@ void decimal(uint8_t variable){
     centenas = centenas + 48; //Sumar 48 para que case con ASCII
     decenas = decenas + 48;
     unidades = unidades + 48;
+}
+
+void sendValues(void){
+    switch(varUART){
+    
+        case('p'):
+        decimal(varPot0);              //Convertir a decimales y a CHAR
+            if(TXIF == 1){
+               TXREG = centenas; //Enviar a terminal palabras
+               }
+            __delay_ms(5);
+            if(TXIF == 1){
+                TXREG = 46; //Enviar punto
+               }
+            __delay_ms(5);
+            if(TXIF == 1){
+                TXREG = decenas; //Enviar a terminal palabras
+               }
+            __delay_ms(5);
+            if(TXIF == 1){
+                TXREG = unidades; //Enviar a terminal palabras
+               }
+            __delay_ms(5);
+
+            if(TXIF == 1){
+                TXREG = enter; //Enter
+               }
+            __delay_ms(100);
+            varUART =0;     //Limpiar bandera
+            break;
+            
+        case('o'):
+        
+        decimal(varPot1);              //Convertir a decimales y a CHAR
+           if(TXIF == 1){
+              TXREG = centenas; //Enviar a terminal palabras
+              }
+           __delay_ms(10);
+           if(TXIF == 1){
+               TXREG = 46; //Enviar punto
+              }
+           __delay_ms(10);
+           if(TXIF == 1){
+               TXREG = decenas; //Enviar a terminal palabras
+              }
+           __delay_ms(10);
+           if(TXIF == 1){
+               TXREG = unidades; //Enviar a terminal palabras
+              }
+           __delay_ms(20);
+           if(TXIF == 1){
+               TXREG = enter; //Enter
+              }
+           __delay_ms(100);
+           varUART= 0; // Limpiar bandera
+           
+        default:
+            PORTD=varUART;
+    }
 }

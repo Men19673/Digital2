@@ -11,7 +11,7 @@
 #include <stdint.h>
 #include "my_lib.h"
 #include "SPI.h"
-
+#include <pic16f887.h>
 
 /***************************Configuration Words********************************/
 // CONFIG1
@@ -85,11 +85,13 @@ void __interrupt()isr(void){
     }
     
     if(SSPIF == 1){
+        inSPI = 0;
         inSPI = spiRead();      //Verificamos que valor se le solicita al Slave
-        if (inSPI == 0x00){
+     
+        if (inSPI == 0x01){
             spiWrite(varPot0);
         }
-        if (inSPI == 0x01){
+        if (inSPI == 0x02){
             spiWrite(varPot1);
         }
         SSPIF = 0;
@@ -107,7 +109,8 @@ void main(void) {
 /****************************** LOOP ******************************************/
 while(1) {
     chselect(2);        //el dos simboliza que solo se esta utilizando un canal
-    
+    PORTB = varPot0;
+    PORTD = varPot1;
  }
 }
 
@@ -121,7 +124,7 @@ void setup(void){
   
   TRISA = 0b00100011;     //Output     input para AN0y1, input SS'
   TRISB = 0b00000000; //Output   
-  TRISC = 0b00000000;     //Output
+  TRISC = 0b00011000;     //Output
   TRISD = 0x00;     //Output
   TRISE = 0x00;     //Output
   
@@ -138,6 +141,7 @@ void setup(void){
 
   initOsc(4);   //utilizar oscilador interno para reloj del sistema a 4MHz
   spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+  
   PORTA = 0x00;
   PORTB = 0x00;
   PORTC = 0x00; //Poner todos los puertos en 0
