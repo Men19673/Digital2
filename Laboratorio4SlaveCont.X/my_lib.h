@@ -65,10 +65,10 @@ void initOsc(uint8_t frec){
 }
 
 void initAN(uint8_t bin, uint8_t just){ //just 0 es izquierda, 1 derecha
-        
+     
      ANSEL = bin;  //Apagar analogo
      ANSELH = 0b00000000;
-     TRISA = bin;
+     
      
      ADCON0bits.CHS= 0;
      __delay_us(100);
@@ -342,6 +342,7 @@ void pushPORTB(uint8_t val){
   TRISB = val; //Activar el tris para input
   WPUB = val; //Activar el weak pull up
   IOCB = val; //Activar interrupt on change
+  OPTION_REG = OPTION_REG & 0x7F;
   INTCONbits.RBIE = 1; //Activar la interrupción
 }
 #endif	/* MY_LIB_H */
