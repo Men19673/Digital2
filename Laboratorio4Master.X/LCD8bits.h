@@ -1,22 +1,23 @@
-/*
- * File: LCD.h
- * Se utilizo y se adaptaron las librerias de Ligo George
- * de la pagina www.electrosome.com
+/* 
+ * File: LCD.h  
+ * Se utilizo y se adaptaron las librerias de Ligo George 
+ * de la p?gina www.electrosome.com
  * Enlace: https://electrosome.com/lcd-pic-mplab-xc8/
- * Revision history:
+ * Revision history: 
  */
 
 // This is a guard condition so that contents of this file are not included
-// more than once.
-#ifndef    LCD8bits8_H
-#define    LCD8bits8_H
+// more than once.  
+#ifndef LCD8BITS_H
+#define	LCD8BITS_H
+
 
 #ifndef _XTAL_FREQ
 #define _XTAL_FREQ 8000000
 #endif
-// Definido con respecto al esquematico de proteus
+
 #ifndef RS
-#define RS PORTEbits.RE0 
+#define RS RE0 
 #endif
 
 #ifndef EN

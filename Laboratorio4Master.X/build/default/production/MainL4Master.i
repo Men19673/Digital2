@@ -2960,8 +2960,8 @@ unsigned short I2C_Master_Read(unsigned short a);
 void I2C_Slave_Init(uint8_t address);
 # 13 "MainL4Master.c" 2
 
-# 1 "./LCD8bits8.h" 1
-# 63 "./LCD8bits8.h"
+# 1 "./LCD8bits.h" 1
+# 64 "./LCD8bits.h"
 void Lcd_Port(char a);
 
 void Lcd_Cmd(char a);
@@ -3030,8 +3030,7 @@ uint8_t RXREC;
 uint8_t varPot0;
 uint8_t valor;
 uint8_t cont;
-char enter = 10;
-char varUART;
+
 char unidades;
 char decenas;
 char centenas;

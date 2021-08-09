@@ -1,14 +1,14 @@
-/*
+/* 
  * File: LCD.c  
- * Se utilizo y se adaptaron las librerias de Ligo George
- * de la pagina www.electrosome.com
+ * Se utilizo y se adaptaron las librerias de Ligo George 
+ * de la p?gina www.electrosome.com
  * Enlace: https://electrosome.com/lcd-pic-mplab-xc8/
- * Revision history:
+ * Revision history: 
  */
 
 //LCD Functions Developed by electroSome
-#include "LCD8bits8.h"
-#define _XTAL_FREQ 8000000
+
+#include "LCD8bits.h"
 void Lcd_Port(char a) {
     PORTD = a;        //Tomar valor de puerto D
 
@@ -45,7 +45,6 @@ void Lcd_Set_Cursor(char a, char b) {
 }
 
 void Lcd_Init(void) {
-    __delay_ms(20);
     Lcd_Port(0x00);
     __delay_ms(20);
     Lcd_Cmd(0x30); //Iniciando en 8 bits
@@ -70,7 +69,7 @@ void Lcd_Write_Char(char a) {
     RS = 1;// => RS = 1 Activar lectura de caracteres
     Lcd_Port(y);        // Escribir lo que esta en puerto D
     EN = 1;             //Encender enable
-    __delay_ms(40);
+    __delay_us(40);
     EN = 0;
 
 }

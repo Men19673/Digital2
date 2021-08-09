@@ -11,7 +11,7 @@
 #include <stdint.h>
 #include "my_lib.h"
 #include "I2C.h"
-#include "LCD8bits8.h"
+#include "LCD8bits.h"
 #include <pic16f887.h>
 
 /***************************Configuration Words********************************/
@@ -61,8 +61,7 @@ uint8_t RXREC;
 uint8_t varPot0;
 uint8_t valor;
 uint8_t cont;
-char enter = 10;
-char varUART;
+
 char unidades;
 char decenas;
 char centenas;

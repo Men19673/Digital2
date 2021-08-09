@@ -162,22 +162,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [t T1 __interrupt ]
 [p mainexit ]
 "53 MainL4Master.c
-[; ;MainL4Master.c: 53:     I2C_Master_Start();
+[; ;MainL4Master.c: 53:     I2C_Master_Write(0x91);
 [v _setup `(v ~T0 @X0 0 ef ]
-"71 ./LCD8bits8.h
-[; ;./LCD8bits8.h: 71: void Lcd_Init(void);
+"72 ./LCD8bits.h
+[; ;./LCD8bits.h: 72: void Lcd_Init(void);
 [v _Lcd_Init `(v ~T0 @X0 0 ef ]
-"67
-[; ;./LCD8bits8.h: 67: void Lcd_Clear(void);
+"68
+[; ;./LCD8bits.h: 68: void Lcd_Clear(void);
 [v _Lcd_Clear `(v ~T0 @X0 0 ef ]
-"69
-[; ;./LCD8bits8.h: 69: void Lcd_Set_Cursor(char a, char b);
+"70
+[; ;./LCD8bits.h: 70: void Lcd_Set_Cursor(char a, char b);
 [v _Lcd_Set_Cursor `(v ~T0 @X0 0 ef2`uc`uc ]
-"73
-[; ;./LCD8bits8.h: 73: void Lcd_Write_Char(char a);
+"74
+[; ;./LCD8bits.h: 74: void Lcd_Write_Char(char a);
 [v _Lcd_Write_Char `(v ~T0 @X0 0 ef1`uc ]
-"75
-[; ;./LCD8bits8.h: 75: void Lcd_Write_String(char *a);
+"76
+[; ;./LCD8bits.h: 76: void Lcd_Write_String(char *a);
 [v _Lcd_Write_String `(v ~T0 @X0 0 ef1`*uc ]
 "41 ./I2C.h
 [; ;./I2C.h: 41: void I2C_Master_Start(void);
@@ -192,7 +192,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./I2C.h: 49: void I2C_Master_Stop(void);
 [v _I2C_Master_Stop `(v ~T0 @X0 0 ef ]
 "54 MainL4Master.c
-[; ;MainL4Master.c: 54:     I2C_Master_Write(0x91);
+[; ;MainL4Master.c: 54:     varPot0 = I2C_Master_Read(0);
 [v _voltASCII `(v ~T0 @X0 0 ef1`uc ]
 "228 E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
@@ -1376,13 +1376,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 216 ]
 }
 "19 MainL4Master.c
-[; ;MainL4Master.c: 19: char varUART;
+[; ;MainL4Master.c: 19: char unidades;
 [p x FOSC  =  INTRC_NOCLKOUT ]
 "22
-[; ;MainL4Master.c: 22: char centenas;
+[; ;MainL4Master.c: 22: 
 [p x WDTE  =  OFF        ]
 "25
-[; ;MainL4Master.c: 25: void __attribute__((picinterrupt((""))))isr(void){
+[; ;MainL4Master.c: 25: 
 [p x PWRTE  =  OFF       ]
 "26
 [; ;MainL4Master.c: 26: 
@@ -1391,257 +1391,248 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MainL4Master.c: 29: 
 [p x CP  =  OFF          ]
 "31
-[; ;MainL4Master.c: 31: }
+[; ;MainL4Master.c: 31: 
 [p x CPD  =  OFF         ]
 "33
-[; ;MainL4Master.c: 33: void main(void) {
+[; ;MainL4Master.c: 33:     setup();
 [p x BOREN  =  OFF       ]
 "34
-[; ;MainL4Master.c: 34:     setup();
+[; ;MainL4Master.c: 34: 
 [p x IESO  =  OFF        ]
 "36
-[; ;MainL4Master.c: 36:     Lcd_Init();
+[; ;MainL4Master.c: 36: 
 [p x FCMEN  =  OFF       ]
 "38
 [; ;MainL4Master.c: 38: 
 [p x LVP  =  OFF         ]
 "42
-[; ;MainL4Master.c: 42:     Lcd_Set_Cursor(1,1);
+[; ;MainL4Master.c: 42:     Lcd_Write_Char("a");
 [p x BOR4V  =  BOR40V    ]
 "44
-[; ;MainL4Master.c: 44:     Lcd_Write_String("ADC: CONT: TEMP:");
+[; ;MainL4Master.c: 44:     _delay((unsigned long)((200)*(8000000/4000.0)));
 [p x WRT  =  OFF         ]
 "57
-[; ;MainL4Master.c: 57:     _delay((unsigned long)((200)*(8000000/4000.0)));
+[; ;MainL4Master.c: 57: 
 [v _flagint `uc ~T0 @X0 1 e ]
 "58
 [; ;MainL4Master.c: 58: 
 [v _startfinal `uc ~T0 @X0 1 e ]
 "59
-[; ;MainL4Master.c: 59: 
+[; ;MainL4Master.c: 59:     voltASCII(cont);
 [v _start `uc ~T0 @X0 1 e ]
 "60
-[; ;MainL4Master.c: 60:     voltASCII(cont);
+[; ;MainL4Master.c: 60:     Lcd_Set_Cursor(2,1);
 [v _RXREC `uc ~T0 @X0 1 e ]
 "61
-[; ;MainL4Master.c: 61:     Lcd_Set_Cursor(2,1);
+[; ;MainL4Master.c: 61:     Lcd_Write_Char(centenas);
 [v _varPot0 `uc ~T0 @X0 1 e ]
 "62
-[; ;MainL4Master.c: 62:     Lcd_Write_Char(centenas);
+[; ;MainL4Master.c: 62:     Lcd_Write_String(".");
 [v _valor `uc ~T0 @X0 1 e ]
 "63
-[; ;MainL4Master.c: 63:     Lcd_Write_String(".");
+[; ;MainL4Master.c: 63:     Lcd_Write_Char(decenas);
 [v _cont `uc ~T0 @X0 1 e ]
-"64
-[; ;MainL4Master.c: 64:     Lcd_Write_Char(decenas);
-[v _enter `uc ~T0 @X0 1 e ]
-[i _enter
--> -> 10 `i `uc
-]
 "65
-[; ;MainL4Master.c: 65:     Lcd_Write_Char(unidades);
-[v _varUART `uc ~T0 @X0 1 e ]
-"66
-[; ;MainL4Master.c: 66:     Lcd_Write_String("  ");
+[; ;MainL4Master.c: 65:     Lcd_Write_String("  ");
 [v _unidades `uc ~T0 @X0 1 e ]
-"67
-[; ;MainL4Master.c: 67:     _delay((unsigned long)((200)*(8000000/4000.0)));
+"66
+[; ;MainL4Master.c: 66:     _delay((unsigned long)((200)*(8000000/4000.0)));
 [v _decenas `uc ~T0 @X0 1 e ]
-"68
-[; ;MainL4Master.c: 68: 
+"67
+[; ;MainL4Master.c: 67: 
 [v _centenas `uc ~T0 @X0 1 e ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"71
-[; ;MainL4Master.c: 71:     PORTB = varPot0;
+"70
+[; ;MainL4Master.c: 70:     PORTB = varPot0;
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"77
-[; ;MainL4Master.c: 77: 
+"76
+[; ;MainL4Master.c: 76: 
 [e :UE 217 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"79
-[; ;MainL4Master.c: 79: 
+"78
+[; ;MainL4Master.c: 78: 
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"80
-[; ;MainL4Master.c: 80: 
+"79
+[; ;MainL4Master.c: 79: 
 [e ( _setup ..  ]
-"82
-[; ;MainL4Master.c: 82: 
+"81
+[; ;MainL4Master.c: 81: 
 [e ( _Lcd_Init ..  ]
-"86
-[; ;MainL4Master.c: 86:   TRISA = 0b00000000;
+"85
+[; ;MainL4Master.c: 85:   TRISA = 0b00000000;
 [e :U 220 ]
 {
-"87
-[; ;MainL4Master.c: 87:   TRISB = 0b00000000;
+"86
+[; ;MainL4Master.c: 86:   TRISB = 0b00000000;
 [e ( _Lcd_Clear ..  ]
-"88
-[; ;MainL4Master.c: 88:   TRISC = 0b00000000;
+"87
+[; ;MainL4Master.c: 87:   TRISC = 0b00000000;
 [e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"89
-[; ;MainL4Master.c: 89:   TRISD = 0b00000000;
+"88
+[; ;MainL4Master.c: 88:   TRISD = 0b00000000;
 [e ( _Lcd_Write_Char (1 -> :s 1C `uc ]
-"90
-[; ;MainL4Master.c: 90:   TRISE = 0x00;
+"89
+[; ;MainL4Master.c: 89:   TRISE = 0x00;
 [e ( _Lcd_Write_String (1 :s 2C ]
-"91
-[; ;MainL4Master.c: 91: 
+"90
+[; ;MainL4Master.c: 90: 
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"92
+[; ;MainL4Master.c: 92: 
+[e ( _I2C_Master_Start ..  ]
 "93
-[; ;MainL4Master.c: 93: 
-[e ( _I2C_Master_Start ..  ]
-"94
-[; ;MainL4Master.c: 94:   OPTION_REG = 0b11000100;
+[; ;MainL4Master.c: 93:   OPTION_REG = 0b11000100;
 [e ( _I2C_Master_Write (1 -> -> 113 `i `ui ]
-"95
-[; ;MainL4Master.c: 95: 
+"94
+[; ;MainL4Master.c: 94: 
 [e = _cont -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"95
+[; ;MainL4Master.c: 95:   initOsc(8);
+[e ( _I2C_Master_Stop ..  ]
 "96
-[; ;MainL4Master.c: 96:   initOsc(8);
-[e ( _I2C_Master_Stop ..  ]
-"97
-[; ;MainL4Master.c: 97:   I2C_Master_Init(100000);
+[; ;MainL4Master.c: 96:   I2C_Master_Init(100000);
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"99
-[; ;MainL4Master.c: 99:   PORTA = 0x00;
+"98
+[; ;MainL4Master.c: 98:   PORTA = 0x00;
 [e ( _I2C_Master_Start ..  ]
-"100
-[; ;MainL4Master.c: 100:   PORTB = 0x00;
+"99
+[; ;MainL4Master.c: 99:   PORTB = 0x00;
 [e ( _I2C_Master_Write (1 -> -> 145 `i `ui ]
-"101
-[; ;MainL4Master.c: 101:   PORTC = 0x00;
+"100
+[; ;MainL4Master.c: 100:   PORTC = 0x00;
 [e = _varPot0 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"102
-[; ;MainL4Master.c: 102:   PORTD = 0x00;
+"101
+[; ;MainL4Master.c: 101:   PORTD = 0x00;
 [e ( _I2C_Master_Stop ..  ]
-"103
-[; ;MainL4Master.c: 103:   PORTE = 0x00;
+"102
+[; ;MainL4Master.c: 102:   PORTE = 0x00;
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"106
-[; ;MainL4Master.c: 106: 
+"105
+[; ;MainL4Master.c: 105: 
 [e ( _voltASCII (1 _cont ]
-"107
-[; ;MainL4Master.c: 107:   PIE1 = 0b00000000;
+"106
+[; ;MainL4Master.c: 106:   PIE1 = 0b00000000;
 [e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"108
-[; ;MainL4Master.c: 108:   PIE2 = 0b00000000;
+"107
+[; ;MainL4Master.c: 107:   PIE2 = 0b00000000;
 [e ( _Lcd_Write_Char (1 _centenas ]
-"109
-[; ;MainL4Master.c: 109:   PIR1 = 0x00;
+"108
+[; ;MainL4Master.c: 108:   PIR1 = 0x00;
 [e ( _Lcd_Write_String (1 :s 3C ]
-"110
-[; ;MainL4Master.c: 110:   PIR2 = 0x00;
+"109
+[; ;MainL4Master.c: 109:   PIR2 = 0x00;
 [e ( _Lcd_Write_Char (1 _decenas ]
-"111
-[; ;MainL4Master.c: 111:   INTCON = 0b00000000;
+"110
+[; ;MainL4Master.c: 110:   INTCON = 0b00000000;
 [e ( _Lcd_Write_Char (1 _unidades ]
-"112
-[; ;MainL4Master.c: 112: }
+"111
+[; ;MainL4Master.c: 111: }
 [e ( _Lcd_Write_String (1 :s 4C ]
-"113
-[; ;MainL4Master.c: 113: 
+"112
+[; ;MainL4Master.c: 112: 
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"117
-[; ;MainL4Master.c: 117: void voltASCII(uint8_t variable){
+"116
+[; ;MainL4Master.c: 116: void voltASCII(uint8_t variable){
 [e = _PORTB _varPot0 ]
-"118
-[; ;MainL4Master.c: 118: 
+"117
+[; ;MainL4Master.c: 117: 
 [e = _PORTA _cont ]
-"119
-[; ;MainL4Master.c: 119:     valor = variable;
+"118
+[; ;MainL4Master.c: 118:     valor = variable;
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"121
-[; ;MainL4Master.c: 121:     centenas = (valor/100) ;
+"120
+[; ;MainL4Master.c: 120:     centenas = (valor/100) ;
 }
 [e :U 219 ]
 [e $U 220  ]
 [e :U 221 ]
-"122
-[; ;MainL4Master.c: 122:     valor = (valor - (centenas*100));
+"121
+[; ;MainL4Master.c: 121:     valor = (valor - (centenas*100));
 [e :UE 218 ]
 }
-"127
-[; ;MainL4Master.c: 127: 
+"126
+[; ;MainL4Master.c: 126: 
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"130
-[; ;MainL4Master.c: 130:     decenas = decenas + 48;
+"129
+[; ;MainL4Master.c: 129:     decenas = decenas + 48;
 [e = _ANSELH -> -> 0 `i `uc ]
-"132
-[; ;MainL4Master.c: 132: }
+"131
+[; ;MainL4Master.c: 131: }
 [e = _TRISA -> -> 0 `i `uc ]
-"133
+"132
 [e = _TRISB -> -> 0 `i `uc ]
-"134
+"133
 [e = _TRISC -> -> 0 `i `uc ]
-"135
+"134
 [e = _TRISD -> -> 0 `i `uc ]
-"136
+"135
 [e = _TRISE -> -> 0 `i `uc ]
-"140
+"139
 [e = _OPTION_REG -> -> 196 `i `uc ]
-"142
+"141
 [e ( _initOsc (1 -> -> 8 `i `uc ]
-"143
+"142
 [e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
-"145
+"144
 [e = _PORTA -> -> 0 `i `uc ]
-"146
+"145
 [e = _PORTB -> -> 0 `i `uc ]
-"147
+"146
 [e = _PORTC -> -> 0 `i `uc ]
-"148
+"147
 [e = _PORTD -> -> 0 `i `uc ]
-"149
+"148
 [e = _PORTE -> -> 0 `i `uc ]
-"153
+"152
 [e = _PIE1 -> -> 0 `i `uc ]
-"154
+"153
 [e = _PIE2 -> -> 0 `i `uc ]
-"155
+"154
 [e = _PIR1 -> -> 0 `i `uc ]
-"156
+"155
 [e = _PIR2 -> -> 0 `i `uc ]
-"157
+"156
 [e = _INTCON -> -> 0 `i `uc ]
-"158
+"157
 [e :UE 222 ]
 }
-"163
+"162
 [v _voltASCII `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _voltASCII ]
 [v _variable `uc ~T0 @X0 1 r1 ]
 [f ]
-"165
+"164
 [e = _valor _variable ]
-"166
+"165
 [e = _valor -> * / -> _valor `i -> 255 `i -> 500 `i `uc ]
-"167
+"166
 [e = _centenas -> / -> _valor `i -> 100 `i `uc ]
-"168
+"167
 [e = _valor -> - -> _valor `i * -> _centenas `i -> 100 `i `uc ]
-"169
+"168
 [e = _decenas -> / -> _valor `i -> 10 `i `uc ]
-"170
+"169
 [e = _valor -> - -> _valor `i * -> _decenas `i -> 10 `i `uc ]
-"171
+"170
 [e = _unidades -> _valor `uc ]
-"175
+"174
 [e = _centenas -> + -> _centenas `i -> 48 `i `uc ]
-"176
+"175
 [e = _decenas -> + -> _decenas `i -> 48 `i `uc ]
-"177
+"176
 [e = _unidades -> + -> _unidades `i -> 48 `i `uc ]
-"178
+"177
 [e :UE 223 ]
 }
 [a 1C 97 0 ]

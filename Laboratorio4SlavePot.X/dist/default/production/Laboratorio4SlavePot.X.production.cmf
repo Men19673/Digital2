@@ -24,7 +24,7 @@ cstackCOMMON COMMON 1 70 70 7 1
 intentry CODE 0 4 4 8 2
 bssCOMMON COMMON 1 77 77 4 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\diego\AppData\Local\Temp\xcAs8v4.o
+$C:\Users\diego\AppData\Local\Temp\xcAskek.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -74,15 +74,15 @@ STRING 268-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Laboratorio4SlavePot.X.production.o
-F cinit CODE >687:C:\Users\diego\AppData\Local\Temp\xcAs8v4.s
-F cinit CODE >690:C:\Users\diego\AppData\Local\Temp\xcAs8v4.s
-F cinit CODE >710:C:\Users\diego\AppData\Local\Temp\xcAs8v4.s
-10 cinit CODE >711:C:\Users\diego\AppData\Local\Temp\xcAs8v4.s
-11 cinit CODE >712:C:\Users\diego\AppData\Local\Temp\xcAs8v4.s
-12 cinit CODE >713:C:\Users\diego\AppData\Local\Temp\xcAs8v4.s
-13 cinit CODE >719:C:\Users\diego\AppData\Local\Temp\xcAs8v4.s
-13 cinit CODE >721:C:\Users\diego\AppData\Local\Temp\xcAs8v4.s
-14 cinit CODE >722:C:\Users\diego\AppData\Local\Temp\xcAs8v4.s
+F cinit CODE >687:C:\Users\diego\AppData\Local\Temp\xcAskek.s
+F cinit CODE >690:C:\Users\diego\AppData\Local\Temp\xcAskek.s
+F cinit CODE >710:C:\Users\diego\AppData\Local\Temp\xcAskek.s
+10 cinit CODE >711:C:\Users\diego\AppData\Local\Temp\xcAskek.s
+11 cinit CODE >712:C:\Users\diego\AppData\Local\Temp\xcAskek.s
+12 cinit CODE >713:C:\Users\diego\AppData\Local\Temp\xcAskek.s
+13 cinit CODE >719:C:\Users\diego\AppData\Local\Temp\xcAskek.s
+13 cinit CODE >721:C:\Users\diego\AppData\Local\Temp\xcAskek.s
+14 cinit CODE >722:C:\Users\diego\AppData\Local\Temp\xcAskek.s
 4 intentry CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio4SlavePot.X\MainL4Pot.c
 117 text6 CODE >63:C:\Users\diego\Desktop\Digital2\Laboratorio4SlavePot.X\MainL4Pot.c
 117 text6 CODE >65:C:\Users\diego\Desktop\Digital2\Laboratorio4SlavePot.X\MainL4Pot.c
@@ -330,19 +330,19 @@ _PIE2 8D 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.production.o
 _PIR1 C 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.production.o
 _PIR2 D 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.production.o
 _WPUB 95 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\diego\AppData\Local\Temp\xcAs8v4.o
+___sp 0 0 STACK 2 stack C:\Users\diego\AppData\Local\Temp\xcAskek.o
 _main 4AA 0 CODE 0 maintext dist/default/production\Laboratorio4SlavePot.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.production.o
-start 18 0 CODE 0 init C:\Users\diego\AppData\Local\Temp\xcAs8v4.o
+start 18 0 CODE 0 init C:\Users\diego\AppData\Local\Temp\xcAskek.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs8v4.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs8v4.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs8v4.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs8v4.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs8v4.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs8v4.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAskek.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAskek.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAskek.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAskek.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAskek.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAskek.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.production.o
@@ -355,8 +355,8 @@ __size_of_initOsc 0 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.pro
 __Lmaintext 0 0 ABS 0 maintext -
 _INTCON B 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.production.o
 _OPTION_REG 81 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\diego\AppData\Local\Temp\xcAs8v4.o
-___stacklo 0 0 ABS 0 - C:\Users\diego\AppData\Local\Temp\xcAs8v4.o
+___stackhi 0 0 ABS 0 - C:\Users\diego\AppData\Local\Temp\xcAskek.o
+___stacklo 0 0 ABS 0 - C:\Users\diego\AppData\Local\Temp\xcAskek.o
 _BAUDCTLbits 187 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.production.o
 _I2C_Slave_Init 476 0 CODE 0 text4 dist/default/production\Laboratorio4SlavePot.X.production.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.production.o
@@ -371,7 +371,7 @@ _SSPCON 14 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.production.o
 _TRISC4 43C 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.production.o
 __end_of_initOsc 3C2 0 CODE 0 text2 dist/default/production\Laboratorio4SlavePot.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\diego\AppData\Local\Temp\xcAs8v4.o
+___int_sp 0 0 STACK 2 stack C:\Users\diego\AppData\Local\Temp\xcAskek.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -417,7 +417,7 @@ saved_w 7E 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.production.o
 __end_of_isr 30A 0 CODE 0 text6 dist/default/production\Laboratorio4SlavePot.X.production.o
 _varPot0 79 0 COMMON 1 bssCOMMON dist/default/production\Laboratorio4SlavePot.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\diego\AppData\Local\Temp\xcAs8v4.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\diego\AppData\Local\Temp\xcAskek.o
 _initAN 42A 0 CODE 0 text3 dist/default/production\Laboratorio4SlavePot.X.production.o
 initOsc@frec 75 0 COMMON 1 cstackCOMMON dist/default/production\Laboratorio4SlavePot.X.production.o
 _RCSTAbits 18 0 ABS 0 - dist/default/production\Laboratorio4SlavePot.X.production.o
