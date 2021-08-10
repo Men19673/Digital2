@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
-                                                                                               Mon Aug 09 15:25:43 2021
+                                                                                               Mon Aug 09 20:27:07 2021
 
 Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
      1                           	processor	16F887
@@ -560,7 +560,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    546  01F6  3008               	movlw	8
    547  01F7  120A  118A  2185  120A  118A  	fcall	_initOsc
    548  01FC                     l1248:
-   549  01FC  3090               	movlw	144
+   549  01FC  3050               	movlw	80
    550  01FD  120A  118A  223B  120A  118A  	fcall	_I2C_Slave_Init
    551  0202                     l1250:
    552  0202  1283               	bcf	3,5	;RP0=0, select bank0
@@ -1782,7 +1782,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1765                           ;MainL4Pot.c: 96:   initOsc(8);
   1766  016F  1614               	bsf	20,4	;volatile
   1767                           
-  1768                           ;MainL4Pot.c: 97:   I2C_Slave_Init(0x90);
+  1768                           ;MainL4Pot.c: 97:   I2C_Slave_Init(0x50);
   1769  0170  30A6               	movlw	166
   1770  0171  00F0               	movwf	??_isr
   1771  0172                     u32_27:
@@ -2007,7 +2007,7 @@ DATA                 0      0       B      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.32 build 20210201212658 
-Symbol Table                                                                                   Mon Aug 09 15:25:43 2021
+Symbol Table                                                                                   Mon Aug 09 20:27:07 2021
 
                       _z 0077              _SSPSTATbits 0094                       _BF 04A0  
                      l90 01B1                       l82 0187                       l91 01B7  

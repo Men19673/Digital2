@@ -1559,7 +1559,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MainL4Pot.c: 96:   initOsc(8);
 [e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
 "97
-[; ;MainL4Pot.c: 97:   I2C_Slave_Init(0x90);
+[; ;MainL4Pot.c: 97:   I2C_Slave_Init(0x50);
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
 "98
 [; ;MainL4Pot.c: 98: 
@@ -1633,7 +1633,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "141
 [e ( _initOsc (1 -> -> 8 `i `uc ]
 "142
-[e ( _I2C_Slave_Init (1 -> -> 144 `i `uc ]
+[e ( _I2C_Slave_Init (1 -> -> 80 `i `uc ]
 "144
 [e = _PORTA -> -> 0 `i `uc ]
 "145

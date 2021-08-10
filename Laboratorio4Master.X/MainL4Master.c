@@ -45,26 +45,28 @@
                                 // (Write protection off)
 
 
-#define _XTAL_FREQ      8000000 //Definir la frecuencia de operacion, cambiar en 
+#define _XTAL_FREQ      4000000 //Definir la frecuencia de operacion, cambiar en 
                                 //Cambiar en libreria
 
 /******************************Prototipos**************************************/
 
 void setup(void);   //Anunciar funcion setup
-void voltASCII(uint8_t );
+void voltASCII(uint8_t);
+void contASCII(int8_t);
+void tempASCII(int8_t);
 
 /********************************Variables*************************************/
 uint8_t flagint;
-uint8_t startfinal;
-uint8_t start;
+int8_t temp;
+uint8_t temp1;
 uint8_t RXREC;
 uint8_t varPot0;
-uint8_t valor;
+
 uint8_t cont;
 
-char unidades;
-char decenas;
-char centenas;
+uint8_t unidades;
+uint8_t decenas;
+uint8_t centenas;
 
 /********************************Interrupcion**********************************/
 void __interrupt()isr(void){
@@ -77,17 +79,17 @@ void __interrupt()isr(void){
 /****************************** MAIN ******************************************/
 void main(void) {
     setup();
-    //__delay_ms(15);
     Lcd_Init();
+    Lcd_Clear();  //Limpiar LCD     
     
+   
 
+    
 /****************************** LOOP ******************************************/
 while(1) {
-    Lcd_Clear();            //Limpiar LCD
+        
     Lcd_Set_Cursor(1,1);    //cursor fila uno primera posicion 
-    Lcd_Write_Char("a");
     Lcd_Write_String("ADC: CONT: TEMP:");
-    __delay_ms(200);
     
     I2C_Master_Start();
     I2C_Master_Write(0x71);
@@ -96,13 +98,26 @@ while(1) {
     __delay_ms(200);
     
     I2C_Master_Start();
-    I2C_Master_Write(0x91);
+    I2C_Master_Write(0x51);
     varPot0 = I2C_Master_Read(0);
     I2C_Master_Stop();
     __delay_ms(200);
     
+    //Temp
+    I2C_Master_Start();
+    I2C_Master_Write(0x80);    // Seleccionar el sensor y se escribe
+    I2C_Master_Write(0xF3);    // Read temperature
+    I2C_Master_Stop();         // Finalizar la obtención de información
+    __delay_ms(200);
+
+    I2C_Master_Start();         
+    I2C_Master_Write(0x81);     // Para que ahora lea
+    temp = I2C_Master_Read(0); // Read temperature
+    I2C_Master_Stop();          // Finalizar la obtención de info.
+    __delay_ms(200);
+    
     //Potenciometro 1
-    voltASCII(cont);              //Convertir a decimales y a CHAR
+    voltASCII(PORTB);              //Convertir a decimales y a CHAR
     Lcd_Set_Cursor(2,1);        //Llevar el cursor a fila 2 primer espacio
     Lcd_Write_Char(centenas);
     Lcd_Write_String(".");
@@ -111,10 +126,25 @@ while(1) {
     Lcd_Write_String("  ");
     __delay_ms(200);
     
+    //Contador 2
+    contASCII(cont);
+    Lcd_Write_Char(centenas);
+    Lcd_Write_Char(decenas);    //Enviar datos
+    Lcd_Write_Char(unidades);
+    Lcd_Write_String("  ");
+    __delay_ms(200);
+    
+    //Contador 2
+    tempASCII(temp);
+    Lcd_Write_Char(centenas);
+    Lcd_Write_Char(decenas);    //Enviar datos
+    Lcd_Write_Char(unidades);
+    Lcd_Write_String("C ");
+    __delay_ms(200);
     
     
     PORTB = varPot0;
-    PORTA = cont;
+    PORTA = temp;
    __delay_ms(200);
     
     }
@@ -127,18 +157,17 @@ void setup(void){
   
   
   ANSELH = 0b00000000;
-  
   TRISA = 0b00000000;     //Output     
   TRISB = 0b00000000; //Output excepto por pin 0, 1 y 2   
   TRISC = 0b00000000;     //Output
   TRISD = 0b00000000;     //Output
-  TRISE = 0x00;     //Output
+  TRISE = 0b00000000;
   
   
   
   OPTION_REG = 0b11000100; //pullup off, INTEDG, TOSC(int),Presc TMR0, Presc val
 
-  initOsc(8);   //utilizar oscilador interno para reloj del sistema a 8MHz
+  initOsc(4);   //utilizar oscilador interno para reloj del sistema a 8MHz
   I2C_Master_Init(100000);        // Inicializar Comuncación I2C
   
   PORTA = 0x00;
@@ -160,9 +189,10 @@ void setup(void){
 
 
 void voltASCII(uint8_t variable){
+    uint16_t valor;
     
     valor = variable;   
-    valor = (valor/255)*500;//convertir a volt
+    valor = (valor*1.96);//convertir a volt
     centenas = (valor/100) ;       //dividir entre 100 para centenas
     valor = (valor - (centenas*100));
     decenas = (valor/10);         //dividir entre 10 para decenas
@@ -176,4 +206,37 @@ void voltASCII(uint8_t variable){
     unidades = unidades + 48;
 }
 
+void contASCII(int8_t variable){
+    int8_t valor;
+    
+    valor = variable; 
+    centenas = (valor/100) ;       //dividir entre 100 para centenas
+    valor = (valor - (centenas*100));
+    decenas = (valor/10);         //dividir entre 10 para decenas
+    valor = (valor - (decenas*10));
+    unidades = (valor);         //dividir entre 1 para unidades*/
+     
+    
+    
+    centenas = centenas + 48; //Sumar 48 para que case con ASCII
+    decenas = decenas + 48;
+    unidades = unidades + 48;
+}
+
+void tempASCII(int8_t variable){
+    int8_t valor;
+    
+    valor = (0.7*variable)-47; 
+    centenas = (valor/100) ;       //dividir entre 100 para centenas
+    valor = (valor - (centenas*100));
+    decenas = (valor/10);         //dividir entre 10 para decenas
+    valor = (valor - (decenas*10));
+    unidades = (valor);         //dividir entre 1 para unidades*/
+     
+    
+    
+    centenas = centenas + 48; //Sumar 48 para que case con ASCII
+    decenas = decenas + 48;
+    unidades = unidades + 48;
+}
 

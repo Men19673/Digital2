@@ -2492,6 +2492,142 @@ extern __bank0 __bit __timeout;
 # 28 "E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
 # 59 "./LCD8bits.h" 2
 
+# 1 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int8_t;
+
+
+
+
+
+
+typedef signed int int16_t;
+
+
+
+
+
+
+
+typedef __int24 int24_t;
+
+
+
+
+
+
+
+typedef signed long int int32_t;
+# 52 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint8_t;
+
+
+
+
+
+typedef unsigned int uint16_t;
+
+
+
+
+
+
+typedef __uint24 uint24_t;
+
+
+
+
+
+
+typedef unsigned long int uint32_t;
+# 88 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_least8_t;
+
+
+
+
+
+
+
+typedef signed int int_least16_t;
+# 109 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_least24_t;
+# 118 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
+typedef signed long int int_least32_t;
+# 136 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_least8_t;
+
+
+
+
+
+
+typedef unsigned int uint_least16_t;
+# 154 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_least24_t;
+
+
+
+
+
+
+
+typedef unsigned long int uint_least32_t;
+# 181 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_fast8_t;
+
+
+
+
+
+
+typedef signed int int_fast16_t;
+# 200 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_fast24_t;
+
+
+
+
+
+
+
+typedef signed long int int_fast32_t;
+# 224 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+# 240 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_fast24_t;
+
+
+
+
+
+
+typedef unsigned long int uint_fast32_t;
+# 268 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
+typedef int32_t intmax_t;
+# 282 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
+typedef uint32_t uintmax_t;
+
+
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+# 60 "./LCD8bits.h" 2
+
+
 
 
 
@@ -2521,11 +2657,11 @@ void Lcd_Port(char a) {
 }
 
 void Lcd_Cmd(char a) {
-    RE0 = 0;
+    PORTCbits.RC7 = 0;
     Lcd_Port(a);
-    RE1 = 1;
-    _delay((unsigned long)((4)*(8000000/4000.0)));
-    RE1 = 0;
+    PORTEbits.RE1 = 1;
+    _delay((unsigned long)((4)*(4000000/4000.0)));
+    PORTEbits.RE1 = 0;
 }
 
 void Lcd_Clear(void) {
@@ -2552,11 +2688,11 @@ void Lcd_Set_Cursor(char a, char b) {
 
 void Lcd_Init(void) {
     Lcd_Port(0x00);
-    _delay((unsigned long)((20)*(8000000/4000.0)));
+    _delay((unsigned long)((20)*(4000000/4000.0)));
     Lcd_Cmd(0x30);
-    _delay((unsigned long)((5)*(8000000/4000.0)));
+    _delay((unsigned long)((5)*(4000000/4000.0)));
     Lcd_Cmd(0x30);
-    _delay((unsigned long)((200)*(8000000/4000000.0)));
+    _delay((unsigned long)((200)*(4000000/4000000.0)));
     Lcd_Cmd(0x30);
 
     Lcd_Cmd(0x3C);
@@ -2572,11 +2708,11 @@ void Lcd_Write_Char(char a) {
     char temp, y;
     temp = a;
     y = temp;
-    RE0 = 1;
+    PORTCbits.RC7 = 1;
     Lcd_Port(y);
-    RE1 = 1;
-    _delay((unsigned long)((40)*(8000000/4000000.0)));
-    RE1 = 0;
+    PORTEbits.RE1 = 1;
+    _delay((unsigned long)((40)*(4000000/4000000.0)));
+    PORTEbits.RE1 = 0;
 
 }
 

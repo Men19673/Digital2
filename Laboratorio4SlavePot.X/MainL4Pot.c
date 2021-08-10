@@ -139,7 +139,7 @@ void setup(void){
   
 
   initOsc(8);   //utilizar oscilador interno para reloj del sistema a 4MHz
-  I2C_Slave_Init(0x90);
+  I2C_Slave_Init(0x50);
   
   PORTA = 0x00;
   PORTB = 0x00;

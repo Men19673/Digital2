@@ -71,9 +71,9 @@ void I2C_Master_Write(unsigned d)
 //Función de recepción de datos enviados por el esclavo al maestro
 //esta función es para leer los datos que están en el esclavo
 //*****************************************************************************
-unsigned short I2C_Master_Read(unsigned short a)
+uint8_t I2C_Master_Read(uint8_t a)
 {
-    unsigned short temp;
+    uint8_t temp;
     I2C_Master_Wait();      //espera que se cumplan las condiciones adecuadas
     SSPCON2bits.RCEN = 1;
     I2C_Master_Wait();      //espera que se cumplan las condiciones adecuadas

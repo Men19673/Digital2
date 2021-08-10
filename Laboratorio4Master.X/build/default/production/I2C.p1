@@ -308,8 +308,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;I2C.c: 19:     SSPCON2 = 0;
 [e = _SSPCON2 -> -> 0 `i `uc ]
 "20
-[; ;I2C.c: 20:     SSPADD = (8000000/(4*c))-1;
-[e = _SSPADD -> - / -> -> 8000000 `l `ul * -> -> -> 4 `i `l `ul _c -> -> -> 1 `i `l `ul `uc ]
+[; ;I2C.c: 20:     SSPADD = (4000000/(4*c))-1;
+[e = _SSPADD -> - / -> -> 4000000 `l `ul * -> -> -> 4 `i `l `ul _c -> -> -> 1 `i `l `ul `uc ]
 "21
 [; ;I2C.c: 21:     SSPSTAT = 0;
 [e = _SSPSTAT -> -> 0 `i `uc ]
@@ -420,21 +420,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 146 ]
 }
 "74
-[; ;I2C.c: 74: unsigned short I2C_Master_Read(unsigned short a)
-[v _I2C_Master_Read `(us ~T0 @X0 1 ef1`us ]
+[; ;I2C.c: 74: uint8_t I2C_Master_Read(uint8_t a)
+[v _I2C_Master_Read `(uc ~T0 @X0 1 ef1`uc ]
 "75
 [; ;I2C.c: 75: {
 {
 [e :U _I2C_Master_Read ]
 "74
-[; ;I2C.c: 74: unsigned short I2C_Master_Read(unsigned short a)
-[v _a `us ~T0 @X0 1 r1 ]
+[; ;I2C.c: 74: uint8_t I2C_Master_Read(uint8_t a)
+[v _a `uc ~T0 @X0 1 r1 ]
 "75
 [; ;I2C.c: 75: {
 [f ]
 "76
-[; ;I2C.c: 76:     unsigned short temp;
-[v _temp `us ~T0 @X0 1 a ]
+[; ;I2C.c: 76:     uint8_t temp;
+[v _temp `uc ~T0 @X0 1 a ]
 "77
 [; ;I2C.c: 77:     I2C_Master_Wait();
 [e ( _I2C_Master_Wait ..  ]
@@ -446,13 +446,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _I2C_Master_Wait ..  ]
 "80
 [; ;I2C.c: 80:     temp = SSPBUF;
-[e = _temp -> _SSPBUF `us ]
+[e = _temp _SSPBUF ]
 "81
 [; ;I2C.c: 81:     I2C_Master_Wait();
 [e ( _I2C_Master_Wait ..  ]
 "82
 [; ;I2C.c: 82:     if(a == 1){
-[e $ ! == -> _a `ui -> -> 1 `i `ui 148  ]
+[e $ ! == -> _a `i -> 1 `i 148  ]
 {
 "83
 [; ;I2C.c: 83:         SSPCON2bits.ACKDT = 0;

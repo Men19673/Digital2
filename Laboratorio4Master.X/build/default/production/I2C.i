@@ -2659,7 +2659,7 @@ void I2C_Master_Write(unsigned d);
 
 
 
-unsigned short I2C_Master_Read(unsigned short a);
+uint8_t I2C_Master_Read(uint8_t a);
 
 
 
@@ -2673,7 +2673,7 @@ void I2C_Master_Init(const unsigned long c)
 {
     SSPCON = 0b00101000;
     SSPCON2 = 0;
-    SSPADD = (8000000/(4*c))-1;
+    SSPADD = (4000000/(4*c))-1;
     SSPSTAT = 0;
     TRISCbits.TRISC3 = 1;
     TRISCbits.TRISC4 = 1;
@@ -2727,9 +2727,9 @@ void I2C_Master_Write(unsigned d)
 
 
 
-unsigned short I2C_Master_Read(unsigned short a)
+uint8_t I2C_Master_Read(uint8_t a)
 {
-    unsigned short temp;
+    uint8_t temp;
     I2C_Master_Wait();
     SSPCON2bits.RCEN = 1;
     I2C_Master_Wait();

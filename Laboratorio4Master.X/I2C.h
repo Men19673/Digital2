@@ -20,7 +20,7 @@
 #include <stdint.h>
 
 #ifndef _XTAL_FREQ
-#define _XTAL_FREQ 8000000
+#define _XTAL_FREQ 4000000
 #endif
 
 //*****************************************************************************
@@ -57,7 +57,7 @@ void I2C_Master_Write(unsigned d);
 //Función de recepción de datos enviados por el esclavo al maestro
 //esta función es para leer los datos que están en el esclavo
 //*****************************************************************************
-unsigned short I2C_Master_Read(unsigned short a);
+uint8_t I2C_Master_Read(uint8_t a);
 //*****************************************************************************
 // Función para inicializar I2C Esclavo
 //*****************************************************************************

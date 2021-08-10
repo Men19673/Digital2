@@ -10,7 +10,7 @@
 
 #include <xc.h>
 #include <stdint.h>
-#define _XTAL_FREQ      8000000 //Definir la frecuencia de operacion
+#define _XTAL_FREQ      4000000 //Definir la frecuencia de operacion
 void initOsc(uint8_t frec){
     
         switch(frec){

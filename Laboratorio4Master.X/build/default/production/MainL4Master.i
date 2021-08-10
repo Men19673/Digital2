@@ -2691,7 +2691,7 @@ void initAN(uint8_t bin, uint8_t just){
 
 
      ADCON0bits.CHS= 0;
-     _delay((unsigned long)((100)*(8000000/4000000.0)));
+     _delay((unsigned long)((100)*(4000000/4000000.0)));
 
      ADCON0bits.ADON = 1;
      ADCON0bits.ADCS = 1;
@@ -2820,7 +2820,7 @@ void chselect (uint8_t cant){
         }
     }
 
-    _delay((unsigned long)((150)*(8000000/4000000.0)));
+    _delay((unsigned long)((150)*(4000000/4000000.0)));
     ADCON0bits.GO = 1;
 }
 
@@ -2953,7 +2953,7 @@ void I2C_Master_Write(unsigned d);
 
 
 
-unsigned short I2C_Master_Read(unsigned short a);
+uint8_t I2C_Master_Read(uint8_t a);
 
 
 
@@ -2961,7 +2961,15 @@ void I2C_Slave_Init(uint8_t address);
 # 13 "MainL4Master.c" 2
 
 # 1 "./LCD8bits.h" 1
-# 64 "./LCD8bits.h"
+# 60 "./LCD8bits.h"
+# 1 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 1 3
+# 60 "./LCD8bits.h" 2
+
+
+
+
+
+
 void Lcd_Port(char a);
 
 void Lcd_Cmd(char a);
@@ -3020,20 +3028,22 @@ void Lcd_Shift_Left(void);
 
 
 void setup(void);
-void voltASCII(uint8_t );
+void voltASCII(uint8_t);
+void contASCII(int8_t);
+void tempASCII(int8_t);
 
 
 uint8_t flagint;
-uint8_t startfinal;
-uint8_t start;
+int8_t temp;
+uint8_t temp1;
 uint8_t RXREC;
 uint8_t varPot0;
-uint8_t valor;
+
 uint8_t cont;
 
-char unidades;
-char decenas;
-char centenas;
+uint8_t unidades;
+uint8_t decenas;
+uint8_t centenas;
 
 
 void __attribute__((picinterrupt((""))))isr(void){
@@ -3046,45 +3056,73 @@ void __attribute__((picinterrupt((""))))isr(void){
 
 void main(void) {
     setup();
-
     Lcd_Init();
+    Lcd_Clear();
+
+
 
 
 
 while(1) {
-    Lcd_Clear();
+
     Lcd_Set_Cursor(1,1);
-    Lcd_Write_Char("a");
     Lcd_Write_String("ADC: CONT: TEMP:");
-    _delay((unsigned long)((200)*(8000000/4000.0)));
 
     I2C_Master_Start();
     I2C_Master_Write(0x71);
     cont = I2C_Master_Read(0);
     I2C_Master_Stop();
-    _delay((unsigned long)((200)*(8000000/4000.0)));
+    _delay((unsigned long)((200)*(4000000/4000.0)));
 
     I2C_Master_Start();
-    I2C_Master_Write(0x91);
+    I2C_Master_Write(0x51);
     varPot0 = I2C_Master_Read(0);
     I2C_Master_Stop();
-    _delay((unsigned long)((200)*(8000000/4000.0)));
+    _delay((unsigned long)((200)*(4000000/4000.0)));
 
 
-    voltASCII(cont);
+    I2C_Master_Start();
+    I2C_Master_Write(0x80);
+    I2C_Master_Write(0xF3);
+    I2C_Master_Stop();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+
+    I2C_Master_Start();
+    I2C_Master_Write(0x81);
+    temp = I2C_Master_Read(0);
+    I2C_Master_Stop();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+
+
+    voltASCII(PORTB);
     Lcd_Set_Cursor(2,1);
     Lcd_Write_Char(centenas);
     Lcd_Write_String(".");
     Lcd_Write_Char(decenas);
     Lcd_Write_Char(unidades);
     Lcd_Write_String("  ");
-    _delay((unsigned long)((200)*(8000000/4000.0)));
+    _delay((unsigned long)((200)*(4000000/4000.0)));
 
+
+    contASCII(cont);
+    Lcd_Write_Char(centenas);
+    Lcd_Write_Char(decenas);
+    Lcd_Write_Char(unidades);
+    Lcd_Write_String("  ");
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+
+
+    tempASCII(temp);
+    Lcd_Write_Char(centenas);
+    Lcd_Write_Char(decenas);
+    Lcd_Write_Char(unidades);
+    Lcd_Write_String("C ");
+    _delay((unsigned long)((200)*(4000000/4000.0)));
 
 
     PORTB = varPot0;
-    PORTA = cont;
-   _delay((unsigned long)((200)*(8000000/4000.0)));
+    PORTA = temp;
+   _delay((unsigned long)((200)*(4000000/4000.0)));
 
     }
 }
@@ -3096,18 +3134,17 @@ void setup(void){
 
 
   ANSELH = 0b00000000;
-
   TRISA = 0b00000000;
   TRISB = 0b00000000;
   TRISC = 0b00000000;
   TRISD = 0b00000000;
-  TRISE = 0x00;
+  TRISE = 0b00000000;
 
 
 
   OPTION_REG = 0b11000100;
 
-  initOsc(8);
+  initOsc(4);
   I2C_Master_Init(100000);
 
   PORTA = 0x00;
@@ -3129,9 +3166,44 @@ void setup(void){
 
 
 void voltASCII(uint8_t variable){
+    uint16_t valor;
 
     valor = variable;
-    valor = (valor/255)*500;
+    valor = (valor*1.96);
+    centenas = (valor/100) ;
+    valor = (valor - (centenas*100));
+    decenas = (valor/10);
+    valor = (valor - (decenas*10));
+    unidades = (valor);
+
+
+
+    centenas = centenas + 48;
+    decenas = decenas + 48;
+    unidades = unidades + 48;
+}
+
+void contASCII(int8_t variable){
+    int8_t valor;
+
+    valor = variable;
+    centenas = (valor/100) ;
+    valor = (valor - (centenas*100));
+    decenas = (valor/10);
+    valor = (valor - (decenas*10));
+    unidades = (valor);
+
+
+
+    centenas = centenas + 48;
+    decenas = decenas + 48;
+    unidades = unidades + 48;
+}
+
+void tempASCII(int8_t variable){
+    int8_t valor;
+
+    valor = (0.7*variable)-47;
     centenas = (valor/100) ;
     valor = (valor - (centenas*100));
     decenas = (valor/10);
