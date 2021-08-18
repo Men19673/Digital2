@@ -27,13 +27,13 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"73 C:\Users\diego\Desktop\Digital2\Laboratorio5.X\MainL5.c
+"68 C:\Users\diego\Desktop\Digital2\Laboratorio5.X\MainL5.c
 [v _isr isr `II(v  1 e 1 0 ]
-"109
+"101
 [v _main main `(v  1 e 1 0 ]
-"148
+"140
 [v _setup setup `(v  1 e 1 0 ]
-"184
+"176
 [v _decimal decimal `(v  1 e 1 0 ]
 "166 E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -66,7 +66,7 @@
 [v _INTCONbits INTCONbits `VES259  1 e 1 @11 ]
 "537
 [v _PIR1 PIR1 `VEuc  1 e 1 @12 ]
-[s S277 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S280 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -75,8 +75,8 @@
 `uc 1 ADIF 1 0 :1:6 
 ]
 "553
-[u S285 . 1 `S277 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES285  1 e 1 @12 ]
+[u S288 . 1 `S280 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES288  1 e 1 @12 ]
 "593
 [v _PIR2 PIR2 `VEuc  1 e 1 @13 ]
 [s S174 . 1 `uc 1 RX9D 1 0 :1:0 
@@ -227,31 +227,33 @@
 [v _RB1 RB1 `VEb  1 e 0 @49 ]
 "4130
 [v _RBIF RBIF `VEb  1 e 0 @88 ]
+"4175
+[v _RCIF RCIF `VEb  1 e 0 @101 ]
 "4544
 [v _TXIF TXIF `VEb  1 e 0 @100 ]
-"61 C:\Users\diego\Desktop\Digital2\Laboratorio5.X\MainL5.c
+"56 C:\Users\diego\Desktop\Digital2\Laboratorio5.X\MainL5.c
 [v _RXREC RXREC `uc  1 e 1 0 ]
-"64
+"59
 [v _contador contador `uc  1 e 1 0 ]
-"65
+"60
 [v _flaglec flaglec `uc  1 e 1 0 ]
-"67
+"62
 [v _unidades unidades `uc  1 e 1 0 ]
-"68
+"63
 [v _decenas decenas `uc  1 e 1 0 ]
-"69
+"64
 [v _centenas centenas `uc  1 e 1 0 ]
-"70
+"65
 [v _valor valor `f  1 e 4 0 ]
-"109
+"101
 [v _main main `(v  1 e 1 0 ]
 {
-"143
+"135
 } 0
-"148
+"140
 [v _setup setup `(v  1 e 1 0 ]
 {
-"179
+"171
 } 0
 "341 C:\Users\diego\Desktop\Digital2\Laboratorio5.X/my_lib.h
 [v _pushPORTB pushPORTB `(v  1 e 1 0 ]
@@ -272,21 +274,17 @@
 "318
 [v _initEUSART initEUSART `(v  1 e 1 0 ]
 {
-[v initEUSART@tx tx `uc  1 a 1 wreg ]
-[v initEUSART@tx tx `uc  1 a 1 wreg ]
 [v initEUSART@rx rx `uc  1 p 1 3 ]
-"322
-[v initEUSART@tx tx `uc  1 a 1 4 ]
 "339
 } 0
-"184 C:\Users\diego\Desktop\Digital2\Laboratorio5.X\MainL5.c
+"176 C:\Users\diego\Desktop\Digital2\Laboratorio5.X\MainL5.c
 [v _decimal decimal `(v  1 e 1 0 ]
 {
 [v decimal@variable variable `uc  1 a 1 wreg ]
 [v decimal@variable variable `uc  1 a 1 wreg ]
-"186
+"178
 [v decimal@variable variable `uc  1 a 1 36 ]
-"201
+"193
 } 0
 "10 E:\Microchip\XC8\pic\sources\c90\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -366,8 +364,8 @@
 [v ___fldiv@b b `d  1 p 4 4 ]
 "185
 } 0
-"73 C:\Users\diego\Desktop\Digital2\Laboratorio5.X\MainL5.c
+"68 C:\Users\diego\Desktop\Digital2\Laboratorio5.X\MainL5.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"107
+"99
 } 0

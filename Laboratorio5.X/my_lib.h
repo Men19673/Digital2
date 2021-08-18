@@ -334,7 +334,7 @@ void initEUSART(uint8_t tx, uint8_t rx){ //Enable interrupt Tx y Rx
     SPBRG =25;
     SPBRGH = 1;
    
-    PIE1bits.TXIE =tx; //Encender tx o rx interrupt
+    ; //Encender tx o rx interrupt
     PIE1bits.RCIE =rx;
 }
 

@@ -50,11 +50,6 @@
 /******************************Prototipos**************************************/
 
 void setup(void);   //Anunciar funcion setup
-uint8_t table(uint8_t);     //Funcion tabla
-void final (void);  //
-void inicio(void);  //
-void dispasign(uint8_t , uint8_t );
-void hexconv(uint8_t );
 void decimal(uint8_t );
 
 /********************************Variables*************************************/
@@ -73,10 +68,18 @@ float valor;
 void __interrupt()isr(void){
  
     
-    if(PIR1bits.ADIF){
-       
-        PIR1bits.ADIF = 0;
-        
+    
+    if(RBIF == 1){
+       if(RB0 == 0){ //Revisar si cambio algun boton
+          while(RB0 == 0){}
+           contador++;
+
+       }
+       if(RB1 == 0){
+           while(RB1 == 0){}
+           contador--; 
+       } 
+    RBIF = 0;
     }
     
     if(PIR1bits.RCIF == 1){
@@ -85,25 +88,14 @@ void __interrupt()isr(void){
             flaglec = 1;
         }
         if (RXREC == 0x01){
-            while(TXIF == 0){}
+            while(RCIF == 0){}
             PORTD = RCREG;
         
         }
         
         PIR1bits.RCIF =0;   //Limpiar la bandera
     }
-    
-    if(RBIF == 1){
-       if(RB0 == 0){ //Revisar si cambio algun boton
-           contador++;
-
-       }
-       if(RB1 == 0){
-           contador--; 
-       } 
-    RBIF = 0;
-    }
-        
+      
 }
 /****************************** MAIN ******************************************/
 void main(void) {
@@ -114,11 +106,11 @@ void main(void) {
 /****************************** LOOP ******************************************/
 while(1) {
    
-    
+    PORTD = contador;
     if  (flaglec ==1){
         decimal(contador);
         if(TXIF == 1){
-               TXREG = centenas; //Enviar a terminal palabras
+            TXREG = centenas; //Enviar a terminal palabras
                }
             __delay_ms(10);
 
@@ -134,7 +126,7 @@ while(1) {
             TXREG = 13; //Enviar enter
            }
 
-
+        flaglec = 0;
         __delay_ms(100);
 
          }
@@ -151,7 +143,7 @@ void setup(void){
   ANSELH = 0b00000000;
   
   TRISA = 0b00000000;     //Output     
-  TRISB = 0b00000000; //Output excepto por pin 0, 1 y 2   
+  TRISB = 0b00000011; //Output excepto por pin 0, 1 y 2   
   TRISC = 0b10000000;     //Output
   TRISD = 0x00;     //Output
   TRISE = 0x00;     //Output

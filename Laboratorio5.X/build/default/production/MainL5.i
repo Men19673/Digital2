@@ -2904,7 +2904,7 @@ void initEUSART(uint8_t tx, uint8_t rx){
     SPBRG =25;
     SPBRGH = 1;
 
-    PIE1bits.TXIE =tx;
+    ;
     PIE1bits.RCIE =rx;
 }
 
@@ -2957,11 +2957,6 @@ void pushPORTB(uint8_t val){
 
 
 void setup(void);
-uint8_t table(uint8_t);
-void final (void);
-void inicio(void);
-void dispasign(uint8_t , uint8_t );
-void hexconv(uint8_t );
 void decimal(uint8_t );
 
 
@@ -2980,10 +2975,18 @@ float valor;
 void __attribute__((picinterrupt((""))))isr(void){
 
 
-    if(PIR1bits.ADIF){
 
-        PIR1bits.ADIF = 0;
+    if(RBIF == 1){
+       if(RB0 == 0){
+          while(RB0 == 0){}
+           contador++;
 
+       }
+       if(RB1 == 0){
+           while(RB1 == 0){}
+           contador--;
+       }
+    RBIF = 0;
     }
 
     if(PIR1bits.RCIF == 1){
@@ -2992,23 +2995,12 @@ void __attribute__((picinterrupt((""))))isr(void){
             flaglec = 1;
         }
         if (RXREC == 0x01){
-            while(TXIF == 0){}
+            while(RCIF == 0){}
             PORTD = RCREG;
 
         }
 
         PIR1bits.RCIF =0;
-    }
-
-    if(RBIF == 1){
-       if(RB0 == 0){
-           contador++;
-
-       }
-       if(RB1 == 0){
-           contador--;
-       }
-    RBIF = 0;
     }
 
 }
@@ -3021,11 +3013,11 @@ void main(void) {
 
 while(1) {
 
-
+    PORTD = contador;
     if (flaglec ==1){
         decimal(contador);
         if(TXIF == 1){
-               TXREG = centenas;
+            TXREG = centenas;
                }
             _delay((unsigned long)((10)*(4000000/4000.0)));
 
@@ -3041,7 +3033,7 @@ while(1) {
             TXREG = 13;
            }
 
-
+        flaglec = 0;
         _delay((unsigned long)((100)*(4000000/4000.0)));
 
          }
@@ -3058,7 +3050,7 @@ void setup(void){
   ANSELH = 0b00000000;
 
   TRISA = 0b00000000;
-  TRISB = 0b00000000;
+  TRISB = 0b00000011;
   TRISC = 0b10000000;
   TRISD = 0x00;
   TRISE = 0x00;
