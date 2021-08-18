@@ -2964,8 +2964,9 @@ uint8_t RXREC;
 uint8_t var0;
 uint8_t var1;
 uint8_t contador;
-uint8_t flaglec;
-uint8_t varUART;
+uint8_t centA;
+uint8_t decA;
+uint8_t unA;
 char unidades;
 char decenas;
 char centenas;
@@ -2990,17 +2991,46 @@ void __attribute__((picinterrupt((""))))isr(void){
     }
 
     if(PIR1bits.RCIF == 1){
+
         RXREC = RCREG;
         if (RXREC == 0xFF){
-            flaglec = 1;
+# 100 "MainL5.c"
+            if(TXIF == 1){
+               TXREG = centenas;
+                   }
+                _delay((unsigned long)((5)*(4000000/4000.0)));
+
+            if(TXIF == 1){
+                TXREG = decenas;
+               }
+                _delay((unsigned long)((5)*(4000000/4000.0)));
+            if(TXIF == 1){
+                TXREG = unidades;
+               }
+                _delay((unsigned long)((5)*(4000000/4000.0)));
+
         }
+        PIR1bits.RCIF =0;
         if (RXREC == 0x01){
             while(RCIF == 0){}
-            PORTD = RCREG;
+            centA = RCREG;
+            PIR1bits.RCIF =0;
+            while(RCIF == 0){}
+            decA = RCREG;
+            PIR1bits.RCIF =0;
+            while(RCIF == 0){}
+            unA = RCREG;
+
+            centA = centA - 48;
+            decA = decA -48;
+            unA = unA - 48;
+
+            PORTD = (centA*100)+(decA*10)+(unA);
+
 
         }
-
         PIR1bits.RCIF =0;
+
     }
 
 }
@@ -3013,32 +3043,15 @@ void main(void) {
 
 while(1) {
 
-    PORTD = contador;
-    if (flaglec ==1){
-        decimal(contador);
-        if(TXIF == 1){
-            TXREG = centenas;
-               }
-            _delay((unsigned long)((10)*(4000000/4000.0)));
 
-        if(TXIF == 1){
-            TXREG = decenas;
-           }
-        _delay((unsigned long)((10)*(4000000/4000.0)));
-        if(TXIF == 1){
-            TXREG = unidades;
-           }
-        _delay((unsigned long)((10)*(4000000/4000.0)));
-        if(TXIF == 1){
-            TXREG = 13;
-           }
+    decimal(contador);
 
-        flaglec = 0;
-        _delay((unsigned long)((100)*(4000000/4000.0)));
+
+
+
+    _delay((unsigned long)((100)*(4000000/4000.0)));
 
          }
-
-    }
 }
 
 

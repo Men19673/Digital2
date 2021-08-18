@@ -57,8 +57,9 @@ uint8_t RXREC;
 uint8_t var0;
 uint8_t var1;
 uint8_t contador;
-uint8_t flaglec;
-uint8_t varUART;
+uint8_t centA;
+uint8_t decA;
+uint8_t unA;
 char unidades;
 char decenas;
 char centenas;
@@ -83,17 +84,55 @@ void __interrupt()isr(void){
     }
     
     if(PIR1bits.RCIF == 1){
+        
         RXREC = RCREG;      //Guardar el dato que se recibe en uart 
         if (RXREC == 0xFF){
-            flaglec = 1;
+//            while(TXIF == 0){}
+//            TXREG = centenas; //Enviar a terminal palabras
+//                   
+//            while(TXIF == 0){}
+//            TXREG = decenas; //Enviar a terminal palabras
+//          
+//            while(TXIF == 0){}
+//             __delay_us(10);
+//            TXREG = unidades; //Enviar a terminal palabras
+               
+            if(TXIF == 1){
+               TXREG = centenas; //Enviar a terminal palabras
+                   }
+                __delay_ms(5);
+
+            if(TXIF == 1){
+                TXREG = decenas; //Enviar a terminal palabras
+               }
+                __delay_ms(5);
+            if(TXIF == 1){
+                TXREG = unidades; //Enviar a terminal palabras
+               }
+                __delay_ms(5);
+                
         }
+        PIR1bits.RCIF =0;   //Limpiar la bandera
         if (RXREC == 0x01){
             while(RCIF == 0){}
-            PORTD = RCREG;
+            centA = RCREG;
+            PIR1bits.RCIF =0;   //Limpiar la bandera
+            while(RCIF == 0){}
+            decA = RCREG;
+            PIR1bits.RCIF =0;   //Limpiar la bandera
+            while(RCIF == 0){}
+            unA = RCREG;
+            
+            centA = centA - 48; //Convertir de ascii a numero
+            decA = decA -48;
+            unA = unA - 48;
+            
+            PORTD = (centA*100)+(decA*10)+(unA);
+            
         
         }
-        
         PIR1bits.RCIF =0;   //Limpiar la bandera
+        
     }
       
 }
@@ -106,32 +145,15 @@ void main(void) {
 /****************************** LOOP ******************************************/
 while(1) {
    
-    PORTD = contador;
-    if  (flaglec ==1){
-        decimal(contador);
-        if(TXIF == 1){
-            TXREG = centenas; //Enviar a terminal palabras
-               }
-            __delay_ms(10);
+    
+    decimal(contador);
+        
+        
 
-        if(TXIF == 1){
-            TXREG = decenas; //Enviar a terminal palabras
-           }
-        __delay_ms(10);
-        if(TXIF == 1){
-            TXREG = unidades; //Enviar a terminal palabras
-           }
-        __delay_ms(10);
-        if(TXIF == 1){
-            TXREG = 13; //Enviar enter
-           }
-
-        flaglec = 0;
-        __delay_ms(100);
+       
+    __delay_ms(100);
 
          }
- 
-    }
 }
 
 

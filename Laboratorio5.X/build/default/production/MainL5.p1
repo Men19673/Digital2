@@ -183,6 +183,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1140
 [; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1140: extern volatile unsigned char RCREG __attribute__((address(0x01A)));
 [v _RCREG `Vuc ~T0 @X0 0 e@26 ]
+"4544
+[; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4544: extern volatile __bit TXIF __attribute__((address(0x64)));
+[v _TXIF `Vb ~T0 @X0 0 e@100 ]
+"1133
+[; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1133: extern volatile unsigned char TXREG __attribute__((address(0x019)));
+[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
 "4175
 [; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4175: extern volatile __bit RCIF __attribute__((address(0x65)));
 [v _RCIF `Vb ~T0 @X0 0 e@101 ]
@@ -191,18 +197,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 [p mainexit ]
 "52 MainL5.c
-[; ;MainL5.c: 52:     }
 [v _setup `(v ~T0 @X0 0 ef ]
 "53
-[; ;MainL5.c: 53: 
 [v _decimal `(v ~T0 @X0 0 ef1`uc ]
-"4544 E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4544: extern volatile __bit TXIF __attribute__((address(0x64)));
-[v _TXIF `Vb ~T0 @X0 0 e@100 ]
-"1133
-[; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1133: extern volatile unsigned char TXREG __attribute__((address(0x019)));
-[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
-"1540
+"1540 E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1540: extern volatile unsigned char TRISC __attribute__((address(0x087)));
 [v _TRISC `Vuc ~T0 @X0 0 e@135 ]
 "1602
@@ -1375,88 +1373,76 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 216 ]
 }
 "18 MainL5.c
-[; ;MainL5.c: 18: char decenas;
+[; ;MainL5.c: 18: char unidades;
 [p x FOSC  =  INTRC_NOCLKOUT ]
 "21
-[; ;MainL5.c: 21: 
+[; ;MainL5.c: 21: float valor;
 [p x WDTE  =  OFF        ]
 "24
-[; ;MainL5.c: 24: 
+[; ;MainL5.c: 24: void __attribute__((picinterrupt((""))))isr(void){
 [p x PWRTE  =  OFF       ]
 "25
 [; ;MainL5.c: 25: 
 [p x MCLRE  =  OFF       ]
 "28
-[; ;MainL5.c: 28:        if(RB0 == 0){
+[; ;MainL5.c: 28:     if(RBIF == 1){
 [p x CP  =  OFF          ]
 "30
-[; ;MainL5.c: 30:            contador++;
+[; ;MainL5.c: 30:           while(RB0 == 0){}
 [p x CPD  =  OFF         ]
 "32
-[; ;MainL5.c: 32:        }
+[; ;MainL5.c: 32: 
 [p x BOREN  =  OFF       ]
 "33
-[; ;MainL5.c: 33:        if(RB1 == 0){
+[; ;MainL5.c: 33:        }
 [p x IESO  =  OFF        ]
 "35
-[; ;MainL5.c: 35:            contador--;
+[; ;MainL5.c: 35:            while(RB1 == 0){}
 [p x FCMEN  =  OFF       ]
 "37
-[; ;MainL5.c: 37:     RBIF = 0;
+[; ;MainL5.c: 37:        }
 [p x LVP  =  OFF         ]
 "41
-[; ;MainL5.c: 41:         RXREC = RCREG;
+[; ;MainL5.c: 41:     if(PIR1bits.RCIF == 1){
 [p x BOR4V  =  BOR40V    ]
 "43
-[; ;MainL5.c: 43:             flaglec = 1;
+[; ;MainL5.c: 43:         RXREC = RCREG;
 [p x WRT  =  OFF         ]
 "56
-[; ;MainL5.c: 56: void main(void) {
 [v _RXREC `uc ~T0 @X0 1 e ]
 "57
-[; ;MainL5.c: 57:     setup();
 [v _var0 `uc ~T0 @X0 1 e ]
 "58
-[; ;MainL5.c: 58: 
 [v _var1 `uc ~T0 @X0 1 e ]
 "59
-[; ;MainL5.c: 59: 
 [v _contador `uc ~T0 @X0 1 e ]
 "60
-[; ;MainL5.c: 60: 
-[v _flaglec `uc ~T0 @X0 1 e ]
+[v _centA `uc ~T0 @X0 1 e ]
 "61
-[; ;MainL5.c: 61: 
-[v _varUART `uc ~T0 @X0 1 e ]
+[v _decA `uc ~T0 @X0 1 e ]
 "62
-[; ;MainL5.c: 62: while(1) {
-[v _unidades `uc ~T0 @X0 1 e ]
+[v _unA `uc ~T0 @X0 1 e ]
 "63
-[; ;MainL5.c: 63: 
-[v _decenas `uc ~T0 @X0 1 e ]
+[v _unidades `uc ~T0 @X0 1 e ]
 "64
-[; ;MainL5.c: 64:     PORTD = contador;
-[v _centenas `uc ~T0 @X0 1 e ]
+[v _decenas `uc ~T0 @X0 1 e ]
 "65
-[; ;MainL5.c: 65:     if (flaglec ==1){
+[v _centenas `uc ~T0 @X0 1 e ]
+"66
 [v _valor `f ~T0 @X0 1 e ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"68
-[; ;MainL5.c: 68:             TXREG = centenas;
+"69
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"72
-[; ;MainL5.c: 72:         if(TXIF == 1){
+"73
 [e $ ! == -> _RBIF `i -> 1 `i 218  ]
 {
-"73
-[; ;MainL5.c: 73:             TXREG = decenas;
+"74
 [e $ ! == -> _RB0 `i -> 0 `i 219  ]
 {
-"74
-[; ;MainL5.c: 74:            }
+"75
 [e $U 220  ]
 [e :U 221 ]
 {
@@ -1464,19 +1450,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 220 ]
 [e $ == -> _RB0 `i -> 0 `i 221  ]
 [e :U 222 ]
-"75
-[; ;MainL5.c: 75:         _delay((unsigned long)((10)*(4000000/4000.0)));
+"76
 [e ++ _contador -> -> 1 `i `uc ]
-"77
-[; ;MainL5.c: 77:             TXREG = unidades;
+"78
 }
 [e :U 219 ]
-"78
-[; ;MainL5.c: 78:            }
+"79
 [e $ ! == -> _RB1 `i -> 0 `i 223  ]
 {
-"79
-[; ;MainL5.c: 79:         _delay((unsigned long)((10)*(4000000/4000.0)));
+"80
 [e $U 224  ]
 [e :U 225 ]
 {
@@ -1484,244 +1466,281 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 224 ]
 [e $ == -> _RB1 `i -> 0 `i 225  ]
 [e :U 226 ]
-"80
-[; ;MainL5.c: 80:         if(TXIF == 1){
-[e -- _contador -> -> 1 `i `uc ]
 "81
-[; ;MainL5.c: 81:             TXREG = 13;
+[e -- _contador -> -> 1 `i `uc ]
+"82
 }
 [e :U 223 ]
-"82
-[; ;MainL5.c: 82:            }
-[e = _RBIF -> -> 0 `i `b ]
 "83
-[; ;MainL5.c: 83: 
+[e = _RBIF -> -> 0 `i `b ]
+"84
 }
 [e :U 218 ]
-"85
-[; ;MainL5.c: 85:         _delay((unsigned long)((100)*(4000000/4000.0)));
+"86
 [e $ ! == -> . . _PIR1bits 0 5 `i -> 1 `i 227  ]
 {
-"86
-[; ;MainL5.c: 86: 
+"88
 [e = _RXREC _RCREG ]
-"87
-[; ;MainL5.c: 87:          }
+"89
 [e $ ! == -> _RXREC `i -> 255 `i 228  ]
 {
-"88
-[; ;MainL5.c: 88: 
-[e = _flaglec -> -> 1 `i `uc ]
-"89
-[; ;MainL5.c: 89:     }
-}
-[e :U 228 ]
-"90
-[; ;MainL5.c: 90: }
-[e $ ! == -> _RXREC `i -> 1 `i 229  ]
+"100
+[; ;MainL5.c: 100:             if(TXIF == 1){
+[e $ ! == -> _TXIF `i -> 1 `i 229  ]
 {
-"91
-[; ;MainL5.c: 91: 
-[e $U 230  ]
-[e :U 231 ]
-{
-}
-[e :U 230 ]
-[e $ == -> _RCIF `i -> 0 `i 231  ]
-[e :U 232 ]
-"92
-[; ;MainL5.c: 92: 
-[e = _PORTD _RCREG ]
-"94
-[; ;MainL5.c: 94: 
+"101
+[; ;MainL5.c: 101:                TXREG = centenas;
+[e = _TXREG -> _centenas `uc ]
+"102
+[; ;MainL5.c: 102:                    }
 }
 [e :U 229 ]
-"96
-[; ;MainL5.c: 96: 
+"103
+[; ;MainL5.c: 103:                 _delay((unsigned long)((5)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"105
+[; ;MainL5.c: 105:             if(TXIF == 1){
+[e $ ! == -> _TXIF `i -> 1 `i 230  ]
+{
+"106
+[; ;MainL5.c: 106:                 TXREG = decenas;
+[e = _TXREG -> _decenas `uc ]
+"107
+[; ;MainL5.c: 107:                }
+}
+[e :U 230 ]
+"108
+[; ;MainL5.c: 108:                 _delay((unsigned long)((5)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"109
+[; ;MainL5.c: 109:             if(TXIF == 1){
+[e $ ! == -> _TXIF `i -> 1 `i 231  ]
+{
+"110
+[; ;MainL5.c: 110:                 TXREG = unidades;
+[e = _TXREG -> _unidades `uc ]
+"111
+[; ;MainL5.c: 111:                }
+}
+[e :U 231 ]
+"112
+[; ;MainL5.c: 112:                 _delay((unsigned long)((5)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"114
+[; ;MainL5.c: 114:         }
+}
+[e :U 228 ]
+"115
+[; ;MainL5.c: 115:         PIR1bits.RCIF =0;
 [e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-"97
-[; ;MainL5.c: 97: 
+"116
+[; ;MainL5.c: 116:         if (RXREC == 0x01){
+[e $ ! == -> _RXREC `i -> 1 `i 232  ]
+{
+"117
+[; ;MainL5.c: 117:             while(RCIF == 0){}
+[e $U 233  ]
+[e :U 234 ]
+{
+}
+[e :U 233 ]
+[e $ == -> _RCIF `i -> 0 `i 234  ]
+[e :U 235 ]
+"118
+[; ;MainL5.c: 118:             centA = RCREG;
+[e = _centA _RCREG ]
+"119
+[; ;MainL5.c: 119:             PIR1bits.RCIF =0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"120
+[; ;MainL5.c: 120:             while(RCIF == 0){}
+[e $U 236  ]
+[e :U 237 ]
+{
+}
+[e :U 236 ]
+[e $ == -> _RCIF `i -> 0 `i 237  ]
+[e :U 238 ]
+"121
+[; ;MainL5.c: 121:             decA = RCREG;
+[e = _decA _RCREG ]
+"122
+[; ;MainL5.c: 122:             PIR1bits.RCIF =0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"123
+[; ;MainL5.c: 123:             while(RCIF == 0){}
+[e $U 239  ]
+[e :U 240 ]
+{
+}
+[e :U 239 ]
+[e $ == -> _RCIF `i -> 0 `i 240  ]
+[e :U 241 ]
+"124
+[; ;MainL5.c: 124:             unA = RCREG;
+[e = _unA _RCREG ]
+"126
+[; ;MainL5.c: 126:             centA = centA - 48;
+[e = _centA -> - -> _centA `i -> 48 `i `uc ]
+"127
+[; ;MainL5.c: 127:             decA = decA -48;
+[e = _decA -> - -> _decA `i -> 48 `i `uc ]
+"128
+[; ;MainL5.c: 128:             unA = unA - 48;
+[e = _unA -> - -> _unA `i -> 48 `i `uc ]
+"130
+[; ;MainL5.c: 130:             PORTD = (centA*100)+(decA*10)+(unA);
+[e = _PORTD -> + + * -> _centA `i -> 100 `i * -> _decA `i -> 10 `i -> _unA `i `uc ]
+"133
+[; ;MainL5.c: 133:         }
+}
+[e :U 232 ]
+"134
+[; ;MainL5.c: 134:         PIR1bits.RCIF =0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"136
+[; ;MainL5.c: 136:     }
 }
 [e :U 227 ]
-"99
-[; ;MainL5.c: 99: 
+"138
+[; ;MainL5.c: 138: }
 [e :UE 217 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"101
-[; ;MainL5.c: 101:   TRISB = 0b00000011;
+"140
+[; ;MainL5.c: 140: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"102
-[; ;MainL5.c: 102:   TRISC = 0b10000000;
+"141
+[; ;MainL5.c: 141:     setup();
 [e ( _setup ..  ]
-"107
-[; ;MainL5.c: 107: 
-[e :U 235 ]
+"146
+[; ;MainL5.c: 146: while(1) {
+[e :U 244 ]
 {
-"109
-[; ;MainL5.c: 109: 
-[e = _PORTD _contador ]
-"110
-[; ;MainL5.c: 110:   initOsc(4);
-[e $ ! == -> _flaglec `i -> 1 `i 237  ]
-{
-"111
-[; ;MainL5.c: 111:   initEUSART(0,1);
+"149
+[; ;MainL5.c: 149:     decimal(contador);
 [e ( _decimal (1 _contador ]
-"112
-[; ;MainL5.c: 112:   pushPORTB(0b00000011);
-[e $ ! == -> _TXIF `i -> 1 `i 238  ]
-{
-"113
-[; ;MainL5.c: 113:   PORTA = 0x00;
-[e = _TXREG -> _centenas `uc ]
-"114
-[; ;MainL5.c: 114:   PORTB = 0x00;
-}
-[e :U 238 ]
-"115
-[; ;MainL5.c: 115:   PORTC = 0x00;
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"117
-[; ;MainL5.c: 117:   PORTE = 0x00;
-[e $ ! == -> _TXIF `i -> 1 `i 239  ]
-{
-"118
-[; ;MainL5.c: 118: 
-[e = _TXREG -> _decenas `uc ]
-"119
-[; ;MainL5.c: 119: 
-}
-[e :U 239 ]
-"120
-[; ;MainL5.c: 120: 
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"121
-[; ;MainL5.c: 121:   PIE1 = 0b00100000;
-[e $ ! == -> _TXIF `i -> 1 `i 240  ]
-{
-"122
-[; ;MainL5.c: 122:   PIE2 = 0b00000000;
-[e = _TXREG -> _unidades `uc ]
-"123
-[; ;MainL5.c: 123:   PIR1 = 0x00;
-}
-[e :U 240 ]
-"124
-[; ;MainL5.c: 124:   PIR2 = 0x00;
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"125
-[; ;MainL5.c: 125:   INTCON = 0b11001000;
-[e $ ! == -> _TXIF `i -> 1 `i 241  ]
-{
-"126
-[; ;MainL5.c: 126: }
-[e = _TXREG -> -> 13 `i `uc ]
-"127
-[; ;MainL5.c: 127: 
-}
-[e :U 241 ]
-"129
-[; ;MainL5.c: 129: 
-[e = _flaglec -> -> 0 `i `uc ]
-"130
-[; ;MainL5.c: 130: 
+"154
+[; ;MainL5.c: 154:     _delay((unsigned long)((100)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"132
-[; ;MainL5.c: 132: 
+"156
+[; ;MainL5.c: 156:          }
 }
-[e :U 237 ]
-"134
-[; ;MainL5.c: 134: 
+[e :U 243 ]
+[e $U 244  ]
+[e :U 245 ]
+"157
+[; ;MainL5.c: 157: }
+[e :UE 242 ]
 }
-[e :U 234 ]
-[e $U 235  ]
-[e :U 236 ]
-"135
-[; ;MainL5.c: 135:     centenas = (valor/100) ;
-[e :UE 233 ]
-}
-"140
-[; ;MainL5.c: 140: 
+"162
+[; ;MainL5.c: 162: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"143
-[; ;MainL5.c: 143:     centenas = centenas + 48;
+"165
+[; ;MainL5.c: 165:   ANSELH = 0b00000000;
 [e = _ANSELH -> -> 0 `i `uc ]
-"145
-[; ;MainL5.c: 145:     unidades = unidades + 48;
-[e = _TRISA -> -> 0 `i `uc ]
-"146
-[; ;MainL5.c: 146: 
-[e = _TRISB -> -> 3 `i `uc ]
-"147
-[; ;MainL5.c: 147: 
-[e = _TRISC -> -> 128 `i `uc ]
-"148
-[; ;MainL5.c: 148: }
-[e = _TRISD -> -> 0 `i `uc ]
-"149
-[e = _TRISE -> -> 0 `i `uc ]
-"151
-[e = _OPTION_REG -> -> 68 `i `uc ]
-"155
-[e ( _initOsc (1 -> -> 4 `i `uc ]
-"156
-[e ( _initEUSART (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"157
-[e ( _pushPORTB (1 -> -> 3 `i `uc ]
-"158
-[e = _PORTA -> -> 0 `i `uc ]
-"159
-[e = _PORTB -> -> 0 `i `uc ]
-"160
-[e = _PORTC -> -> 0 `i `uc ]
-"161
-[e = _PORTD -> -> 0 `i `uc ]
-"162
-[e = _PORTE -> -> 0 `i `uc ]
-"166
-[e = _PIE1 -> -> 32 `i `uc ]
 "167
-[e = _PIE2 -> -> 0 `i `uc ]
+[; ;MainL5.c: 167:   TRISA = 0b00000000;
+[e = _TRISA -> -> 0 `i `uc ]
 "168
-[e = _PIR1 -> -> 0 `i `uc ]
+[; ;MainL5.c: 168:   TRISB = 0b00000011;
+[e = _TRISB -> -> 3 `i `uc ]
 "169
-[e = _PIR2 -> -> 0 `i `uc ]
+[; ;MainL5.c: 169:   TRISC = 0b10000000;
+[e = _TRISC -> -> 128 `i `uc ]
 "170
-[e = _INTCON -> -> 200 `i `uc ]
+[; ;MainL5.c: 170:   TRISD = 0x00;
+[e = _TRISD -> -> 0 `i `uc ]
 "171
-[e :UE 242 ]
+[; ;MainL5.c: 171:   TRISE = 0x00;
+[e = _TRISE -> -> 0 `i `uc ]
+"173
+[; ;MainL5.c: 173:   OPTION_REG = 0b01000100;
+[e = _OPTION_REG -> -> 68 `i `uc ]
+"177
+[; ;MainL5.c: 177:   initOsc(4);
+[e ( _initOsc (1 -> -> 4 `i `uc ]
+"178
+[; ;MainL5.c: 178:   initEUSART(0,1);
+[e ( _initEUSART (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+"179
+[; ;MainL5.c: 179:   pushPORTB(0b00000011);
+[e ( _pushPORTB (1 -> -> 3 `i `uc ]
+"180
+[; ;MainL5.c: 180:   PORTA = 0x00;
+[e = _PORTA -> -> 0 `i `uc ]
+"181
+[; ;MainL5.c: 181:   PORTB = 0x00;
+[e = _PORTB -> -> 0 `i `uc ]
+"182
+[; ;MainL5.c: 182:   PORTC = 0x00;
+[e = _PORTC -> -> 0 `i `uc ]
+"183
+[; ;MainL5.c: 183:   PORTD = 0x00;
+[e = _PORTD -> -> 0 `i `uc ]
+"184
+[; ;MainL5.c: 184:   PORTE = 0x00;
+[e = _PORTE -> -> 0 `i `uc ]
+"188
+[; ;MainL5.c: 188:   PIE1 = 0b00100000;
+[e = _PIE1 -> -> 32 `i `uc ]
+"189
+[; ;MainL5.c: 189:   PIE2 = 0b00000000;
+[e = _PIE2 -> -> 0 `i `uc ]
+"190
+[; ;MainL5.c: 190:   PIR1 = 0x00;
+[e = _PIR1 -> -> 0 `i `uc ]
+"191
+[; ;MainL5.c: 191:   PIR2 = 0x00;
+[e = _PIR2 -> -> 0 `i `uc ]
+"192
+[; ;MainL5.c: 192:   INTCON = 0b11001000;
+[e = _INTCON -> -> 200 `i `uc ]
+"193
+[; ;MainL5.c: 193: }
+[e :UE 246 ]
 }
-"176
+"198
+[; ;MainL5.c: 198: void decimal(uint8_t variable){
 [v _decimal `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _decimal ]
 [v _variable `uc ~T0 @X0 1 r1 ]
 [f ]
-"178
+"200
+[; ;MainL5.c: 200:     valor = variable;
 [e = _valor -> _variable `f ]
-"180
+"202
+[; ;MainL5.c: 202:     centenas = (valor/100) ;
 [e = _centenas -> / _valor -> -> 100 `i `f `uc ]
-"181
+"203
+[; ;MainL5.c: 203:     valor = (valor - (centenas*100));
 [e = _valor - _valor -> * -> _centenas `i -> 100 `i `f ]
-"182
+"204
+[; ;MainL5.c: 204:     decenas = (valor/10);
 [e = _decenas -> / _valor -> -> 10 `i `f `uc ]
-"183
+"205
+[; ;MainL5.c: 205:     valor = (valor - (decenas*10));
 [e = _valor - _valor -> * -> _decenas `i -> 10 `i `f ]
-"184
+"206
+[; ;MainL5.c: 206:     unidades = (valor);
 [e = _unidades -> _valor `uc ]
-"188
+"210
+[; ;MainL5.c: 210:     centenas = centenas + 48;
 [e = _centenas -> + -> _centenas `i -> 48 `i `uc ]
-"189
+"211
+[; ;MainL5.c: 211:     decenas = decenas + 48;
 [e = _decenas -> + -> _decenas `i -> 48 `i `uc ]
-"190
+"212
+[; ;MainL5.c: 212:     unidades = unidades + 48;
 [e = _unidades -> + -> _unidades `i -> 48 `i `uc ]
-"193
-[e :UE 243 ]
+"215
+[; ;MainL5.c: 215: }
+[e :UE 247 ]
 }
