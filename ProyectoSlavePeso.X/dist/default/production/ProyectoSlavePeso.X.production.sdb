@@ -5,10 +5,6 @@
 [d frameptr 0 ]
 "14 C:\Users\diego\Desktop\Digital2\ProyectoSlavePeso.X/my_lib.h
 [v _initOsc initOsc `(v  1 e 1 0 ]
-"318
-[v _initEUSART initEUSART `(v  1 e 1 0 ]
-"341
-[v _pushPORTB pushPORTB `(v  1 e 1 0 ]
 "5 E:\Microchip\XC8\pic\sources\c90\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 "5 E:\Microchip\XC8\pic\sources\c90\common\aldiv.c
@@ -35,9 +31,9 @@
 [v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
 "66 C:\Users\diego\Desktop\Digital2\ProyectoSlavePeso.X\MainSlave1.c
 [v _isr isr `II(v  1 e 1 0 ]
-"107
+"108
 [v _main main `(v  1 e 1 0 ]
-"124
+"127
 [v _setup setup `(v  1 e 1 0 ]
 "166 E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -150,7 +146,7 @@
 [v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
 "1416
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
-[s S651 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S643 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -160,13 +156,13 @@
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "1433
-[u S660 . 1 `S651 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES660  1 e 1 @133 ]
+[u S652 . 1 `S643 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES652  1 e 1 @133 ]
 "1478
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
 "1540
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
-[s S572 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S564 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -176,8 +172,8 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1557
-[u S581 . 1 `S572 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES581  1 e 1 @135 ]
+[u S573 . 1 `S564 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES573  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1664
@@ -213,7 +209,7 @@
 [v _OSCCONbits OSCCONbits `VES33  1 e 1 @143 ]
 "1979
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
-[s S593 . 1 `uc 1 SEN 1 0 :1:0 
+[s S585 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -223,8 +219,8 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "1996
-[u S602 . 1 `S593 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES602  1 e 1 @145 ]
+[u S594 . 1 `S585 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES594  1 e 1 @145 ]
 "2048
 [v _SSPADD SSPADD `VEuc  1 e 1 @147 ]
 "2177
@@ -351,11 +347,11 @@
 "62
 [v _outI2C outI2C `uc  1 e 1 0 ]
 "64
-[v _weight weight `l  1 e 4 0 ]
-"107
+[v _weight weight `uc  1 e 1 0 ]
+"108
 [v _main main `(v  1 e 1 0 ]
 {
-"119
+"122
 } 0
 "80 C:\Users\diego\Desktop\Digital2\ProyectoSlavePeso.X\HX711.c
 [v _tarar tarar `(v  1 e 1 0 ]
@@ -414,32 +410,18 @@
 [v ___aldiv@dividend dividend `l  1 p 4 4 ]
 "41
 } 0
-"124 C:\Users\diego\Desktop\Digital2\ProyectoSlavePeso.X\MainSlave1.c
+"127 C:\Users\diego\Desktop\Digital2\ProyectoSlavePeso.X\MainSlave1.c
 [v _setup setup `(v  1 e 1 0 ]
 {
-"157
+"161
 } 0
-"341 C:\Users\diego\Desktop\Digital2\ProyectoSlavePeso.X/my_lib.h
-[v _pushPORTB pushPORTB `(v  1 e 1 0 ]
-{
-[v pushPORTB@val val `uc  1 a 1 wreg ]
-[v pushPORTB@val val `uc  1 a 1 wreg ]
-[v pushPORTB@val val `uc  1 a 1 3 ]
-"347
-} 0
-"14
+"14 C:\Users\diego\Desktop\Digital2\ProyectoSlavePeso.X/my_lib.h
 [v _initOsc initOsc `(v  1 e 1 0 ]
 {
 [v initOsc@frec frec `uc  1 a 1 wreg ]
 [v initOsc@frec frec `uc  1 a 1 wreg ]
 [v initOsc@frec frec `uc  1 a 1 5 ]
 "65
-} 0
-"318
-[v _initEUSART initEUSART `(v  1 e 1 0 ]
-{
-[v initEUSART@rx rx `uc  1 p 1 3 ]
-"339
 } 0
 "11 C:\Users\diego\Desktop\Digital2\ProyectoSlavePeso.X\HX711.c
 [v _hx711_init hx711_init `(v  1 e 1 0 ]
@@ -449,5 +431,5 @@
 "66 C:\Users\diego\Desktop\Digital2\ProyectoSlavePeso.X\MainSlave1.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"105
+"106
 } 0

@@ -61,11 +61,12 @@ uint8_t cont;
 uint8_t inI2C;
 uint8_t outI2C;
 uint8_t varPot0;
-int32_t  weight;
+uint8_t  weight;
 /********************************Interrupcion**********************************/
 void __interrupt()isr(void){
   
-   
+     
+    
      if(PIR1bits.SSPIF == 1){ 
 
         SSPCONbits.CKP = 0;
@@ -107,14 +108,16 @@ void __interrupt()isr(void){
 void main(void) {
     setup();
     hx711_init();
-    tarar(10, 128);
+    tarar(2, 128);
     
 
 /****************************** LOOP ******************************************/
 while(1) {
-    weight = hx711_promedio(10, 64);
-    weight = weight >> 16;
+//    weight = hx711_promedio(2, 128);
+//    weight = weight >> 16;
     PORTD = weight;
+    weight = 0xFF;
+    
  }
 }
 
@@ -126,7 +129,7 @@ void setup(void){
   
   ANSELH = 0b00000000;
   
-  TRISA = 0b00000000;     //Output     input para AN0y1, input SS'
+  TRISA = 0b00000010;     //Output     input para AN0y1, input SS'
   TRISB = 0b00000000; //Output   
   TRISC = 0b00000000;     //Output
   TRISD = 0x00;     //Output
@@ -136,10 +139,11 @@ void setup(void){
   
  
   
-  pushPORTB(0b00000000); //Activar weak pullup y interrupt on change
+  
   initOsc(4);   //utilizar oscilador interno para reloj del sistema a 4MHz
   //I2C_Slave_Init(0xA0);
-  initEUSART(0,0);
+  //initEUSART(0,0);
+  //initAN(0b00000001, 0); //Inicializar AN y justificar a izquierda (0)
   
   PORTA = 0x00;
   PORTB = 0x00;

@@ -3024,9 +3024,10 @@ uint8_t cont;
 uint8_t inI2C;
 uint8_t outI2C;
 uint8_t varPot0;
-int32_t weight;
+uint8_t weight;
 
 void __attribute__((picinterrupt((""))))isr(void){
+
 
 
      if(PIR1bits.SSPIF == 1){
@@ -3070,14 +3071,16 @@ void __attribute__((picinterrupt((""))))isr(void){
 void main(void) {
     setup();
     hx711_init();
-    tarar(10, 128);
+    tarar(2, 128);
 
 
 
 while(1) {
-    weight = hx711_promedio(10, 64);
-    weight = weight >> 16;
+
+
     PORTD = weight;
+    weight = 0xFF;
+
  }
 }
 
@@ -3089,7 +3092,7 @@ void setup(void){
 
   ANSELH = 0b00000000;
 
-  TRISA = 0b00000000;
+  TRISA = 0b00000010;
   TRISB = 0b00000000;
   TRISC = 0b00000000;
   TRISD = 0x00;
@@ -3099,10 +3102,11 @@ void setup(void){
 
 
 
-  pushPORTB(0b00000000);
+
   initOsc(4);
 
-  initEUSART(0,0);
+
+
 
   PORTA = 0x00;
   PORTB = 0x00;

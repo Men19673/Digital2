@@ -1645,7 +1645,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "148
 [e = _PORTE -> -> 0 `i `uc ]
 "152
-[e = _PIE1 -> -> 72 `i `uc ]
+[e = _PIE1 -> -> 64 `i `uc ]
 "153
 [e = _PIE2 -> -> 0 `i `uc ]
 "154

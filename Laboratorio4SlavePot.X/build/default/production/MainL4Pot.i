@@ -3098,7 +3098,7 @@ void setup(void){
 
 
 
-  PIE1 = 0b01001000;
+  PIE1 = 0b01000000;
   PIE2 = 0b00000000;
   PIR1 = 0x00;
   PIR2 = 0x00;

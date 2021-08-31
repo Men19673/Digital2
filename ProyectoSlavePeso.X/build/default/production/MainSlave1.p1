@@ -229,7 +229,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _BF `Vb ~T0 @X0 0 e@1184 ]
 [p mainexit ]
 "53 MainSlave1.c
-[; ;MainSlave1.c: 53: 
+[; ;MainSlave1.c: 53:         }
 [v _setup `(v ~T0 @X0 0 ef ]
 "29 ./HX711.h
 [; ;./HX711.h: 29: void hx711_init();
@@ -237,9 +237,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "33
 [; ;./HX711.h: 33: void tarar(uint8_t veces,uint8_t ganancia);
 [v _tarar `(v ~T0 @X0 0 ef2`uc`uc ]
-"32
-[; ;./HX711.h: 32: int32_t hx711_promedio(uint8_t veces, uint8_t ganancia);
-[v _hx711_promedio `(l ~T0 @X0 0 ef2`uc`uc ]
 "352 E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
 [v _PORTD `Vuc ~T0 @X0 0 e@8 ]
@@ -1425,56 +1422,56 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MainSlave1.c: 22: 
 [p x WDTE  =  OFF        ]
 "25
-[; ;MainSlave1.c: 25:         SSPCONbits.CKP = 0;
+[; ;MainSlave1.c: 25: 
 [p x PWRTE  =  OFF       ]
 "26
-[; ;MainSlave1.c: 26: 
+[; ;MainSlave1.c: 26:         SSPCONbits.CKP = 0;
 [p x MCLRE  =  OFF       ]
 "29
-[; ;MainSlave1.c: 29:             SSPCONbits.SSPOV = 0;
+[; ;MainSlave1.c: 29:             z = SSPBUF;
 [p x CP  =  OFF          ]
 "31
-[; ;MainSlave1.c: 31:             SSPCONbits.CKP = 1;
+[; ;MainSlave1.c: 31:             SSPCONbits.WCOL = 0;
 [p x CPD  =  OFF         ]
 "33
-[; ;MainSlave1.c: 33: 
+[; ;MainSlave1.c: 33:         }
 [p x BOREN  =  OFF       ]
 "34
-[; ;MainSlave1.c: 34:         if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
+[; ;MainSlave1.c: 34: 
 [p x IESO  =  OFF        ]
 "36
-[; ;MainSlave1.c: 36:             z = SSPBUF;
+[; ;MainSlave1.c: 36: 
 [p x FCMEN  =  OFF       ]
 "38
-[; ;MainSlave1.c: 38:             PIR1bits.SSPIF = 0;
+[; ;MainSlave1.c: 38: 
 [p x LVP  =  OFF         ]
 "42
-[; ;MainSlave1.c: 42:             _delay((unsigned long)((250)*(4000000/4000000.0)));
+[; ;MainSlave1.c: 42:             inI2C = SSPBUF;
 [p x BOR4V  =  BOR40V    ]
 "44
-[; ;MainSlave1.c: 44:         }
+[; ;MainSlave1.c: 44: 
 [p x WRT  =  OFF         ]
 "58
 [; ;MainSlave1.c: 58: 
 [v _flagint `uc ~T0 @X0 1 e ]
 "59
-[; ;MainSlave1.c: 59: }
+[; ;MainSlave1.c: 59: 
 [v _z `uc ~T0 @X0 1 e ]
 "60
-[; ;MainSlave1.c: 60: 
+[; ;MainSlave1.c: 60: }
 [v _cont `uc ~T0 @X0 1 e ]
 "61
-[; ;MainSlave1.c: 61: void main(void) {
+[; ;MainSlave1.c: 61: 
 [v _inI2C `uc ~T0 @X0 1 e ]
 "62
-[; ;MainSlave1.c: 62:     setup();
+[; ;MainSlave1.c: 62: void main(void) {
 [v _outI2C `uc ~T0 @X0 1 e ]
 "63
-[; ;MainSlave1.c: 63:     hx711_init();
+[; ;MainSlave1.c: 63:     setup();
 [v _varPot0 `uc ~T0 @X0 1 e ]
 "64
-[; ;MainSlave1.c: 64:     tarar(10, 128);
-[v _weight `l ~T0 @X0 1 e ]
+[; ;MainSlave1.c: 64:     hx711_init();
+[v _weight `uc ~T0 @X0 1 e ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
 "66
 [; ;MainSlave1.c: 66: 
@@ -1482,184 +1479,179 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _isr ]
 [f ]
-"69
-[; ;MainSlave1.c: 69:     weight = hx711_promedio(10, 64);
+"70
+[; ;MainSlave1.c: 70: 
 [e $ ! == -> . . _PIR1bits 0 3 `i -> 1 `i 218  ]
 {
-"71
-[; ;MainSlave1.c: 71:     PORTD = weight;
+"72
+[; ;MainSlave1.c: 72:     PORTD = weight;
 [e = . . _SSPCONbits 0 1 -> -> 0 `i `uc ]
-"73
-[; ;MainSlave1.c: 73: }
-[e $ ! || != -> . . _SSPCONbits 0 3 `i -> 0 `i != -> . . _SSPCONbits 0 4 `i -> 0 `i 219  ]
-{
 "74
 [; ;MainSlave1.c: 74: 
-[e = _z _SSPBUF ]
+[e $ ! || != -> . . _SSPCONbits 0 3 `i -> 0 `i != -> . . _SSPCONbits 0 4 `i -> 0 `i 219  ]
+{
 "75
-[; ;MainSlave1.c: 75: 
-[e = . . _SSPCONbits 0 3 -> -> 0 `i `uc ]
+[; ;MainSlave1.c: 75:  }
+[e = _z _SSPBUF ]
 "76
-[; ;MainSlave1.c: 76: 
-[e = . . _SSPCONbits 0 4 -> -> 0 `i `uc ]
+[; ;MainSlave1.c: 76: }
+[e = . . _SSPCONbits 0 3 -> -> 0 `i `uc ]
 "77
 [; ;MainSlave1.c: 77: 
-[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+[e = . . _SSPCONbits 0 4 -> -> 0 `i `uc ]
 "78
-[; ;MainSlave1.c: 78: void setup(void){
+[; ;MainSlave1.c: 78: 
+[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+"79
+[; ;MainSlave1.c: 79: 
 }
 [e :U 219 ]
-"80
-[; ;MainSlave1.c: 80: 
+"81
+[; ;MainSlave1.c: 81: void setup(void){
 [e $ ! && ! != -> . . _SSPSTATbits 0 5 `i -> 0 `i ! != -> . . _SSPSTATbits 0 2 `i -> 0 `i 220  ]
 {
-"82
-[; ;MainSlave1.c: 82: 
+"83
+[; ;MainSlave1.c: 83: 
 [e = _z _SSPBUF ]
-"84
-[; ;MainSlave1.c: 84:   TRISB = 0b00000000;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
 "85
-[; ;MainSlave1.c: 85:   TRISC = 0b00000000;
-[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+[; ;MainSlave1.c: 85: 
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
 "86
-[; ;MainSlave1.c: 86:   TRISD = 0x00;
+[; ;MainSlave1.c: 86:   TRISA = 0b00000010;
+[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+"87
+[; ;MainSlave1.c: 87:   TRISB = 0b00000000;
 [e $U 221  ]
 [e :U 222 ]
 [e :U 221 ]
 [e $ ! != -> . . _SSPSTATbits 0 0 `i -> 0 `i 222  ]
 [e :U 223 ]
-"87
-[; ;MainSlave1.c: 87:   TRISE = 0x00;
-[e = _inI2C _SSPBUF ]
 "88
-[; ;MainSlave1.c: 88: 
+[; ;MainSlave1.c: 88:   TRISC = 0b00000000;
+[e = _inI2C _SSPBUF ]
+"89
+[; ;MainSlave1.c: 89:   TRISD = 0x00;
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"90
-[; ;MainSlave1.c: 90: 
-}
-[e $U 224  ]
 "91
 [; ;MainSlave1.c: 91: 
+}
+[e $U 224  ]
+"92
+[; ;MainSlave1.c: 92:   OPTION_REG = 0b11000100;
 [e :U 220 ]
 [e $ ! && ! != -> . . _SSPSTATbits 0 5 `i -> 0 `i != -> . . _SSPSTATbits 0 2 `i -> 0 `i 225  ]
 {
-"92
-[; ;MainSlave1.c: 92: 
-[e = _z _SSPBUF ]
 "93
-[; ;MainSlave1.c: 93:   pushPORTB(0b00000000);
-[e = _BF -> -> 0 `i `b ]
+[; ;MainSlave1.c: 93: 
+[e = _z _SSPBUF ]
 "94
-[; ;MainSlave1.c: 94:   initOsc(4);
-[e = _SSPBUF _outI2C ]
+[; ;MainSlave1.c: 94: 
+[e = _BF -> -> 0 `i `b ]
 "95
 [; ;MainSlave1.c: 95: 
-[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+[e = _SSPBUF _outI2C ]
 "96
-[; ;MainSlave1.c: 96:   initEUSART(0,0);
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;MainSlave1.c: 96: 
+[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
 "97
-[; ;MainSlave1.c: 97: 
+[; ;MainSlave1.c: 97:   initOsc(4);
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"98
+[; ;MainSlave1.c: 98: 
 [e $U 226  ]
 [e :U 227 ]
 [e :U 226 ]
 [e $ != -> . . _SSPSTATbits 0 0 `i -> 0 `i 227  ]
 [e :U 228 ]
-"98
-[; ;MainSlave1.c: 98:   PORTA = 0x00;
+"99
+[; ;MainSlave1.c: 99: 
 }
 [e :U 225 ]
 [e :U 224 ]
-"100
-[; ;MainSlave1.c: 100:   PORTC = 0x00;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
 "101
-[; ;MainSlave1.c: 101:   PORTD = 0x00;
+[; ;MainSlave1.c: 101: 
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"102
+[; ;MainSlave1.c: 102:   PORTA = 0x00;
 }
 [e :U 218 ]
-"105
-[; ;MainSlave1.c: 105: 
+"106
+[; ;MainSlave1.c: 106:   PORTE = 0x00;
 [e :UE 217 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"107
-[; ;MainSlave1.c: 107:   PIE2 = 0b00000000;
+"108
+[; ;MainSlave1.c: 108: 
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"108
-[; ;MainSlave1.c: 108:   PIR1 = 0x00;
-[e ( _setup ..  ]
 "109
-[; ;MainSlave1.c: 109:   PIR2 = 0x00;
-[e ( _hx711_init ..  ]
+[; ;MainSlave1.c: 109: 
+[e ( _setup ..  ]
 "110
-[; ;MainSlave1.c: 110:   INTCON = 0b11000000;
-[e ( _tarar (2 , -> -> 10 `i `uc -> -> 128 `i `uc ]
-"114
+[; ;MainSlave1.c: 110:   PIE1 = 0b00000000;
+[e ( _hx711_init ..  ]
+"111
+[; ;MainSlave1.c: 111:   PIE2 = 0b00000000;
+[e ( _tarar (2 , -> -> 2 `i `uc -> -> 128 `i `uc ]
+"115
+[; ;MainSlave1.c: 115: }
 [e :U 231 ]
 {
-"115
-[e = _weight ( _hx711_promedio (2 , -> -> 10 `i `uc -> -> 64 `i `uc ]
-"116
-[e = _weight >> _weight -> 16 `i ]
-"117
-[e = _PORTD -> _weight `uc ]
 "118
+[e = _PORTD _weight ]
+"119
+[e = _weight -> -> 255 `i `uc ]
+"121
 }
 [e :U 230 ]
 [e $U 231  ]
 [e :U 232 ]
-"119
+"122
 [e :UE 229 ]
 }
-"124
+"127
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"127
-[e = _ANSELH -> -> 0 `i `uc ]
-"129
-[e = _TRISA -> -> 0 `i `uc ]
 "130
-[e = _TRISB -> -> 0 `i `uc ]
-"131
-[e = _TRISC -> -> 0 `i `uc ]
+[e = _ANSELH -> -> 0 `i `uc ]
 "132
-[e = _TRISD -> -> 0 `i `uc ]
+[e = _TRISA -> -> 2 `i `uc ]
 "133
-[e = _TRISE -> -> 0 `i `uc ]
+[e = _TRISB -> -> 0 `i `uc ]
+"134
+[e = _TRISC -> -> 0 `i `uc ]
 "135
+[e = _TRISD -> -> 0 `i `uc ]
+"136
+[e = _TRISE -> -> 0 `i `uc ]
+"138
 [e = _OPTION_REG -> -> 196 `i `uc ]
-"139
-[e ( _pushPORTB (1 -> -> 0 `i `uc ]
-"140
+"143
 [e ( _initOsc (1 -> -> 4 `i `uc ]
-"142
-[e ( _initEUSART (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"144
-[e = _PORTA -> -> 0 `i `uc ]
-"145
-[e = _PORTB -> -> 0 `i `uc ]
-"146
-[e = _PORTC -> -> 0 `i `uc ]
-"147
-[e = _PORTD -> -> 0 `i `uc ]
 "148
-[e = _PORTE -> -> 0 `i `uc ]
+[e = _PORTA -> -> 0 `i `uc ]
+"149
+[e = _PORTB -> -> 0 `i `uc ]
+"150
+[e = _PORTC -> -> 0 `i `uc ]
+"151
+[e = _PORTD -> -> 0 `i `uc ]
 "152
-[e = _PIE1 -> -> 0 `i `uc ]
-"153
-[e = _PIE2 -> -> 0 `i `uc ]
-"154
-[e = _PIR1 -> -> 0 `i `uc ]
-"155
-[e = _PIR2 -> -> 0 `i `uc ]
+[e = _PORTE -> -> 0 `i `uc ]
 "156
-[e = _INTCON -> -> 192 `i `uc ]
+[e = _PIE1 -> -> 0 `i `uc ]
 "157
+[e = _PIE2 -> -> 0 `i `uc ]
+"158
+[e = _PIR1 -> -> 0 `i `uc ]
+"159
+[e = _PIR2 -> -> 0 `i `uc ]
+"160
+[e = _INTCON -> -> 192 `i `uc ]
+"161
 [e :UE 233 ]
 }

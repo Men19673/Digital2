@@ -149,7 +149,7 @@ void setup(void){
   
  //Interrupciones
   
-  PIE1 = 0b01001000; // 0, ADIE, rcie, txie, SSPIE, ccp1ie, tmr2, tmr1
+  PIE1 = 0b01000000; // 0, ADIE, rcie, txie, SSPIE, ccp1ie, tmr2, tmr1
   PIE2 = 0b00000000; // osfie, c2ie, c1ie, eeie, bclie, 0, ccpie2
   PIR1 = 0x00; //Limpiar banderas
   PIR2 = 0x00;
