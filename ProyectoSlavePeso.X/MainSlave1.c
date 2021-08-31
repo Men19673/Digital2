@@ -12,6 +12,7 @@
 #include "my_lib.h"
 #include "I2C.h"
 #include <pic16f887.h>
+#include "HX711.h"
 
 /***************************Configuration Words********************************/
 // CONFIG1
@@ -44,7 +45,7 @@
                                 // (Write protection off)
 
 
-#define _XTAL_FREQ      8000000 //Definir la frecuencia de operacion, cambiar en 
+#define _XTAL_FREQ      4000000 //Definir la frecuencia de operacion, cambiar en 
                                 //Cambiar en libreria
 
 /******************************Prototipos**************************************/
@@ -58,14 +59,13 @@ uint8_t flagint;
 uint8_t z;
 uint8_t cont;
 uint8_t inI2C;
+uint8_t outI2C;
 uint8_t varPot0;
-
+int32_t  weight;
 /********************************Interrupcion**********************************/
 void __interrupt()isr(void){
   
-    
    
-    
      if(PIR1bits.SSPIF == 1){ 
 
         SSPCONbits.CKP = 0;
@@ -91,7 +91,7 @@ void __interrupt()isr(void){
         else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
             z = SSPBUF;
             BF = 0;
-            SSPBUF = cont;
+            SSPBUF = outI2C;
             SSPCONbits.CKP = 1;
             __delay_us(250);
             while(SSPSTATbits.BF);
@@ -106,12 +106,15 @@ void __interrupt()isr(void){
 /****************************** MAIN ******************************************/
 void main(void) {
     setup();
-    
+    hx711_init();
+    tarar(10, 128);
     
 
 /****************************** LOOP ******************************************/
 while(1) {
-   
+    weight = hx711_promedio(10, 64);
+    weight = weight >> 16;
+    PORTD = weight;
  }
 }
 
@@ -135,8 +138,9 @@ void setup(void){
   
   pushPORTB(0b00000000); //Activar weak pullup y interrupt on change
   initOsc(4);   //utilizar oscilador interno para reloj del sistema a 4MHz
-  I2C_Slave_Init(0xA0);
-  initAN(0b00000011);
+  //I2C_Slave_Init(0xA0);
+  initEUSART(0,0);
+  
   PORTA = 0x00;
   PORTB = 0x00;
   PORTC = 0x00; //Poner todos los puertos en 0
@@ -145,9 +149,9 @@ void setup(void){
   
  //Interrupciones
   
-  PIE1 = 0b01001000; // 0, ADIE, rcie, txie, SSPIE, ccp1ie, tmr2, tmr1
+  PIE1 = 0b00000000; // 0, adie, rcie, txie, SSPIE, ccp1ie, tmr2, tmr1
   PIE2 = 0b00000000; // osfie, c2ie, c1ie, eeie, bclie, 0, ccpie2
   PIR1 = 0x00; //Limpiar banderas
   PIR2 = 0x00;
-  INTCON = 0b11001000;  //GIE, PIE, toie, inte, RBIE, t0if, intf, rbif
+  INTCON = 0b11000000;  //GIE, PIE, toie, inte, rbie, t0if, intf, rbif
 }
