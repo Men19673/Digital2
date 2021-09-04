@@ -11,7 +11,6 @@
 #include <stdint.h>
 #include "my_lib.h"
 #include "I2C.h"
-#include "LCD8bits.h"
 #include <pic16f887.h>
 
 /***************************Configuration Words********************************/
@@ -60,9 +59,9 @@ uint8_t flagint;
 int8_t temp;
 uint8_t temp1;
 uint8_t RXREC;
-uint8_t varPot0;
+uint8_t weight;
 
-uint8_t cont;
+uint8_t sensorIR;
 
 uint8_t unidades;
 uint8_t decenas;
@@ -79,16 +78,36 @@ void __interrupt()isr(void){
 /****************************** MAIN ******************************************/
 void main(void) {
     setup();
-    Lcd_Init();
-    Lcd_Clear();  //Limpiar LCD     
-    
-   
-
+     
     
 /****************************** LOOP ******************************************/
 while(1) {
-        
-   
+    
+    I2C_Master_Start();
+    I2C_Master_Write(0x50);
+    I2C_Master_Write(0x01);
+    I2C_Master_Stop();
+    __delay_ms(200);
+    
+    I2C_Master_Start();
+    I2C_Master_Write(0x51);
+    weight = I2C_Master_Read(0);
+    I2C_Master_Stop();
+    __delay_ms(200);
+    
+    I2C_Master_Start();
+    I2C_Master_Write(0x50);
+    I2C_Master_Write(0x02);
+    I2C_Master_Stop();
+    __delay_ms(200);
+    
+    I2C_Master_Start();
+    I2C_Master_Write(0x51);
+    sensorIR = I2C_Master_Read(0);
+    I2C_Master_Stop();
+    __delay_ms(200);
+    
+    PORTD = weight;
     }
 }
 
@@ -100,7 +119,7 @@ void setup(void){
   ANSELH = 0b00000000;
   TRISA = 0b00000000;     //Output     
   TRISB = 0b00000000; //Output excepto por pin 0, 1 y 2   
-  TRISC = 0b00000000;     //Output
+  TRISC = 0b00000000;     //Output input SDI
   TRISD = 0b00000000;     //Output
   TRISE = 0b00000000;
   
@@ -108,7 +127,7 @@ void setup(void){
   
   OPTION_REG = 0b11000100; //pullup off, INTEDG, TOSC(int),Presc TMR0, Presc val
 
-  initOsc(4);   //utilizar oscilador interno para reloj del sistema a 8MHz
+  initOsc(8);   //utilizar oscilador interno para reloj del sistema a 8MHz
   I2C_Master_Init(100000);        // Inicializar Comuncación I2C
   
   PORTA = 0x00;

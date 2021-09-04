@@ -2691,7 +2691,7 @@ void initAN(uint8_t bin, uint8_t just){
 
 
      ADCON0bits.CHS= 0;
-     _delay((unsigned long)((100)*(4000000/4000000.0)));
+     _delay((unsigned long)((100)*(8000000/4000000.0)));
 
      ADCON0bits.ADON = 1;
      ADCON0bits.ADCS = 1;
@@ -2820,7 +2820,7 @@ void chselect (uint8_t cant){
         }
     }
 
-    _delay((unsigned long)((150)*(4000000/4000000.0)));
+    _delay((unsigned long)((150)*(8000000/4000000.0)));
     ADCON0bits.GO = 1;
 }
 
@@ -2961,20 +2961,6 @@ void I2C_Slave_Init(uint8_t address);
 # 13 "MainSlave1.c" 2
 
 
-# 1 "./HX711.h" 1
-# 11 "./HX711.h"
-# 1 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 1 3
-# 11 "./HX711.h" 2
-# 26 "./HX711.h"
-int32_t offset;
-
-
-void hx711_init();
-int8_t hx711_pulso();
-int32_t hx711_lectura(uint8_t ganancia);
-int32_t hx711_promedio(uint8_t veces, uint8_t ganancia);
-void tarar(uint8_t veces,uint8_t ganancia);
-# 15 "MainSlave1.c" 2
 
 
 
@@ -3014,7 +3000,7 @@ void tarar(uint8_t veces,uint8_t ganancia);
 
 
 void setup(void);
-uint8_t table(uint8_t);
+void ctrservo(void);
 
 
 
@@ -3023,12 +3009,40 @@ uint8_t z;
 uint8_t cont;
 uint8_t inI2C;
 uint8_t outI2C;
-uint8_t varPot0;
+uint8_t sensorIR;
 uint8_t weight;
+uint8_t PWM;
+uint8_t cont;
+uint8_t bandera;
 
 void __attribute__((picinterrupt((""))))isr(void){
 
 
+    if (PIR1bits.TMR1IF){
+        PIR1bits.TMR1IF = 0;
+        TMR1H = 0x3C;
+        TMR1L = 0xB0;
+
+
+
+
+        if(bandera == 1){
+            cont++;
+        }
+        else if(cont>= 100){
+            cont=0;
+            bandera = 0;
+            RA2 = 0;
+            PWM = 255;
+        }
+    }
+
+     if(PIR1bits.ADIF){
+        if(ADCON0bits.CHS == 0){
+            weight = ADRESL;
+        }
+        PIR1bits.ADIF = 0;
+     }
 
      if(PIR1bits.SSPIF == 1){
 
@@ -3042,22 +3056,29 @@ void __attribute__((picinterrupt((""))))isr(void){
         }
 
         if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
-
             z = SSPBUF;
-
             PIR1bits.SSPIF = 0;
             SSPCONbits.CKP = 1;
             while(!SSPSTATbits.BF);
             inI2C = SSPBUF;
-            _delay((unsigned long)((250)*(4000000/4000000.0)));
+            _delay((unsigned long)((250)*(8000000/4000000.0)));
 
-        }
+            switch(inI2C){
+                case(0x01):
+                    outI2C = weight;
+                    break;
+
+                case(0x02):
+                    outI2C = sensorIR;
+                    break;
+                    }
+            }
         else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
             z = SSPBUF;
             BF = 0;
             SSPBUF = outI2C;
             SSPCONbits.CKP = 1;
-            _delay((unsigned long)((250)*(4000000/4000000.0)));
+            _delay((unsigned long)((250)*(8000000/4000000.0)));
             while(SSPSTATbits.BF);
         }
 
@@ -3070,17 +3091,37 @@ void __attribute__((picinterrupt((""))))isr(void){
 
 void main(void) {
     setup();
-    hx711_init();
-    tarar(2, 128);
+
 
 
 
 while(1) {
+    chselect(1);
 
+
+    if(PORTAbits.RA1 == 1){
+        sensorIR = 0;
+    }
+    else {
+        sensorIR = 1;
+        bandera = 1;
+    }
+
+
+    if(cont <= 49){
+        RA2 = 0;
+        PWM = 255;
+        ctrservo();
+    }
+
+    if(cont == 50){
+        RA2 = 1;
+        for(PWM = 255; PWM > 0; PWM--){
+            ctrservo();
+        }
+    }
 
     PORTD = weight;
-    weight = 0xFF;
-
  }
 }
 
@@ -3092,21 +3133,35 @@ void setup(void){
 
   ANSELH = 0b00000000;
 
-  TRISA = 0b00000010;
+  TRISA = 0b00000011;
   TRISB = 0b00000000;
-  TRISC = 0b00000000;
+  TRISC = 0b00000010;
   TRISD = 0x00;
   TRISE = 0x00;
 
   OPTION_REG = 0b11000100;
 
+  initOsc(8);
+  I2C_Slave_Init(0x50);
+  initAN(0b00000001, 1);
+
+
+  T1CON = 0x21;
+  PIR1bits.TMR1IF = 0;
+  TMR1H = 0x3C;
+  TMR1L = 0xB0;
 
 
 
-  initOsc(4);
+
+    T2CON= 0x4E;
+    PR2 = 250;
 
 
 
+
+  CCP2CON = 0b00001111;
+  PWM = 255;
 
   PORTA = 0x00;
   PORTB = 0x00;
@@ -3116,9 +3171,16 @@ void setup(void){
 
 
 
-  PIE1 = 0b00000000;
+  PIE1 = 0b01001001;
   PIE2 = 0b00000000;
   PIR1 = 0x00;
   PIR2 = 0x00;
   INTCON = 0b11000000;
+  TRISCbits.TRISC1 =0;
+}
+
+void ctrservo (void) {
+
+    CCPR2L = (((0.247 * PWM) + 62)*2);
+
 }

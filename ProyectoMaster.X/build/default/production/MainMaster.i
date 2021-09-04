@@ -1,4 +1,4 @@
-# 1 "HX711.c"
+# 1 "MainMaster.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,22 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "HX711.c" 2
-
-
-
-
-
-
-# 1 "./HX711.h" 1
-
-
-
-
-
-
-
-
+# 1 "MainMaster.c" 2
+# 10 "MainMaster.c"
 # 1 "E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2502,8 +2488,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 9 "./HX711.h" 2
-
+# 10 "MainMaster.c" 2
 
 # 1 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
@@ -2638,92 +2623,511 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 11 "./HX711.h" 2
-# 26 "./HX711.h"
-int32_t offset;
+# 11 "MainMaster.c" 2
+
+# 1 "./my_lib.h" 1
+# 12 "./my_lib.h"
+# 1 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 1 3
+# 12 "./my_lib.h" 2
 
 
-void hx711_init();
-int8_t hx711_pulso();
-int32_t hx711_lectura(uint8_t ganancia);
-int32_t hx711_promedio(uint8_t veces, uint8_t ganancia);
-void tarar(uint8_t veces,uint8_t ganancia);
-# 7 "HX711.c" 2
+void initOsc(uint8_t frec){
 
+        switch(frec){
+            case 8:
+                OSCCONbits.IRCF0 = 1;
+                OSCCONbits.IRCF1 = 1;
+                OSCCONbits.IRCF2 = 1;
+                break;
 
-int32_t offset;
-
-void hx711_init()
-{ TRISAbits.TRISA0=0;
-   TRISAbits.TRISA1=1;
-   RA0=0;
-   _delay((unsigned long)((500)*(4000000/4000.0)));
-}
-
-int8_t hx711_pulso(){
-    uint8_t lec;
-    RA0=1;
-    _delay((unsigned long)((1)*(4000000/4000000.0)));
-    lec=RA1;
-    RA0=0;
-    _delay((unsigned long)((1)*(4000000/4000000.0)));
-    return lec;
-}
-
-int32_t hx711_lectura(uint8_t ganancia){
-    uint8_t cont;
-    int32_t dato=0;
-
-
-    while (RA1==1);
-
-  for (cont=23; cont>=0; cont--){
-     if (hx711_pulso()==1){
-       dato = dato +( 1L<<cont);
-     }
-  }
-      _delay((unsigned long)((100)*(4000000/4000000.0)));
-
-     if (ganancia==128) hx711_pulso();
-     else if (ganancia==32){
-      hx711_pulso();
-      _delay((unsigned long)((100)*(4000000/4000000.0)));
-      hx711_pulso();
-
-      }
-     else if (ganancia==64){
-      hx711_pulso();
-      _delay((unsigned long)((100)*(4000000/4000000.0)));
-      hx711_pulso();
-      _delay((unsigned long)((100)*(4000000/4000000.0)));
-      hx711_pulso();
-      }
-
-
-
-    if ((dato & 0x800000)!=0)
-    {
-    dato= dato | 0xff000000;
-    return (-dato);
-    }
-    else return (dato);
-
-}
-
-int32_t hx711_promedio(uint8_t veces, uint8_t ganancia)
- {
-        int32_t prom = 0;
-        uint8_t cont;
-
-        for (cont = 0; cont < veces; cont++){
-          prom = prom + hx711_lectura(ganancia);
-           _delay((unsigned long)((100)*(4000000/4000.0)));
+            case 4:
+                OSCCONbits.IRCF0 = 0;
+                OSCCONbits.IRCF1 = 1;
+                OSCCONbits.IRCF2 = 1;
+                break;
+            case 2:
+                OSCCONbits.IRCF0 = 1;
+                OSCCONbits.IRCF1 = 0;
+                OSCCONbits.IRCF2 = 1;
+                break;
+             case 1:
+                OSCCONbits.IRCF0 = 0;
+                OSCCONbits.IRCF1 = 0;
+                OSCCONbits.IRCF2 = 1;
+                break;
+             case 50:
+                OSCCONbits.IRCF0 = 0;
+                OSCCONbits.IRCF1 = 1;
+                OSCCONbits.IRCF2 = 1;
+                break;
+             case 25:
+                OSCCONbits.IRCF0 = 0;
+                OSCCONbits.IRCF1 = 1;
+                OSCCONbits.IRCF2 = 0;
+                break;
+              case 12:
+                OSCCONbits.IRCF0 = 1;
+                OSCCONbits.IRCF1 = 0;
+                OSCCONbits.IRCF2 = 0;
+                break;
+              case 31:
+                OSCCONbits.IRCF0 = 0;
+                OSCCONbits.IRCF1 = 1;
+                OSCCONbits.IRCF2 = 1;
+                break;
+              default:
+                OSCCONbits.IRCF0 = 0;
+                OSCCONbits.IRCF1 = 1;
+                OSCCONbits.IRCF2 = 1;
+                break;
         }
-        return (prom / cont);
+    OSCCONbits.SCS = 1;
 }
 
-void tarar(uint8_t veces, uint8_t ganancia)
- {
-         offset = hx711_promedio(veces,ganancia);
+void initAN(uint8_t bin, uint8_t just){
+    TRISA = TRISA ^ bin;
+     ANSEL = bin;
+     ANSELH = 0b00000000;
 
+
+     ADCON0bits.CHS= 0;
+     _delay((unsigned long)((100)*(4000000/4000000.0)));
+
+     ADCON0bits.ADON = 1;
+     ADCON0bits.ADCS = 1;
+
+
+
+     ADCON1bits.ADFM = just;
+     ADCON1bits.VCFG0 = 0;
+     ADCON1bits.VCFG1 = 0;
+
+     PIE1bits.ADIE= 1;
+   }
+# 138 "./my_lib.h"
+void chselect (uint8_t cant){
+    if(ADCON0bits.GO == 0){
+      switch (ADCON0bits.CHS){
+
+          case 0:
+            if (cant == 1){
+                ADCON0bits.CHS = 0;
+            }
+            else{
+                ADCON0bits.CHS = 1;
+            }
+            break;
+         case 1:
+            if (cant == 2){
+                ADCON0bits.CHS = 0;
+            }
+            else{
+                ADCON0bits.CHS = 2;
+            }
+            break;
+         case 2:
+            if (cant == 3){
+                ADCON0bits.CHS = 0;
+            }
+            else{
+                ADCON0bits.CHS = 3;
+            }
+            break;
+         case 3:
+            if (cant == 4){
+                ADCON0bits.CHS = 0;
+            }
+            else{
+                ADCON0bits.CHS = 4;
+            }
+            break;
+         case 4:
+            if (cant == 5){
+                ADCON0bits.CHS = 0;
+            }
+            else{
+                ADCON0bits.CHS = 5;
+            }
+            break;
+         case 5:
+            if (cant == 6){
+                ADCON0bits.CHS = 0;
+            }
+            else{
+                ADCON0bits.CHS = 6;
+            }
+            break;
+         case 6:
+            if (cant == 7){
+                ADCON0bits.CHS = 0;
+            }
+            else{
+                ADCON0bits.CHS = 7;
+            }
+            break;
+         case 7:
+            if (cant == 8){
+                ADCON0bits.CHS = 0;
+            }
+            else{
+                ADCON0bits.CHS = 8;
+            }
+            break;
+         case 8:
+            if (cant == 9){
+                ADCON0bits.CHS = 0;
+            }
+            else{
+                ADCON0bits.CHS = 9;
+            }
+            break;
+         case 9:
+            if (cant == 10){
+                ADCON0bits.CHS = 0;
+            }
+            else{
+                ADCON0bits.CHS = 10;
+            };
+            break;
+         case 10:
+            if (cant == 11){
+                ADCON0bits.CHS = 0;
+            }
+            else{
+                ADCON0bits.CHS = 11;
+            }
+            break;
+         case 11:
+            if (cant == 12){
+                ADCON0bits.CHS = 0;
+            }
+            else{
+                ADCON0bits.CHS = 12;
+            }
+            break;
+         case 12:
+            if (cant == 13){
+                ADCON0bits.CHS = 0;
+            }
+            else{
+                ADCON0bits.CHS = 13;
+            }
+            break;
+         case 13:
+                ADCON0bits.CHS = 0;
+
+            break;
+        }
+    }
+
+    _delay((unsigned long)((150)*(4000000/4000000.0)));
+    ADCON0bits.GO = 1;
+}
+
+
+
+uint8_t table(uint8_t val){
+    uint8_t tempo;
+
+    switch(val){
+        case 0:
+            tempo = 0b00111111;
+            break;
+        case 1:
+            tempo = 0b00000110;
+            break;
+        case 2:
+            tempo = 0b01011011;
+            break;
+        case 3:
+            tempo = 0b01001111;
+            break;
+        case 4:
+            tempo = 0b01100110;
+            break;
+        case 5:
+            tempo = 0b01101101;
+            break;
+        case 6:
+            tempo = 0b01111101;
+            break;
+        case 7:
+            tempo = 0b00000111;
+            break;
+        case 8:
+            tempo = 0b01111111;
+            break;
+        case 9:
+            tempo = 0b01100111;
+            break;
+        case 10:
+            tempo = 0b01110111;
+            break;
+        case 11:
+            tempo = 0b01111100;
+            break;
+        case 12:
+            tempo = 0b00111001;
+            break;
+        case 13:
+            tempo = 0b01011110;
+            break;
+        case 14:
+            tempo = 0b01111001;
+            break;
+        case 15:
+            tempo = 0b01110001;
+            break;
+
+            default:
+                tempo = 0b00111111;
+        }
+        return(tempo);
+}
+
+void initEUSART(uint8_t tx, uint8_t rx){
+
+
+
+  TXSTAbits.SYNC = 0;
+  TXSTAbits.BRGH = 1;
+  TXSTAbits.TX9 = 0;
+  TXSTAbits.TXEN= 1;
+  RCSTAbits.SPEN = 1;
+
+
+  RCSTAbits.RX9 = 0;
+  RCSTAbits.CREN = 1;
+
+
+    BAUDCTLbits.BRG16 = 0;
+    SPBRG =25;
+    SPBRGH = 1;
+
+    ;
+    PIE1bits.RCIE =rx;
+}
+
+void pushPORTB(uint8_t val){
+  TRISB = val;
+  WPUB = val;
+  IOCB = val;
+  OPTION_REG = OPTION_REG & 0x7F;
+  INTCONbits.RBIE = 1;
+}
+# 12 "MainMaster.c" 2
+
+# 1 "./I2C.h" 1
+# 20 "./I2C.h"
+# 1 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 1 3
+# 20 "./I2C.h" 2
+# 29 "./I2C.h"
+void I2C_Master_Init(const unsigned long c);
+
+
+
+
+
+
+
+void I2C_Master_Wait(void);
+
+
+
+void I2C_Master_Start(void);
+
+
+
+void I2C_Master_RepeatedStart(void);
+
+
+
+void I2C_Master_Stop(void);
+
+
+
+
+
+void I2C_Master_Write(unsigned d);
+
+
+
+
+uint8_t I2C_Master_Read(uint8_t a);
+
+
+
+void I2C_Slave_Init(uint8_t address);
+# 13 "MainMaster.c" 2
+
+
+
+
+
+#pragma config FOSC = INTRC_NOCLKOUT
+
+
+#pragma config WDTE = OFF
+
+
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+
+
+#pragma config CP = OFF
+
+#pragma config CPD = OFF
+
+#pragma config BOREN = OFF
+#pragma config IESO = OFF
+
+#pragma config FCMEN = OFF
+
+#pragma config LVP = OFF
+
+
+
+#pragma config BOR4V = BOR40V
+
+#pragma config WRT = OFF
+
+
+
+
+
+
+
+
+void setup(void);
+void voltASCII(uint8_t);
+void contASCII(int8_t);
+void tempASCII(int8_t);
+
+
+uint8_t flagint;
+int8_t temp;
+uint8_t temp1;
+uint8_t RXREC;
+uint8_t weight;
+
+uint8_t sensorIR;
+
+uint8_t unidades;
+uint8_t decenas;
+uint8_t centenas;
+
+
+void __attribute__((picinterrupt((""))))isr(void){
+
+
+
+
+
+}
+
+void main(void) {
+    setup();
+
+
+
+while(1) {
+
+    I2C_Master_Start();
+    I2C_Master_Write(0x50);
+    I2C_Master_Write(0x01);
+    I2C_Master_Stop();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+
+    I2C_Master_Start();
+    I2C_Master_Write(0x51);
+    weight = I2C_Master_Read(0);
+    I2C_Master_Stop();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+
+    I2C_Master_Start();
+    I2C_Master_Write(0x50);
+    I2C_Master_Write(0x02);
+    I2C_Master_Stop();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+
+    I2C_Master_Start();
+    I2C_Master_Write(0x51);
+    sensorIR = I2C_Master_Read(0);
+    I2C_Master_Stop();
+    _delay((unsigned long)((200)*(4000000/4000.0)));
+
+    PORTD = weight;
+    }
+}
+
+
+
+
+void setup(void){
+
+  ANSELH = 0b00000000;
+  TRISA = 0b00000000;
+  TRISB = 0b00000000;
+  TRISC = 0b00000000;
+  TRISD = 0b00000000;
+  TRISE = 0b00000000;
+
+
+
+  OPTION_REG = 0b11000100;
+
+  initOsc(8);
+  I2C_Master_Init(100000);
+
+  PORTA = 0x00;
+  PORTB = 0x00;
+  PORTC = 0x00;
+  PORTD = 0x00;
+  PORTE = 0x00;
+
+
+
+  PIE1 = 0b00000000;
+  PIE2 = 0b00000000;
+  PIR1 = 0x00;
+  PIR2 = 0x00;
+  INTCON = 0b00000000;
+}
+
+
+
+
+void voltASCII(uint8_t variable){
+    uint16_t valor;
+
+    valor = variable;
+    valor = (valor*1.96);
+    centenas = (valor/100) ;
+    valor = (valor - (centenas*100));
+    decenas = (valor/10);
+    valor = (valor - (decenas*10));
+    unidades = (valor);
+
+
+
+    centenas = centenas + 48;
+    decenas = decenas + 48;
+    unidades = unidades + 48;
+}
+
+void contASCII(int8_t variable){
+    int8_t valor;
+
+    valor = variable;
+    centenas = (valor/100) ;
+    valor = (valor - (centenas*100));
+    decenas = (valor/10);
+    valor = (valor - (decenas*10));
+    unidades = (valor);
+
+
+
+    centenas = centenas + 48;
+    decenas = decenas + 48;
+    unidades = unidades + 48;
 }

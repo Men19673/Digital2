@@ -1,4 +1,4 @@
-# 1 "MainSlave2.c"
+# 1 "E:\\Microchip\\XC8\\pic\\sources\\c90\\pic\\__eeprom.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MainSlave2.c" 2
-# 10 "MainSlave2.c"
+# 1 "E:\\Microchip\\XC8\\pic\\sources\\c90\\pic\\__eeprom.c" 2
 # 1 "E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2488,615 +2487,176 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 10 "MainSlave2.c" 2
+# 1 "E:\\Microchip\\XC8\\pic\\sources\\c90\\pic\\__eeprom.c" 2
 
-# 1 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 1 3
-# 13 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int8_t;
 
 
 
+void
+__eecpymem(volatile unsigned char *to, __eeprom unsigned char * from, unsigned char size)
+{
+ volatile unsigned char *cp = to;
 
+ while (EECON1bits.WR) continue;
+ EEADR = (unsigned char)from;
+ while(size--) {
+  while (EECON1bits.WR) continue;
 
+  EECON1 &= 0x7F;
 
-typedef signed int int16_t;
-
-
-
-
-
-
-
-typedef __int24 int24_t;
-
-
-
-
-
-
-
-typedef signed long int int32_t;
-# 52 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint8_t;
-
-
-
-
-
-typedef unsigned int uint16_t;
-
-
-
-
-
-
-typedef __uint24 uint24_t;
-
-
-
-
-
-
-typedef unsigned long int uint32_t;
-# 88 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_least8_t;
-
-
-
-
-
-
-
-typedef signed int int_least16_t;
-# 109 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_least24_t;
-# 118 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
-typedef signed long int int_least32_t;
-# 136 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_least8_t;
-
-
-
-
-
-
-typedef unsigned int uint_least16_t;
-# 154 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_least24_t;
-
-
-
-
-
-
-
-typedef unsigned long int uint_least32_t;
-# 181 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_fast8_t;
-
-
-
-
-
-
-typedef signed int int_fast16_t;
-# 200 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_fast24_t;
-
-
-
-
-
-
-
-typedef signed long int int_fast32_t;
-# 224 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_fast8_t;
-
-
-
-
-
-typedef unsigned int uint_fast16_t;
-# 240 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_fast24_t;
-
-
-
-
-
-
-typedef unsigned long int uint_fast32_t;
-# 268 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
-typedef int32_t intmax_t;
-# 282 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 3
-typedef uint32_t uintmax_t;
-
-
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-# 11 "MainSlave2.c" 2
-
-# 1 "./my_lib.h" 1
-# 12 "./my_lib.h"
-# 1 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 1 3
-# 12 "./my_lib.h" 2
-
-
-void initOsc(uint8_t frec){
-
-        switch(frec){
-            case 8:
-                OSCCONbits.IRCF0 = 1;
-                OSCCONbits.IRCF1 = 1;
-                OSCCONbits.IRCF2 = 1;
-                break;
-
-            case 4:
-                OSCCONbits.IRCF0 = 0;
-                OSCCONbits.IRCF1 = 1;
-                OSCCONbits.IRCF2 = 1;
-                break;
-            case 2:
-                OSCCONbits.IRCF0 = 1;
-                OSCCONbits.IRCF1 = 0;
-                OSCCONbits.IRCF2 = 1;
-                break;
-             case 1:
-                OSCCONbits.IRCF0 = 0;
-                OSCCONbits.IRCF1 = 0;
-                OSCCONbits.IRCF2 = 1;
-                break;
-             case 50:
-                OSCCONbits.IRCF0 = 0;
-                OSCCONbits.IRCF1 = 1;
-                OSCCONbits.IRCF2 = 1;
-                break;
-             case 25:
-                OSCCONbits.IRCF0 = 0;
-                OSCCONbits.IRCF1 = 1;
-                OSCCONbits.IRCF2 = 0;
-                break;
-              case 12:
-                OSCCONbits.IRCF0 = 1;
-                OSCCONbits.IRCF1 = 0;
-                OSCCONbits.IRCF2 = 0;
-                break;
-              case 31:
-                OSCCONbits.IRCF0 = 0;
-                OSCCONbits.IRCF1 = 1;
-                OSCCONbits.IRCF2 = 1;
-                break;
-              default:
-                OSCCONbits.IRCF0 = 0;
-                OSCCONbits.IRCF1 = 1;
-                OSCCONbits.IRCF2 = 1;
-                break;
-        }
-    OSCCONbits.SCS = 1;
-}
-
-void initAN(uint8_t bin, uint8_t just){
-    TRISA = TRISA ^ bin;
-     ANSEL = bin;
-     ANSELH = 0b00000000;
-
-
-     ADCON0bits.CHS= 0;
-     _delay((unsigned long)((100)*(4000000/4000000.0)));
-
-     ADCON0bits.ADON = 1;
-     ADCON0bits.ADCS = 1;
-
-
-
-     ADCON1bits.ADFM = just;
-     ADCON1bits.VCFG0 = 0;
-     ADCON1bits.VCFG1 = 0;
-
-     PIE1bits.ADIE= 1;
-   }
-# 138 "./my_lib.h"
-void chselect (uint8_t cant){
-    if(ADCON0bits.GO == 0){
-      switch (ADCON0bits.CHS){
-
-          case 0:
-            if (cant == 1){
-                ADCON0bits.CHS = 0;
-            }
-            else{
-                ADCON0bits.CHS = 1;
-            }
-            break;
-         case 1:
-            if (cant == 2){
-                ADCON0bits.CHS = 0;
-            }
-            else{
-                ADCON0bits.CHS = 2;
-            }
-            break;
-         case 2:
-            if (cant == 3){
-                ADCON0bits.CHS = 0;
-            }
-            else{
-                ADCON0bits.CHS = 3;
-            }
-            break;
-         case 3:
-            if (cant == 4){
-                ADCON0bits.CHS = 0;
-            }
-            else{
-                ADCON0bits.CHS = 4;
-            }
-            break;
-         case 4:
-            if (cant == 5){
-                ADCON0bits.CHS = 0;
-            }
-            else{
-                ADCON0bits.CHS = 5;
-            }
-            break;
-         case 5:
-            if (cant == 6){
-                ADCON0bits.CHS = 0;
-            }
-            else{
-                ADCON0bits.CHS = 6;
-            }
-            break;
-         case 6:
-            if (cant == 7){
-                ADCON0bits.CHS = 0;
-            }
-            else{
-                ADCON0bits.CHS = 7;
-            }
-            break;
-         case 7:
-            if (cant == 8){
-                ADCON0bits.CHS = 0;
-            }
-            else{
-                ADCON0bits.CHS = 8;
-            }
-            break;
-         case 8:
-            if (cant == 9){
-                ADCON0bits.CHS = 0;
-            }
-            else{
-                ADCON0bits.CHS = 9;
-            }
-            break;
-         case 9:
-            if (cant == 10){
-                ADCON0bits.CHS = 0;
-            }
-            else{
-                ADCON0bits.CHS = 10;
-            };
-            break;
-         case 10:
-            if (cant == 11){
-                ADCON0bits.CHS = 0;
-            }
-            else{
-                ADCON0bits.CHS = 11;
-            }
-            break;
-         case 11:
-            if (cant == 12){
-                ADCON0bits.CHS = 0;
-            }
-            else{
-                ADCON0bits.CHS = 12;
-            }
-            break;
-         case 12:
-            if (cant == 13){
-                ADCON0bits.CHS = 0;
-            }
-            else{
-                ADCON0bits.CHS = 13;
-            }
-            break;
-         case 13:
-                ADCON0bits.CHS = 0;
-
-            break;
-        }
-    }
-
-    _delay((unsigned long)((150)*(4000000/4000000.0)));
-    ADCON0bits.GO = 1;
-}
-
-
-
-uint8_t table(uint8_t val){
-    uint8_t tempo;
-
-    switch(val){
-        case 0:
-            tempo = 0b00111111;
-            break;
-        case 1:
-            tempo = 0b00000110;
-            break;
-        case 2:
-            tempo = 0b01011011;
-            break;
-        case 3:
-            tempo = 0b01001111;
-            break;
-        case 4:
-            tempo = 0b01100110;
-            break;
-        case 5:
-            tempo = 0b01101101;
-            break;
-        case 6:
-            tempo = 0b01111101;
-            break;
-        case 7:
-            tempo = 0b00000111;
-            break;
-        case 8:
-            tempo = 0b01111111;
-            break;
-        case 9:
-            tempo = 0b01100111;
-            break;
-        case 10:
-            tempo = 0b01110111;
-            break;
-        case 11:
-            tempo = 0b01111100;
-            break;
-        case 12:
-            tempo = 0b00111001;
-            break;
-        case 13:
-            tempo = 0b01011110;
-            break;
-        case 14:
-            tempo = 0b01111001;
-            break;
-        case 15:
-            tempo = 0b01110001;
-            break;
-
-            default:
-                tempo = 0b00111111;
-        }
-        return(tempo);
-}
-
-void initEUSART(uint8_t tx, uint8_t rx){
-
-
-
-  TXSTAbits.SYNC = 0;
-  TXSTAbits.BRGH = 1;
-  TXSTAbits.TX9 = 0;
-  TXSTAbits.TXEN= 1;
-  RCSTAbits.SPEN = 1;
-
-
-  RCSTAbits.RX9 = 0;
-  RCSTAbits.CREN = 1;
-
-
-    BAUDCTLbits.BRG16 = 0;
-    SPBRG =25;
-    SPBRGH = 1;
-
-    ;
-    PIE1bits.RCIE =rx;
-}
-
-void pushPORTB(uint8_t val){
-  TRISB = val;
-  WPUB = val;
-  IOCB = val;
-  OPTION_REG = OPTION_REG & 0x7F;
-  INTCONbits.RBIE = 1;
-}
-# 12 "MainSlave2.c" 2
-
-# 1 "./I2C.h" 1
-# 20 "./I2C.h"
-# 1 "E:\\Microchip\\XC8\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "./I2C.h" 2
-# 29 "./I2C.h"
-void I2C_Master_Init(const unsigned long c);
-
-
-
-
-
-
-
-void I2C_Master_Wait(void);
-
-
-
-void I2C_Master_Start(void);
-
-
-
-void I2C_Master_RepeatedStart(void);
-
-
-
-void I2C_Master_Stop(void);
-
-
-
-
-
-void I2C_Master_Write(unsigned d);
-
-
-
-
-uint8_t I2C_Master_Read(uint8_t a);
-
-
-
-void I2C_Slave_Init(uint8_t address);
-# 13 "MainSlave2.c" 2
-
-
-
-
-
-#pragma config FOSC = INTRC_NOCLKOUT
-
-
-#pragma config WDTE = OFF
-
-
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-
-
-#pragma config CP = OFF
-
-#pragma config CPD = OFF
-
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-
-#pragma config FCMEN = OFF
-
-#pragma config LVP = OFF
-
-
-
-#pragma config BOR4V = BOR40V
-
-#pragma config WRT = OFF
-
-
-
-
-
-
-
-
-void setup(void);
-uint8_t table(uint8_t);
-
-
-
-uint8_t flagint;
-uint8_t z;
-uint8_t cont;
-uint8_t inI2C;
-uint8_t varPot0;
-
-
-void __attribute__((picinterrupt((""))))isr(void){
-
-
-
-
-     if(PIR1bits.SSPIF == 1){
-
-        SSPCONbits.CKP = 0;
-
-        if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
-            z = SSPBUF;
-            SSPCONbits.SSPOV = 0;
-            SSPCONbits.WCOL = 0;
-            SSPCONbits.CKP = 1;
-        }
-
-        if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
-
-            z = SSPBUF;
-
-            PIR1bits.SSPIF = 0;
-            SSPCONbits.CKP = 1;
-            while(!SSPSTATbits.BF);
-            inI2C = SSPBUF;
-            _delay((unsigned long)((250)*(8000000/4000000.0)));
-
-        }
-        else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
-            z = SSPBUF;
-            BF = 0;
-            SSPBUF = cont;
-            SSPCONbits.CKP = 1;
-            _delay((unsigned long)((250)*(8000000/4000000.0)));
-            while(SSPSTATbits.BF);
-        }
-
-        PIR1bits.SSPIF = 0;
-    }
-
-
-
-}
-
-void main(void) {
-    setup();
-
-
-
-
-while(1) {
-
+  EECON1bits.RD = 1;
+  *cp++ = EEDATA;
+  ++EEADR;
  }
+# 36 "E:\\Microchip\\XC8\\pic\\sources\\c90\\pic\\__eeprom.c"
 }
 
+void
+__memcpyee(__eeprom unsigned char * to, const unsigned char *from, unsigned char size)
+{
+ const unsigned char *ptr =from;
 
+ while (EECON1bits.WR) continue;
+ EEADR = (unsigned char)to - 1U;
 
+ EECON1 &= 0x7F;
 
-void setup(void){
+ while(size--) {
+  while (EECON1bits.WR) {
+   continue;
+  }
+  EEDATA = *ptr++;
+  ++EEADR;
+  STATUSbits.CARRY = 0;
+  if (INTCONbits.GIE) {
+   STATUSbits.CARRY = 1;
+  }
+  INTCONbits.GIE = 0;
+  EECON1bits.WREN = 1;
+  EECON2 = 0x55;
+  EECON2 = 0xAA;
+  EECON1bits.WR = 1;
+  EECON1bits.WREN = 0;
+  if (STATUSbits.CARRY) {
+   INTCONbits.GIE = 1;
+  }
+ }
+# 101 "E:\\Microchip\\XC8\\pic\\sources\\c90\\pic\\__eeprom.c"
+}
 
+unsigned char
+__eetoc(__eeprom void *addr)
+{
+ unsigned char data;
+ __eecpymem((unsigned char *) &data,addr,1);
+ return data;
+}
 
-  ANSELH = 0b00000000;
+unsigned int
+__eetoi(__eeprom void *addr)
+{
+ unsigned int data;
+ __eecpymem((unsigned char *) &data,addr,2);
+ return data;
+}
 
-  TRISA = 0b00000000;
-  TRISB = 0b00000000;
-  TRISC = 0b00000000;
-  TRISD = 0x00;
-  TRISE = 0x00;
+#pragma warning push
+#pragma warning disable 2040
+__uint24
+__eetom(__eeprom void *addr)
+{
+ __uint24 data;
+ __eecpymem((unsigned char *) &data,addr,3);
+ return data;
+}
+#pragma warning pop
 
-  OPTION_REG = 0b11000100;
+unsigned long
+__eetol(__eeprom void *addr)
+{
+ unsigned long data;
+ __eecpymem((unsigned char *) &data,addr,4);
+ return data;
+}
 
+#pragma warning push
+#pragma warning disable 1516
+unsigned long long
+__eetoo(__eeprom void *addr)
+{
+ unsigned long long data;
+ __eecpymem((unsigned char *) &data,addr,8);
+ return data;
+}
+#pragma warning pop
 
+unsigned char
+__ctoee(__eeprom void *addr, unsigned char data)
+{
+ __memcpyee(addr,(unsigned char *) &data,1);
+ return data;
+}
 
-  pushPORTB(0b00000000);
-  initOsc(4);
-  I2C_Slave_Init(0xA0);
-  initAN(0b00000011);
-  PORTA = 0x00;
-  PORTB = 0x00;
-  PORTC = 0x00;
-  PORTD = 0x00;
-  PORTE = 0x00;
+unsigned int
+__itoee(__eeprom void *addr, unsigned int data)
+{
+ __memcpyee(addr,(unsigned char *) &data,2);
+ return data;
+}
 
+#pragma warning push
+#pragma warning disable 2040
+__uint24
+__mtoee(__eeprom void *addr, __uint24 data)
+{
+ __memcpyee(addr,(unsigned char *) &data,3);
+ return data;
+}
+#pragma warning pop
 
+unsigned long
+__ltoee(__eeprom void *addr, unsigned long data)
+{
+ __memcpyee(addr,(unsigned char *) &data,4);
+ return data;
+}
 
-  PIE1 = 0b01001000;
-  PIE2 = 0b00000000;
-  PIR1 = 0x00;
-  PIR2 = 0x00;
-  INTCON = 0b11001000;
+#pragma warning push
+#pragma warning disable 1516
+unsigned long long
+__otoee(__eeprom void *addr, unsigned long long data)
+{
+ __memcpyee(addr,(unsigned char *) &data,8);
+ return data;
+}
+#pragma warning pop
+
+float
+__eetoft(__eeprom void *addr)
+{
+ float data;
+ __eecpymem((unsigned char *) &data,addr,3);
+ return data;
+}
+
+double
+__eetofl(__eeprom void *addr)
+{
+ double data;
+ __eecpymem((unsigned char *) &data,addr,4);
+ return data;
+}
+
+float
+__fttoee(__eeprom void *addr, float data)
+{
+ __memcpyee(addr,(unsigned char *) &data,3);
+ return data;
+}
+
+double
+__fltoee(__eeprom void *addr, double data)
+{
+ __memcpyee(addr,(unsigned char *) &data,4);
+ return data;
 }
