@@ -31,15 +31,15 @@
 [v _I2C_Slave_Init I2C_Slave_Init `(v  1 e 1 0 ]
 "69 C:\Users\diego\Desktop\Digital2\ProyectoSlavePeso.X\MainSlave1.c
 [v _isr isr `II(v  1 e 1 0 ]
-"143
+"155
 [v _main main `(v  1 e 1 0 ]
-"182
+"183
 [v _setup setup `(v  1 e 1 0 ]
-"233
+"234
 [v _ctrservo ctrservo `(v  1 e 1 0 ]
 "166 E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
-[s S421 . 1 `uc 1 RA0 1 0 :1:0 
+[s S303 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -49,8 +49,8 @@
 `uc 1 RA7 1 0 :1:7 
 ]
 "183
-[u S430 . 1 `S421 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES430  1 e 1 @5 ]
+[u S312 . 1 `S303 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES312  1 e 1 @5 ]
 "228
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "290
@@ -105,20 +105,20 @@
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "850
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
-[s S300 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S325 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "870
-[s S306 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S331 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[u S311 . 1 `S300 1 . 1 0 `S306 1 . 1 0 ]
-[v _SSPCONbits SSPCONbits `VES311  1 e 1 @20 ]
+[u S336 . 1 `S325 1 . 1 0 `S331 1 . 1 0 ]
+[v _SSPCONbits SSPCONbits `VES336  1 e 1 @20 ]
 [s S174 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
@@ -241,7 +241,7 @@
 [v _SSPADD SSPADD `VEuc  1 e 1 @147 ]
 "2177
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
-[s S327 . 1 `uc 1 BF 1 0 :1:0 
+[s S352 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -251,39 +251,39 @@
 `uc 1 SMP 1 0 :1:7 
 ]
 "2231
-[s S336 . 1 `uc 1 . 1 0 :2:0 
+[s S361 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S341 . 1 `uc 1 . 1 0 :2:0 
+[s S366 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DATA 1 0 :1:5 
 ]
-[s S347 . 1 `uc 1 . 1 0 :2:0 
+[s S372 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S352 . 1 `uc 1 . 1 0 :2:0 
+[s S377 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S357 . 1 `uc 1 . 1 0 :2:0 
+[s S382 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S362 . 1 `uc 1 . 1 0 :2:0 
+[s S387 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[u S367 . 1 `S327 1 . 1 0 `S336 1 . 1 0 `S341 1 . 1 0 `S347 1 . 1 0 `S352 1 . 1 0 `S357 1 . 1 0 `S362 1 . 1 0 ]
-[v _SSPSTATbits SSPSTATbits `VES367  1 e 1 @148 ]
+[u S392 . 1 `S352 1 . 1 0 `S361 1 . 1 0 `S366 1 . 1 0 `S372 1 . 1 0 `S377 1 . 1 0 `S382 1 . 1 0 `S387 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES392  1 e 1 @148 ]
 "2346
 [v _WPUB WPUB `VEuc  1 e 1 @149 ]
 "2416
@@ -370,15 +370,15 @@
 [v _cont cont `uc  1 e 1 0 ]
 "67
 [v _bandera bandera `uc  1 e 1 0 ]
-"143
+"155
 [v _main main `(v  1 e 1 0 ]
 {
-"177
+"178
 } 0
-"182
+"183
 [v _setup setup `(v  1 e 1 0 ]
 {
-"231
+"232
 } 0
 "14 C:\Users\diego\Desktop\Digital2\ProyectoSlavePeso.X/my_lib.h
 [v _initOsc initOsc `(v  1 e 1 0 ]
@@ -406,10 +406,23 @@
 [v I2C_Slave_Init@address address `uc  1 a 1 0 ]
 "105
 } 0
-"233 C:\Users\diego\Desktop\Digital2\ProyectoSlavePeso.X\MainSlave1.c
+"138 C:\Users\diego\Desktop\Digital2\ProyectoSlavePeso.X/my_lib.h
+[v _chselect chselect `(v  1 e 1 0 ]
+{
+[v chselect@cant cant `uc  1 a 1 wreg ]
+[v chselect@cant cant `uc  1 a 1 wreg ]
+[v chselect@cant cant `uc  1 a 1 3 ]
+"255
+} 0
+"69 C:\Users\diego\Desktop\Digital2\ProyectoSlavePeso.X\MainSlave1.c
+[v _isr isr `II(v  1 e 1 0 ]
+{
+"153
+} 0
+"234
 [v _ctrservo ctrservo `(v  1 e 1 0 ]
 {
-"237
+"238
 } 0
 "10 E:\Microchip\XC8\pic\sources\c90\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -430,10 +443,10 @@
 [v ___fltol __fltol `(l  1 e 4 0 ]
 {
 "45
-[v ___fltol@exp1 exp1 `uc  1 a 1 70 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 69 ]
+[v ___fltol@exp1 exp1 `uc  1 a 1 56 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 55 ]
 "43
-[v ___fltol@f1 f1 `d  1 p 4 60 ]
+[v ___fltol@f1 f1 `d  1 p 4 46 ]
 "70
 } 0
 "8 E:\Microchip\XC8\pic\sources\c90\common\sprcmul.c
@@ -443,22 +456,22 @@
 "13
 [s S974 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
 [u S977 . 4 `l 1 i 4 0 `d 1 f 4 0 `S969 1 fAsBytes 4 0 `S974 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S977  1 a 4 34 ]
+[v ___flmul@prod prod `S977  1 a 4 20 ]
 "12
-[v ___flmul@grs grs `ul  1 a 4 29 ]
+[v ___flmul@grs grs `ul  1 a 4 14 ]
 [s S1046 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
 [u S1049 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S1046 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S1049  1 a 2 38 ]
+[v ___flmul@temp temp `S1049  1 a 2 24 ]
 "10
-[v ___flmul@bexp bexp `uc  1 a 1 33 ]
+[v ___flmul@bexp bexp `uc  1 a 1 19 ]
 "11
-[v ___flmul@aexp aexp `uc  1 a 1 28 ]
+[v ___flmul@aexp aexp `uc  1 a 1 18 ]
 "9
-[v ___flmul@sign sign `uc  1 a 1 27 ]
+[v ___flmul@sign sign `uc  1 a 1 13 ]
 "8
-[v ___flmul@b b `d  1 p 4 14 ]
-[v ___flmul@a a `d  1 p 4 18 ]
+[v ___flmul@b b `d  1 p 4 0 ]
+[v ___flmul@a a `d  1 p 4 4 ]
 "205
 } 0
 "4 E:\Microchip\XC8\pic\sources\c90\common\Umul8_16.c
@@ -479,28 +492,15 @@
 [v ___fladd __fladd `(d  1 e 4 0 ]
 {
 "17
-[v ___fladd@grs grs `uc  1 a 1 59 ]
+[v ___fladd@grs grs `uc  1 a 1 45 ]
 "15
-[v ___fladd@bexp bexp `uc  1 a 1 58 ]
+[v ___fladd@bexp bexp `uc  1 a 1 44 ]
 "16
-[v ___fladd@aexp aexp `uc  1 a 1 57 ]
+[v ___fladd@aexp aexp `uc  1 a 1 43 ]
 "13
-[v ___fladd@signs signs `uc  1 a 1 56 ]
+[v ___fladd@signs signs `uc  1 a 1 42 ]
 "10
-[v ___fladd@b b `d  1 p 4 40 ]
-[v ___fladd@a a `d  1 p 4 44 ]
+[v ___fladd@b b `d  1 p 4 26 ]
+[v ___fladd@a a `d  1 p 4 30 ]
 "237
-} 0
-"138 C:\Users\diego\Desktop\Digital2\ProyectoSlavePeso.X/my_lib.h
-[v _chselect chselect `(v  1 e 1 0 ]
-{
-[v chselect@cant cant `uc  1 a 1 wreg ]
-[v chselect@cant cant `uc  1 a 1 wreg ]
-[v chselect@cant cant `uc  1 a 1 3 ]
-"255
-} 0
-"69 C:\Users\diego\Desktop\Digital2\ProyectoSlavePeso.X\MainSlave1.c
-[v _isr isr `II(v  1 e 1 0 ]
-{
-"141
 } 0

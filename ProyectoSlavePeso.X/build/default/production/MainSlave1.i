@@ -3029,7 +3029,19 @@ void __attribute__((picinterrupt((""))))isr(void){
         if(bandera == 1){
             cont++;
         }
-        else if(cont>= 100){
+        if(cont <= 49){
+            RA2 = 0;
+            PWM = 255;
+            ctrservo();
+         }
+
+        if(cont == 50){
+            PORTAbits.RA2 = 1;
+            for(PWM = 255; PWM > 0; PWM--){
+                ctrservo();
+        }
+    }
+        else if(cont>= 200){
             cont=0;
             bandera = 0;
             RA2 = 0;
@@ -3069,7 +3081,7 @@ void __attribute__((picinterrupt((""))))isr(void){
                     break;
 
                 case(0x02):
-                    outI2C = sensorIR;
+                    outI2C = bandera;
                     break;
                     }
             }
@@ -3102,24 +3114,13 @@ while(1) {
     if(PORTAbits.RA1 == 1){
         sensorIR = 0;
     }
-    else {
+    else if(PORTAbits.RA1 == 0) {
         sensorIR = 1;
         bandera = 1;
     }
 
 
-    if(cont <= 49){
-        RA2 = 0;
-        PWM = 255;
-        ctrservo();
-    }
 
-    if(cont == 50){
-        RA2 = 1;
-        for(PWM = 255; PWM > 0; PWM--){
-            ctrservo();
-        }
-    }
 
     PORTD = weight;
  }
