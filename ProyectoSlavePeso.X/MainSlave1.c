@@ -71,7 +71,7 @@ void __interrupt()isr(void){
     
     if (PIR1bits.TMR1IF){ 
         PIR1bits.TMR1IF = 0;
-        TMR1H	 = 0x3C;
+        TMR1H	 = 0x3C;    //Conteo de 100ms
         TMR1L	 = 0xB0;
 
 //        TMR1H	 = 0xF8;
@@ -128,11 +128,11 @@ void __interrupt()isr(void){
             
             switch(inI2C){
                 case(0x01):
-                    outI2C = weight;
+                    outI2C = weight;    //Enviar el peso del I2C
                     break;
 
                 case(0x02):
-                    outI2C = bandera;
+                    outI2C = bandera;   //Enviar la bandera del I2C
                     break;
                     }
             }
@@ -165,9 +165,9 @@ while(1) {
     if(PORTAbits.RA1 == 1){ //Verficar estdo del sensor
         sensorIR = 0;
     }
-    else if(PORTAbits.RA1 == 0) {                  //Verficar estado del sensor
-        sensorIR = 1;
-        bandera = 1;
+    else if(PORTAbits.RA1 == 0) { //Verficar estado del sensor
+        sensorIR = 1;  
+        bandera = 1;              //Activa la bandera del conteo
     }
   
     
@@ -208,8 +208,7 @@ void setup(void){
   //Timer 2
     T2CON= 0x4E; //20ms
     PR2	 = 250;
-//  T2CON	 = 0x2D; //3ms
-//  PR2	 = 250;
+
 
  //PWM
   CCP2CON = 0b00001111; //XX, PWM 1100
