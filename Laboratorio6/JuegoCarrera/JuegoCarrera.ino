@@ -65,7 +65,7 @@ void loop() {
     }
   
   while(bandera==1){
-  if (alto==0) botones();
+  if (alto==0) botones(); //hacer que ya no funcionen los pushes
   ledJ1();
   ledJ2();
   }
@@ -93,7 +93,7 @@ void botones(void) {
   }
 
   void ledJ1(){
-    switch(cont1){
+    switch(cont1){    //Ir apagando y encendiendo luces
       case 1:
       digitalWrite(PB_5, HIGH);
       break;
@@ -132,7 +132,7 @@ void botones(void) {
       digitalWrite(PA_5, LOW);
       digitalWrite(PA_6, HIGH);
       analogWrite(BLUE_LED, 255);
-      alto = 1;
+      alto = 1;   //Hacer que ya no funcionen los pushes
       bandera = 0;
       delay(1000);
       digitalWrite(PA_6, LOW);
@@ -160,7 +160,7 @@ void botones(void) {
     }
 
   void ledJ2(){
-    switch(cont2){
+    switch(cont2){    //Ir apagando y encendiendo luces
       case 1:
       digitalWrite(PD_0, HIGH);
       break;
@@ -198,13 +198,13 @@ void botones(void) {
       case 8:
       digitalWrite(PE_3, LOW);
       digitalWrite(PA_7, HIGH);
-      analogWrite(BLUE_LED, 255);
+      analogWrite(BLUE_LED, 255); //Hacemos una secuencia de apagado donde muestra el ganador y el color en la led
       analogWrite(RED_LED, 255);
       alto = 1;
       bandera = 0;
       delay(1000);
       digitalWrite(PA_7, LOW);
-      analogWrite(BLUE_LED, 0);
+      analogWrite(BLUE_LED, 0); //se realiza un titileo
       analogWrite(RED_LED, 0);
       delay(1000);
       digitalWrite(PA_7, HIGH);
@@ -222,7 +222,7 @@ void botones(void) {
       digitalWrite(PD_2, LOW);
       digitalWrite(PD_3, LOW);
       digitalWrite(PE_1, LOW);
-      digitalWrite(PE_2, LOW);
+      digitalWrite(PE_2, LOW);  //Si no existe el caso se apaga todo
       digitalWrite(PE_3, LOW);
       digitalWrite(PA_7, LOW);
       break;
