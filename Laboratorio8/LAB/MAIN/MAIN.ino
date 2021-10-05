@@ -2,12 +2,13 @@
 /* Librería para el uso de la pantalla ILI9341 en modo 8 bits
  * Basado en el código de martinayotte - https://www.stm32duino.com/viewtopic.php?t=637
  * Adaptación, migración y creación de nuevas funciones: Pablo Mazariegos y José Morales
- * Con ayuda de: José Guerra
+ * Con ayuda de: José Guerra y Jose Alvarez
  * Modificaciones y adaptación: Diego Morales
  * IE3027: Electrónica Digital 2 - 2021
+ * 
  * USUARIO DE LA LIBRERIA
  * Diego A. Mendez
- * 
+ * 19673
  */
 //***************************************************************************************************************************************
 #include <stdint.h>
@@ -485,11 +486,11 @@ void LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int 
 }
 
 void bitmapSD(File f){
-  LCD_CMD(0x02c); //write_memory_start
+  LCD_CMD(0x02c);           //write_memory_start
   digitalWrite(LCD_RS, HIGH);
   digitalWrite(LCD_CS, LOW);
   
-  SetWindows(0,0,319,239); //para indicar que escribe en toda la pantalla
+  SetWindows(0,0,319,239); //de 0 a 319 son 320px y de 0 a 239 son 240px
   
   uint8_t color; //almacenar el valor entero del dato
   uint8_t color2; //almacenar el valor entero del dato
@@ -510,11 +511,11 @@ void bitmapSD(File f){
   
   }
 
-int asctohex(char c){ //convertir los hex del texto en binario
-  if (c >= '0' && c <= '9') //numeros
-    return c - '0' ;
-  if (c >= 'A' && c <= 'F')//letras en mayusculas
-    return c - 'A' + 10 ;
-  if (c >= 'a' && c <= 'f')//letras en minusculas
-    return c;
+int asctohex(char d){ //convertir de ASCII a HEX
+  if (d >= '0' && d <= '9') // CONVERTIR LOS NUMEROS
+    return d - '0' ;
+  if (d >= 'A' && d <= 'F')//letras en mayusculas
+    return d - 'A' + 10 ;
+  if (d >= 'a' && d <= 'f')//letras en minusculas
+    return d;
 }
