@@ -4,7 +4,9 @@
 //GABRIEL FONG
 
 
-#include <Wire.h>
+char  X;
+char  Y;
+char  PUSH;
 
 void setup()
 {
@@ -13,40 +15,40 @@ void setup()
   pinMode(BLUE_LED, OUTPUT);
 
   Serial.begin(9600);           // start serial for output
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
-  Serial.setModule(1);
-  Serial.begin(9600);
+  
+  
+  Serial3.begin(9600);
   }
   
-}
 
 
-char  X;
-char  Y;
-char  PUSH;
+
+
 
 void loop(){
-  Serial1.write('X'); 
-  if (Serial1.available()) {
-      X = Serial1.read(); 
+  Serial3.write('X'); 
+  delay(5);
+  if (Serial3.available()) {
+      X = Serial3.read(); 
   }
   Serial.print(X);         // print the character
-  delay(500); 
+  delay(10); 
   
-   Serial1.write('Y'); 
-  if (Serial1.available()) {
-      Y = Serial1.read(); 
+   Serial3.write('Y'); 
+    delay(5);
+  if (Serial3.available()) {
+      Y = Serial3.read(); 
   }
   Serial.print(Y);         // print the character
-  delay(500); 
+  delay(10); 
   
-  Serial1.write('P'); 
-  if (Serial1.available()) {
-      PUSH = Serial1.read(); 
+  Serial3.write('P'); 
+   delay(5);
+  if (Serial3.available()) {
+      PUSH = Serial3.read(); 
   }
   Serial.print(PUSH);         // print the character
-  delay(500); 
+  delay(10); 
   
  
   
@@ -69,12 +71,12 @@ void loop(){
     analogWrite(BLUE_LED,0);
     analogWrite(RED_LED,0);
   }
-  Serial.setModule(0);
-  Serial.print(X);   // send a X
-  Serial.println('\n');   // send a capital enter
-  Serial.print(Y);   // send a capital Y
-  Serial.println('\n');   // send a capital enter
-  Serial.print(PUSH);   // send a capital Push
-  Serial.print("E \n");   // send a capital enter
+//  Serial.setModule(0);
+//  Serial.print(X);   // send a X
+//  Serial.println('\n');   // send a capital enter
+//  Serial.print(Y);   // send a capital Y
+//  Serial.println('\n');   // send a capital enter
+//  Serial.print(PUSH);   // send a capital Push
+//  Serial.print("E \n");   // send a capital enter
   delay(500);
 }
